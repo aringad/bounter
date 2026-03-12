@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { isAuthenticated, sendLoginPage } from "../_auth";
 import { wrapLayout } from "./_layout";
 
 const users = [
@@ -9,6 +10,7 @@ const users = [
 ];
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
+  if (!isAuthenticated(req)) return sendLoginPage(res);
   let profile = "";
 
   const id = req.query.id;

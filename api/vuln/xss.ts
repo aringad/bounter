@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { isAuthenticated, sendLoginPage } from "../_auth";
 import { wrapLayout } from "./_layout";
 
 // In-memory posts store (resets on cold start, which is fine for educational purposes)
@@ -21,6 +22,7 @@ function renderPosts(postList: typeof posts): string {
 }
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
+  if (!isAuthenticated(req)) return sendLoginPage(res);
   // POST — add a new post (Stored XSS)
   if (req.method === "POST") {
     const author = String(req.body?.author || "anonymous");

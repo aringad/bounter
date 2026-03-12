@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { isAuthenticated, sendLoginPage } from "../_auth";
 import { wrapLayout } from "./_layout";
 
 // Simulated command injection (can't run real commands on Vercel)
@@ -57,6 +58,7 @@ function simulatePing(host: string): { output: string; injected: boolean } {
 }
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
+  if (!isAuthenticated(req)) return sendLoginPage(res);
   let output = "";
   let hostValue = "";
 

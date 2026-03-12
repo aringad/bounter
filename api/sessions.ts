@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { isAuthenticated } from "./_auth";
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
@@ -67,6 +68,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   if (req.method === "OPTIONS") return res.status(200).end();
+  if (!isAuthenticated(req)) return res.status(401).json({ error: "Unauthorized" });
 
   if (!GEMINI_API_KEY) {
     return res.status(500).json({ error: "GEMINI_API_KEY not configured" });

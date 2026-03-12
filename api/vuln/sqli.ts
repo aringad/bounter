@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { isAuthenticated, sendLoginPage } from "../_auth";
 import { wrapLayout } from "./_layout";
 
 // Simulated database (educational — mimics how SQL injection works)
@@ -64,6 +65,7 @@ function simulateSqlSearch(search: string): { results: any[]; query: string; err
 }
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
+  if (!isAuthenticated(req)) return sendLoginPage(res);
   let alert = "";
   let searchResults = "";
 

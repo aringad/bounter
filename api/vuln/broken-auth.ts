@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { isAuthenticated, sendLoginPage } from "../_auth";
 import { wrapLayout } from "./_layout";
 
 const users: Record<string, { username: string; password: string; email: string; role: string; balance: number }> = {
@@ -19,6 +20,7 @@ function parseSessionCookie(cookieHeader: string | undefined): string | null {
 }
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
+  if (!isAuthenticated(req)) return sendLoginPage(res);
   // Check for login POST
   if (req.method === "POST") {
     const username = String(req.body?.username || "");
