@@ -9,7 +9,19 @@ async function authFetch(url: string, init?: RequestInit): Promise<Response> {
     window.location.href = "/api/login";
     throw new Error("Not authenticated");
   }
+  if (res.status === 403) {
+    throw new Error("Pro access required");
+  }
   return res;
+}
+
+export async function checkProAccess(): Promise<boolean> {
+  try {
+    const res = await fetch(`${API_BASE}/apikey`);
+    return res.status !== 403;
+  } catch {
+    return false;
+  }
 }
 
 export async function fetchChallenges(): Promise<Challenge[]> {

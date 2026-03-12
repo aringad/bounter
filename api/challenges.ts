@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { isAuthenticated } from "./_auth";
+import { isAuthenticated, getAuthTier } from "./_auth";
 
 const challenges = [
   // === General Cybersecurity (Beginner, no AI) ===
@@ -144,6 +144,8 @@ const challenges = [
 export default function handler(req: VercelRequest, res: VercelResponse) {
   if (!isAuthenticated(req)) return res.status(401).json({ error: "Unauthorized" });
 
+  const tier = getAuthTier(req);
+
   const { id } = req.query;
   if (id) {
     const challenge = challenges.find((c) => c.id === id);
@@ -151,5 +153,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return res.json(challenge);
   }
 
-  return res.json(challenges);
+  // Basic users only see general challenges
+  const filtered = tier === "pro" ? challenges : challenges.filter(c => c.type === "general");
+  return res.json(filtered);
 }

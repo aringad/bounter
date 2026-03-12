@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { isAuthenticated, getGeminiKey } from "./_auth";
+import { isProUser, getGeminiKey } from "./_auth";
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
-  if (!isAuthenticated(req)) return res.status(401).json({ error: "Unauthorized" });
+  if (!isProUser(req)) return res.status(403).json({ error: "Pro access required" });
 
   if (req.method === "GET") {
     const key = getGeminiKey();

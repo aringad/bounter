@@ -1,9 +1,11 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { createHash } from "crypto";
 
-// SHA-256 hash of the lab password
-// To change: run `echo -n "yourpassword" | shasum -a 256` and paste the hash here
-const PASSWORD_HASH = process.env.PASSWORD_HASH || "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8"; // "password"
+// Two-tier password system:
+// - Basic password: access to general/beginner quizzes only
+// - Pro password: access to everything (technical challenges, AI, settings)
+const BASIC_PASSWORD_HASH = process.env.BASIC_PASSWORD_HASH || "102de1b6d2a94b4a617d5ac869dd56d990b940c20b391fefc74370ff7de0cddf"; // Sos2025$$
+const PRO_PASSWORD_HASH = process.env.PRO_PASSWORD_HASH || "d2a24068836a22cf8994780cdf3817d4e425b05ce1f8a77454989b45c42b4ace"; // Mediaform@2026!
 
 const TOKEN_COOKIE = "bounter_token";
 
@@ -11,24 +13,46 @@ function hashPassword(password: string): string {
   return createHash("sha256").update(password).digest("hex");
 }
 
-function generateToken(passwordHash: string): string {
-  return createHash("sha256").update(passwordHash + "bounter-salt-2025").digest("hex");
+function generateToken(passwordHash: string, tier: string): string {
+  return createHash("sha256").update(passwordHash + "bounter-salt-2025-" + tier).digest("hex");
 }
 
-const VALID_TOKEN = generateToken(PASSWORD_HASH);
+const BASIC_TOKEN = generateToken(BASIC_PASSWORD_HASH, "basic");
+const PRO_TOKEN = generateToken(PRO_PASSWORD_HASH, "pro");
 
-export function isAuthenticated(req: VercelRequest): boolean {
+function getTokenFromRequest(req: VercelRequest): string | null {
   const cookie = req.headers.cookie || "";
   const match = cookie.match(new RegExp(`${TOKEN_COOKIE}=([^;]+)`));
-  return match?.[1] === VALID_TOKEN;
+  return match?.[1] || null;
 }
 
-export function verifyPassword(password: string): boolean {
-  return hashPassword(password) === PASSWORD_HASH;
+export type AuthTier = "none" | "basic" | "pro";
+
+export function getAuthTier(req: VercelRequest): AuthTier {
+  const token = getTokenFromRequest(req);
+  if (token === PRO_TOKEN) return "pro";
+  if (token === BASIC_TOKEN) return "basic";
+  return "none";
 }
 
-export function getAuthCookieHeader(): string {
-  return `${TOKEN_COOKIE}=${VALID_TOKEN}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`;
+export function isAuthenticated(req: VercelRequest): boolean {
+  return getAuthTier(req) !== "none";
+}
+
+export function isProUser(req: VercelRequest): boolean {
+  return getAuthTier(req) === "pro";
+}
+
+export function verifyPassword(password: string): { valid: boolean; tier: AuthTier } {
+  const hash = hashPassword(password);
+  if (hash === PRO_PASSWORD_HASH) return { valid: true, tier: "pro" };
+  if (hash === BASIC_PASSWORD_HASH) return { valid: true, tier: "basic" };
+  return { valid: false, tier: "none" };
+}
+
+export function getAuthCookieHeader(tier: AuthTier): string {
+  const token = tier === "pro" ? PRO_TOKEN : BASIC_TOKEN;
+  return `${TOKEN_COOKIE}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`;
 }
 
 export function getGeminiKey(): string {

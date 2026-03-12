@@ -124,37 +124,39 @@ export default function ChallengeList({ onSelect, lang }: Props) {
         </div>
       </div>
 
-      {/* Technical Security Section */}
-      <div>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
-          <h2 style={{ color: "#e09900" }}>{t("technicalSection", lang)}</h2>
-          <span style={{
-            background: "#e09900",
-            color: "#1c1b3a",
-            padding: "0.15rem 0.5rem",
-            borderRadius: "4px",
-            fontSize: "0.7rem",
-            fontWeight: 700,
-            textTransform: "uppercase",
-          }}>
-            OWASP + AI
-          </span>
+      {/* Technical Security Section (pro only) */}
+      {technical.length > 0 && (
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
+            <h2 style={{ color: "#e09900" }}>{t("technicalSection", lang)}</h2>
+            <span style={{
+              background: "#e09900",
+              color: "#1c1b3a",
+              padding: "0.15rem 0.5rem",
+              borderRadius: "4px",
+              fontSize: "0.7rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+            }}>
+              OWASP + AI
+            </span>
+          </div>
+          <p style={{ color: "#94a3b8", marginBottom: "1.25rem", fontSize: "0.9rem" }}>
+            {t("technicalSubtitle", lang)}
+          </p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+              gap: "1rem",
+            }}
+          >
+            {technical.map((c) => (
+              <ChallengeCard key={c.id} c={c} lang={lang} onSelect={onSelect} />
+            ))}
+          </div>
         </div>
-        <p style={{ color: "#94a3b8", marginBottom: "1.25rem", fontSize: "0.9rem" }}>
-          {t("technicalSubtitle", lang)}
-        </p>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-            gap: "1rem",
-          }}
-        >
-          {technical.map((c) => (
-            <ChallengeCard key={c.id} c={c} lang={lang} onSelect={onSelect} />
-          ))}
-        </div>
-      </div>
+      )}
     </div>
   );
 }

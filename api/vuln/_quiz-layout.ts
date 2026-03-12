@@ -24,10 +24,10 @@ export function wrapQuiz(title: string, body: string): string {
     .options { display: flex; flex-direction: column; gap: 0.4rem; }
     .option { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.6rem 0.75rem; border: 1px solid #475569; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 0.88rem; line-height: 1.4; }
     .option:hover { border-color: #e09900; background: rgba(224,153,0,0.05); }
-    .option.selected { border-color: #2ea3f2; background: rgba(46,163,242,0.1); }
-    .option.correct-answer { border-color: #22c55e; background: rgba(34,197,94,0.1); }
-    .option.wrong-answer { border-color: #ef4444; background: rgba(239,68,68,0.1); }
-    .option.disabled { pointer-events: none; opacity: 0.7; }
+    .option.selected { border-color: #2ea3f2; background: rgba(46,163,242,0.15); }
+    .option.correct-answer { border-color: #22c55e !important; background: rgba(34,197,94,0.15) !important; opacity: 1 !important; }
+    .option.wrong-answer { border-color: #ef4444 !important; background: rgba(239,68,68,0.15) !important; opacity: 1 !important; }
+    .option.disabled { pointer-events: none; opacity: 0.5; }
     .option input[type="radio"] { margin-top: 2px; accent-color: #e09900; }
     .feedback { margin-top: 0.75rem; padding: 0.75rem; border-radius: 6px; font-size: 0.85rem; line-height: 1.5; display: none; }
     .feedback.show { display: block; }
@@ -80,12 +80,17 @@ export function wrapQuiz(title: string, body: string): string {
         const options = q.querySelectorAll('.option');
         options.forEach(o => {
           o.classList.add('disabled');
+          const radio = o.querySelector('input[type="radio"]');
+          if (o.dataset.value === selectedValue && radio) radio.checked = true;
           if (o.dataset.value === correctValue) o.classList.add('correct-answer');
           else if (o.dataset.value === selectedValue && !isCorrect) o.classList.add('wrong-answer');
         });
         const fb = q.querySelector('.feedback');
         fb.className = 'feedback show ' + (isCorrect ? 'correct' : 'wrong');
-        fb.textContent = isCorrect ? feedbackCorrect : feedbackWrong;
+        // Strip any existing Corretto!/Sbagliato! prefix and auto-add the correct one
+        var msg = isCorrect ? feedbackCorrect : feedbackWrong;
+        msg = msg.replace(/^(Corretto!|Sbagliato!)\s*/i, '');
+        fb.textContent = (isCorrect ? 'Corretto! ' : 'Sbagliato! ') + msg;
         this.updateScore();
         if (Object.keys(this.answered).length === this.total) this.showResult();
       },

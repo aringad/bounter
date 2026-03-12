@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { isAuthenticated, getGeminiKey } from "./_auth";
+import { isProUser, getGeminiKey } from "./_auth";
 
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
@@ -77,7 +77,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   if (req.method === "OPTIONS") return res.status(200).end();
-  if (!isAuthenticated(req)) return res.status(401).json({ error: "Unauthorized" });
+  if (!isProUser(req)) return res.status(403).json({ error: "Pro access required" });
 
   const geminiKey = getGeminiKey();
 

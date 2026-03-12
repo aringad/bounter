@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Challenge, SessionResponse } from "./types";
 import ChallengeList from "./components/ChallengeList";
 import ChallengeSession from "./components/ChallengeSession";
 import ApiKeyBanner from "./components/ApiKeyBanner";
 import { Lang, t, getStoredLang, setStoredLang } from "./i18n";
+import { checkProAccess } from "./services/api";
 
 export default function App() {
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null);
   const [sessionData, setSessionData] = useState<SessionResponse | null>(null);
   const [showSettings, setShowSettings] = useState(false);
   const [lang, setLang] = useState<Lang>(getStoredLang());
+  const [isPro, setIsPro] = useState(false);
+
+  useEffect(() => {
+    checkProAccess().then(setIsPro);
+  }, []);
 
   const handleBack = () => {
     setSelectedChallenge(null);
@@ -83,26 +89,28 @@ export default function App() {
               {t("challenges", lang)}
             </button>
           )}
-          <button
-            onClick={() => setShowSettings(!showSettings)}
-            style={{
-              background: showSettings ? "#e09900" : "rgba(255,255,255,0.1)",
-              color: showSettings ? "#1c1b3a" : "#e2e8f0",
-              border: "1px solid rgba(255,255,255,0.15)",
-              padding: "0.35rem 0.8rem",
-              borderRadius: "6px",
-              cursor: "pointer",
-              fontSize: "0.85rem",
-              fontWeight: showSettings ? 600 : 400,
-            }}
-          >
-            {t("settings", lang)}
-          </button>
+          {isPro && (
+            <button
+              onClick={() => setShowSettings(!showSettings)}
+              style={{
+                background: showSettings ? "#e09900" : "rgba(255,255,255,0.1)",
+                color: showSettings ? "#1c1b3a" : "#e2e8f0",
+                border: "1px solid rgba(255,255,255,0.15)",
+                padding: "0.35rem 0.8rem",
+                borderRadius: "6px",
+                cursor: "pointer",
+                fontSize: "0.85rem",
+                fontWeight: showSettings ? 600 : 400,
+              }}
+            >
+              {t("settings", lang)}
+            </button>
+          )}
         </div>
       </header>
 
-      {/* API Key Banner / Settings */}
-      <ApiKeyBanner show={showSettings} lang={lang} />
+      {/* API Key Banner / Settings (pro only) */}
+      {isPro && <ApiKeyBanner show={showSettings} lang={lang} />}
 
       {/* Main Content */}
       <main style={{ flex: 1, padding: "2rem", maxWidth: "1400px", margin: "0 auto", width: "100%" }}>
