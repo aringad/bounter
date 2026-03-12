@@ -46,7 +46,15 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Domanda 2 -->
     <div class="question" id="q-2">
-      <h3><span class="q-number">Domanda 2.</span> Il tuo PC mostra: "I tuoi file sono stati criptati. Paga 500\u20ac in Bitcoin per riaverli." Cosa fai?</h3>
+      <h3><span class="q-number">Domanda 2.</span> Il tuo PC mostra questo messaggio. Cosa fai?</h3>
+      <div class="ransomware-popup">
+        <div class="skull">&#128128;</div>
+        <h4>I tuoi file sono stati criptati!</h4>
+        <p>Tutti i documenti, foto e database sono stati cifrati con AES-256.<br>Per recuperarli devi pagare il riscatto.</p>
+        <div class="ransom-amount">&#8364; 500 in Bitcoin</div>
+        <div class="timer">&#9200; Tempo rimasto: 47:59:23</div>
+        <p style="margin-top:0.5rem;font-size:0.78rem;">Wallet: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</p>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(2,'a','c','Corretto!','Sbagliato. Non bisogna mai pagare il riscatto: non c\\u0027e\\u0027 garanzia che i file vengano restituiti e si finanziano i criminali. La procedura corretta e\\u0027 disconnettere immediatamente il PC dalla rete per evitare che il ransomware si diffonda ad altri dispositivi, non pagare, e ripristinare i dati dal backup. Se non hai un backup, contatta un esperto di sicurezza.')">
           <input type="radio" name="q2"> a) Pago subito
@@ -126,7 +134,10 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Domanda 6 -->
     <div class="question" id="q-6">
-      <h3><span class="q-number">Domanda 6.</span> Scenario: ricevi un'email con allegato "Fattura_2024.pdf.exe". Cosa fai?</h3>
+      <h3><span class="q-number">Domanda 6.</span> Ricevi un'email con questo allegato. Cosa fai?</h3>
+      <div class="file-ext">
+        <span class="safe-part">Fattura_2024</span><span class="safe-part">.pdf</span><span class="danger-part">.exe</span>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(6,'a','c','Corretto!','Sbagliato. Non aprire mai un file con doppia estensione come .pdf.exe! L\\u0027estensione reale e\\u0027 .exe, cioe\\u0027 un programma eseguibile, non un documento PDF. I criminali usano questa tecnica per mascherare malware (spesso ransomware) da documenti innocui. Windows di default nasconde le estensioni conosciute, quindi il file potrebbe apparire come Fattura_2024.pdf.')">
           <input type="radio" name="q6"> a) Apro il file, e' una fattura

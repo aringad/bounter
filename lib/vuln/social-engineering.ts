@@ -20,10 +20,15 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 1 -->
     <div class="question" id="q-1">
       <h3><span class="q-number">Scenario 1.</span> Ricevi una telefonata:</h3>
-      <div style="background:#1a2332;border:1px solid #334155;border-radius:6px;padding:1rem;margin:0.5rem 0;font-size:0.88rem;color:#94a3b8;line-height:1.6;font-style:italic;">
-        "Buongiorno, sono del supporto tecnico Microsoft. Abbiamo rilevato che il suo computer ha un virus
-        molto pericoloso. Per risolvere il problema ho bisogno che mi conceda l'accesso remoto al suo PC.
-        Puo' scaricare questo software di controllo remoto?"
+      <div class="phone-call">
+        <div class="phone-header">
+          <div class="phone-icon">&#128222;</div>
+          <div>
+            <div class="phone-caller">Numero sconosciuto</div>
+            <div class="phone-number">+39 02 1234 5678</div>
+          </div>
+        </div>
+        <div class="phone-transcript">"Buongiorno, sono del supporto tecnico Microsoft. Abbiamo rilevato che il suo computer ha un virus molto pericoloso. Per risolvere il problema ho bisogno che mi conceda l'accesso remoto al suo PC. Puo' scaricare questo software di controllo remoto?"</div>
       </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(1,'a','b','Corretto! Questa e\\' una tecnica di pretexting: l\\'attaccante finge un\\'identita\\' autorevole (supporto Microsoft) per ottenere accesso. Microsoft non chiama mai gli utenti in modo proattivo. Riaggancia sempre e, se hai dubbi, contatta direttamente il supporto ufficiale.','Sbagliato! Non dare mai accesso remoto a sconosciuti che ti chiamano. Microsoft non contatta mai gli utenti telefonicamente per problemi tecnici. Questa tecnica si chiama pretexting.')">
@@ -70,7 +75,12 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Domanda 3 -->
     <div class="question" id="q-3">
-      <h3><span class="q-number">Scenario 3.</span> Trovi una chiavetta USB nel parcheggio dell'ufficio con un'etichetta "Stipendi Q4 2025". Cosa fai?</h3>
+      <h3><span class="q-number">Scenario 3.</span> Trovi questa chiavetta USB nel parcheggio dell'ufficio. Cosa fai?</h3>
+      <div class="usb-scenario">
+        <div class="usb-icon">&#128190;</div>
+        <div class="usb-label">Stipendi Q4 2025</div>
+        <div class="usb-context">Trovata nel parcheggio dell'ufficio</div>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(3,'a','c','Corretto! Questa tecnica si chiama baiting (adescamento). Le chiavette USB abbandonate possono contenere malware che si esegue automaticamente quando inserite nel computer. Consegnala sempre al reparto IT senza inserirla in nessun dispositivo.','Sbagliato! Questa tecnica si chiama baiting (adescamento): le chiavette USB abbandonate sono spesso trappole che contengono malware. L\\'etichetta allettante (\"Stipendi\") serve ad aumentare la curiosita\\'. Non inserirla mai: consegnala all\\'IT.')">
           <input type="radio" name="q3"> La inserisco nel mio PC per vedere se contiene informazioni importanti da restituire
@@ -88,9 +98,15 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 4 -->
     <div class="question" id="q-4">
       <h3><span class="q-number">Scenario 4.</span> Stai entrando in ufficio con il tuo badge. Una persona dietro di te dice:</h3>
-      <div style="background:#1a2332;border:1px solid #334155;border-radius:6px;padding:1rem;margin:0.5rem 0;font-size:0.88rem;color:#94a3b8;line-height:1.6;font-style:italic;">
-        "Scusi, puo' tenermi la porta? Ho dimenticato il badge a casa e sono gia' in ritardo per una riunione
-        importante con il direttore. Lavoro al terzo piano, sono Marco del marketing."
+      <div class="phone-call">
+        <div class="phone-header">
+          <div class="phone-icon" style="background:#3b82f6">&#128100;</div>
+          <div>
+            <div class="phone-caller">Sconosciuto all'ingresso</div>
+            <div class="phone-number">Ingresso ufficio, ore 8:45</div>
+          </div>
+        </div>
+        <div class="phone-transcript">"Scusi, puo' tenermi la porta? Ho dimenticato il badge a casa e sono gia' in ritardo per una riunione importante con il direttore. Lavoro al terzo piano, sono Marco del marketing."</div>
       </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(4,'a','b','Corretto! Questa tecnica si chiama tailgating (o piggybacking): qualcuno approfitta del tuo accesso per entrare senza autorizzazione. Anche se sembra scortese, non tenere mai la porta. Indirizza la persona alla reception o alla sicurezza per il rilascio di un badge temporaneo.','Sbagliato! Questa tecnica si chiama tailgating: approfittare dell\\'accesso di un\\'altra persona per superare i controlli fisici. Non tenere mai la porta aperta, anche se la persona sembra simpatica o credibile. Indirizzala alla reception.')">
@@ -135,10 +151,15 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 6 -->
     <div class="question" id="q-6">
       <h3><span class="q-number">Scenario 6.</span> Ricevi una telefonata:</h3>
-      <div style="background:#1a2332;border:1px solid #334155;border-radius:6px;padding:1rem;margin:0.5rem 0;font-size:0.88rem;color:#94a3b8;line-height:1.6;font-style:italic;">
-        "Buongiorno, la chiamo dalla sua banca. Abbiamo rilevato un accesso sospetto sul suo conto.
-        Per bloccare l'operazione fraudolenta ho bisogno di verificare la sua identita'. Mi puo' comunicare
-        il suo PIN e il codice OTP che ha appena ricevuto via SMS?"
+      <div class="phone-call">
+        <div class="phone-header">
+          <div class="phone-icon">&#128222;</div>
+          <div>
+            <div class="phone-caller">La tua banca</div>
+            <div class="phone-number">+39 800 123 456</div>
+          </div>
+        </div>
+        <div class="phone-transcript">"Buongiorno, la chiamo dalla sua banca. Abbiamo rilevato un accesso sospetto sul suo conto. Per bloccare l'operazione fraudolenta ho bisogno di verificare la sua identita'. Mi puo' comunicare il suo PIN e il codice OTP che ha appena ricevuto via SMS?"</div>
       </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(6,'a','c','Corretto! Questa e\\' una tecnica di vishing (voice phishing) combinata con pretexting. Nessuna banca chiedera\\' mai PIN o OTP per telefono. Questi codici servono esclusivamente a te per autorizzare operazioni. Riaggancia e chiama il numero ufficiale della tua banca.','Sbagliato! Questa e\\' vishing (voice phishing). Le banche non chiedono MAI PIN o codici OTP al telefono. Se comunichi l\\'OTP, l\\'attaccante puo\\' autorizzare transazioni a tuo nome. Riaggancia sempre e chiama la banca al numero ufficiale.')">

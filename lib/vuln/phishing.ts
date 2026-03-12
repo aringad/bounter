@@ -27,15 +27,24 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 1: PHISHING - Intesa Sanpaolo falsa -->
     <div class="question" id="q-1">
       <h3><span class="q-number">Domanda 1.</span> Questa email e' legittima o phishing?</h3>
-      <div class="email-sim">
-        <div class="from">Da: <strong>sicurezza@intesasanpa0lo.it</strong></div>
-        <div class="subject">Oggetto: [URGENTE] Verifica immediata del tuo conto corrente</div>
-        <div class="body">
+      <div class="email-client">
+        <div class="email-toolbar">
+          <span>&#9993; Rispondi</span>
+          <span>&#8618; Inoltra</span>
+          <span>&#128465; Elimina</span>
+          <span>&#9873; Spam</span>
+        </div>
+        <div class="email-headers">
+          <div class="eh-row"><span class="eh-label">Da:</span> <span class="eh-value"><span class="suspicious-highlight">sicurezza@intesasanpa0lo.it</span></span></div>
+          <div class="eh-row"><span class="eh-label">A:</span> <span class="eh-value">mario.rossi@email.it</span></div>
+          <div class="eh-row"><span class="eh-label">Oggetto:</span> <span class="eh-value">[URGENTE] Verifica immediata del tuo conto corrente</span></div>
+        </div>
+        <div class="email-body-content">
           <p>Gentile Cliente,</p>
           <p>Abbiamo rilevato un accesso sospetto al tuo conto corrente da un dispositivo non riconosciuto.
           Per la tua sicurezza, il conto e' stato temporaneamente limitato.</p>
           <p><strong>Devi verificare la tua identita' entro 24 ore</strong> o il conto verra' permanentemente bloccato.</p>
-          <p>Clicca qui per procedere alla verifica: <span class="link">https://intesasanpa0lo-verifica.com/sicurezza</span></p>
+          <p>Clicca qui per procedere alla verifica: <span class="suspicious-highlight">https://intesasanpa0lo-verifica.com/sicurezza</span></p>
           <p>Cordiali saluti,<br>Servizio Sicurezza Intesa Sanpaolo</p>
         </div>
       </div>
@@ -53,10 +62,19 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 2: LEGITTIMA - Amazon conferma ordine -->
     <div class="question" id="q-2">
       <h3><span class="q-number">Domanda 2.</span> Questa email e' legittima o phishing?</h3>
-      <div class="email-sim">
-        <div class="from">Da: <strong>conferma-ordine@amazon.it</strong></div>
-        <div class="subject">Oggetto: Conferma ordine #403-2847561-9384721</div>
-        <div class="body">
+      <div class="email-client">
+        <div class="email-toolbar">
+          <span>&#9993; Rispondi</span>
+          <span>&#8618; Inoltra</span>
+          <span>&#128465; Elimina</span>
+          <span>&#9873; Spam</span>
+        </div>
+        <div class="email-headers">
+          <div class="eh-row"><span class="eh-label">Da:</span> <span class="eh-value"><span class="safe-highlight">conferma-ordine@amazon.it</span></span></div>
+          <div class="eh-row"><span class="eh-label">A:</span> <span class="eh-value">mario.rossi@email.it</span></div>
+          <div class="eh-row"><span class="eh-label">Oggetto:</span> <span class="eh-value">Conferma ordine #403-2847561-9384721</span></div>
+        </div>
+        <div class="email-body-content">
           <p>Ciao Mario,</p>
           <p>Grazie per il tuo ordine! Ecco un riepilogo:</p>
           <p><strong>Ordine #403-2847561-9384721</strong><br>
@@ -64,7 +82,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
           Quantita': 1<br>
           Totale: EUR 89,99<br>
           Consegna prevista: 15-17 marzo</p>
-          <p>Puoi controllare lo stato del tuo ordine accedendo al tuo account su <span class="link">amazon.it</span>.</p>
+          <p>Puoi controllare lo stato del tuo ordine accedendo al tuo account su <span class="safe-highlight">amazon.it</span>.</p>
           <p>Grazie per aver scelto Amazon.it</p>
         </div>
       </div>
@@ -82,16 +100,25 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 3: PHISHING - INPS falsa -->
     <div class="question" id="q-3">
       <h3><span class="q-number">Domanda 3.</span> Questa email e' legittima o phishing?</h3>
-      <div class="email-sim">
-        <div class="from">Da: <strong>rimborsi@inps-gov.org</strong></div>
-        <div class="subject">Oggetto: Rimborso fiscale di 480,00 EUR in tuo favore</div>
-        <div class="body">
+      <div class="email-client">
+        <div class="email-toolbar">
+          <span>&#9993; Rispondi</span>
+          <span>&#8618; Inoltra</span>
+          <span>&#128465; Elimina</span>
+          <span>&#9873; Spam</span>
+        </div>
+        <div class="email-headers">
+          <div class="eh-row"><span class="eh-label">Da:</span> <span class="eh-value"><span class="suspicious-highlight">rimborsi@inps-gov.org</span></span></div>
+          <div class="eh-row"><span class="eh-label">A:</span> <span class="eh-value">mario.rossi@email.it</span></div>
+          <div class="eh-row"><span class="eh-label">Oggetto:</span> <span class="eh-value">Rimborso fiscale di 480,00 EUR in tuo favore</span></div>
+        </div>
+        <div class="email-body-content">
           <p>Gentile Contribuente,</p>
           <p>A seguito della revisione annuale della tua posizione fiscale, l'INPS ha stabilito che hai diritto
           ad un rimborso di <strong>EUR 480,00</strong>.</p>
           <p>Per ricevere il rimborso sul tuo conto corrente, e' necessario confermare i tuoi dati bancari
           entro 48 ore tramite il seguente portale sicuro:</p>
-          <p><span class="link">https://inps-gov-rimborsi.org/conferma-dati</span></p>
+          <p><span class="suspicious-highlight">https://inps-gov-rimborsi.org/conferma-dati</span></p>
           <p>ATTENZIONE: trascorso il termine il rimborso sara' annullato.</p>
           <p>Distinti saluti,<br>INPS - Istituto Nazionale della Previdenza Sociale</p>
         </div>
@@ -110,16 +137,25 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 4: PHISHING - Poste Italiane falsa -->
     <div class="question" id="q-4">
       <h3><span class="q-number">Domanda 4.</span> Questa email e' legittima o phishing?</h3>
-      <div class="email-sim">
-        <div class="from">Da: <strong>servizio.clienti@poste-italiane-sicurezza.com</strong></div>
-        <div class="subject">Oggetto: La tua carta PostePay e' stata sospesa</div>
-        <div class="body">
+      <div class="email-client">
+        <div class="email-toolbar">
+          <span>&#9993; Rispondi</span>
+          <span>&#8618; Inoltra</span>
+          <span>&#128465; Elimina</span>
+          <span>&#9873; Spam</span>
+        </div>
+        <div class="email-headers">
+          <div class="eh-row"><span class="eh-label">Da:</span> <span class="eh-value"><span class="suspicious-highlight">servizio.clienti@poste-italiane-sicurezza.com</span></span></div>
+          <div class="eh-row"><span class="eh-label">A:</span> <span class="eh-value">mario.rossi@email.it</span></div>
+          <div class="eh-row"><span class="eh-label">Oggetto:</span> <span class="eh-value">La tua carta PostePay e' stata sospesa</span></div>
+        </div>
+        <div class="email-body-content">
           <p>Gentile utente,</p>
           <p>La informiamo che la sua carta PostePay e' stata temporaneamnte sospesa per motivi di sicuezza.
           Abbiamo rilevato transazioni anomale sul suo conto.</p>
           <p>Per riattivare la carta, la preghiamo di aggiornare i suoi dati personali
           cliccando sul link sottostante:</p>
-          <p><span class="link">https://poste-italiane-sicurezza.com/postepay/riattiva</span></p>
+          <p><span class="suspicious-highlight">https://poste-italiane-sicurezza.com/postepay/riattiva</span></p>
           <p>Se non procede entro 12 ore, la carta verra' definitivamente bloccata.</p>
           <p>Cordiali Saluti,<br>Poste Italiane S.p.A.</p>
         </div>
@@ -138,14 +174,23 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 5: LEGITTIMA - Banca reale -->
     <div class="question" id="q-5">
       <h3><span class="q-number">Domanda 5.</span> Questa email e' legittima o phishing?</h3>
-      <div class="email-sim">
-        <div class="from">Da: <strong>noreply@unicredit.it</strong></div>
-        <div class="subject">Oggetto: Estratto conto mensile disponibile</div>
-        <div class="body">
+      <div class="email-client">
+        <div class="email-toolbar">
+          <span>&#9993; Rispondi</span>
+          <span>&#8618; Inoltra</span>
+          <span>&#128465; Elimina</span>
+          <span>&#9873; Spam</span>
+        </div>
+        <div class="email-headers">
+          <div class="eh-row"><span class="eh-label">Da:</span> <span class="eh-value"><span class="safe-highlight">noreply@unicredit.it</span></span></div>
+          <div class="eh-row"><span class="eh-label">A:</span> <span class="eh-value">mario.rossi@email.it</span></div>
+          <div class="eh-row"><span class="eh-label">Oggetto:</span> <span class="eh-value">Estratto conto mensile disponibile</span></div>
+        </div>
+        <div class="email-body-content">
           <p>Gentile Mario Rossi,</p>
           <p>La informiamo che l'estratto conto del mese di febbraio 2026 e' ora disponibile
           nella sezione Documenti della sua area riservata.</p>
-          <p>Per consultarlo, acceda alla sua area personale su <span class="link">unicredit.it</span>
+          <p>Per consultarlo, acceda alla sua area personale su <span class="safe-highlight">unicredit.it</span>
           tramite l'app Mobile Banking o il sito web.</p>
           <p>Per qualsiasi necessita' puo' contattare il suo consulente di riferimento
           o chiamare il numero verde 800.57.57.57.</p>
@@ -167,17 +212,26 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 6: PHISHING - Agenzia Entrate falsa -->
     <div class="question" id="q-6">
       <h3><span class="q-number">Domanda 6.</span> Questa email e' legittima o phishing?</h3>
-      <div class="email-sim">
-        <div class="from">Da: <strong>notifiche@agenziaentrate-gov.it</strong></div>
-        <div class="subject">Oggetto: Avviso di irregolarita' fiscale - Azione immediata richiesta</div>
-        <div class="body">
+      <div class="email-client">
+        <div class="email-toolbar">
+          <span>&#9993; Rispondi</span>
+          <span>&#8618; Inoltra</span>
+          <span>&#128465; Elimina</span>
+          <span>&#9873; Spam</span>
+        </div>
+        <div class="email-headers">
+          <div class="eh-row"><span class="eh-label">Da:</span> <span class="eh-value"><span class="suspicious-highlight">notifiche@agenziaentrate-gov.it</span></span></div>
+          <div class="eh-row"><span class="eh-label">A:</span> <span class="eh-value">mario.rossi@email.it</span></div>
+          <div class="eh-row"><span class="eh-label">Oggetto:</span> <span class="eh-value">Avviso di irregolarita' fiscale - Azione immediata richiesta</span></div>
+        </div>
+        <div class="email-body-content">
           <p>Egregio contribuente,</p>
           <p>Dall'analisi della sua ultima dichiarazione dei redditi sono emerse delle
           <strong>gravi irregolarita'</strong> che richiedono una verifica immediata.</p>
           <p>La invitiamo a scaricare il documento allegato con i dettagli delle anomalie riscontrate
           e a regolarizzare la sua posizione entro 5 giorni lavorativi per evitare sanzioni
           fino a EUR 25.000.</p>
-          <p>Scarichi il documento di notifica: <span class="link">https://agenziaentrate-gov.it/documenti/notifica-385729.pdf.exe</span></p>
+          <p>Scarichi il documento di notifica: <span class="suspicious-highlight">https://agenziaentrate-gov.it/documenti/notifica-385729.pdf.exe</span></p>
           <p>In caso di mancata risposta, si procedera' d'ufficio.</p>
           <p>L'Agenzia delle Entrate</p>
         </div>

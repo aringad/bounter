@@ -29,8 +29,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Question 1 -->
     <div class="question" id="q-1">
       <h3><span class="q-number">Q1.</span> Questo URL e' sicuro o sospetto?</h3>
-      <div style="background:#0f172a;border:1px solid #475569;border-radius:6px;padding:0.75rem 1rem;margin-bottom:0.75rem;font-family:monospace;font-size:0.85rem;color:#38bdf8;word-break:break-all;">
-        https://www.google.com.login-verify.ru/account
+      <div class="url-display">
+        <span class="url-proto">https://</span><span class="url-subdomain">www.google.com.</span><span class="url-danger url-danger-reveal">login-verify</span><span class="url-tld">.ru</span><span class="url-path">/account</span>
       </div>
       <div class="options">
         <div class="option" data-value="safe" onclick="QuizEngine.check(1,'safe','suspicious','Corretto! Questo URL e\\' sicuro.','Sbagliato! Il dominio reale e\\' login-verify.ru, non google.com. La parte \\'google.com\\' e\\' solo un sottodominio usato per ingannare. Controlla sempre il dominio principale (quello subito prima del suffisso come .ru, .com, .it).')">
@@ -46,8 +46,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Question 2 -->
     <div class="question" id="q-2">
       <h3><span class="q-number">Q2.</span> Questo URL e' sicuro o sospetto?</h3>
-      <div style="background:#0f172a;border:1px solid #475569;border-radius:6px;padding:0.75rem 1rem;margin-bottom:0.75rem;font-family:monospace;font-size:0.85rem;color:#38bdf8;word-break:break-all;">
-        https://www.amazon.it/orders
+      <div class="url-display">
+        <span class="url-proto">https://</span><span class="url-subdomain">www.</span><span class="url-domain">amazon</span><span class="url-tld">.it</span><span class="url-path">/orders</span>
       </div>
       <div class="options">
         <div class="option" data-value="safe" onclick="QuizEngine.check(2,'safe','safe','Corretto! Questo e\\' il vero sito Amazon Italia. Il dominio amazon.it e\\' legittimo, usa HTTPS, e il percorso /orders e\\' una pagina standard del sito.','Sbagliato! Questo URL e\\' sicuro.')">
@@ -63,8 +63,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Question 3 -->
     <div class="question" id="q-3">
       <h3><span class="q-number">Q3.</span> Questo URL e' sicuro o sospetto?</h3>
-      <div style="background:#0f172a;border:1px solid #475569;border-radius:6px;padding:0.75rem 1rem;margin-bottom:0.75rem;font-family:monospace;font-size:0.85rem;color:#38bdf8;word-break:break-all;">
-        https://bit.ly/3xKf9a2
+      <div class="url-display">
+        <span class="url-proto">https://</span><span class="url-danger url-danger-reveal">bit.ly</span><span class="url-path">/3xKf9a2</span>
       </div>
       <div class="options">
         <div class="option" data-value="safe" onclick="QuizEngine.check(3,'safe','suspicious','Sbagliato! Gli URL abbreviati (bit.ly, tinyurl, ecc.) nascondono la destinazione reale. Non puoi sapere dove ti porteranno. Non cliccare mai su link abbreviati ricevuti via email o messaggi sospetti. Usa un servizio di anteprima come unshorten.me per verificarli.','Corretto! Questo URL e\\' sicuro.')">
@@ -80,8 +80,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Question 4 -->
     <div class="question" id="q-4">
       <h3><span class="q-number">Q4.</span> Questo URL e' sicuro o sospetto?</h3>
-      <div style="background:#0f172a;border:1px solid #475569;border-radius:6px;padding:0.75rem 1rem;margin-bottom:0.75rem;font-family:monospace;font-size:0.85rem;color:#38bdf8;word-break:break-all;">
-        https://www.arnazon.it/
+      <div class="url-display">
+        <span class="url-proto">https://</span><span class="url-subdomain">www.</span><span class="url-danger url-danger-reveal">arnazon</span><span class="url-tld">.it</span><span class="url-path">/</span>
       </div>
       <div class="options">
         <div class="option" data-value="safe" onclick="QuizEngine.check(4,'safe','suspicious','Sbagliato! Guarda bene: non e\\' \\'amazon\\' ma \\'arnazon\\'. Le lettere \\'rn\\' insieme sembrano una \\'m\\'. Questo trucco si chiama typosquatting o attacco omografico. Controlla sempre lettera per lettera i domini sospetti.','Corretto! Questo URL e\\' sicuro.')">
@@ -97,8 +97,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Question 5 -->
     <div class="question" id="q-5">
       <h3><span class="q-number">Q5.</span> Questo URL e' sicuro o sospetto?</h3>
-      <div style="background:#0f172a;border:1px solid #475569;border-radius:6px;padding:0.75rem 1rem;margin-bottom:0.75rem;font-family:monospace;font-size:0.85rem;color:#38bdf8;word-break:break-all;">
-        https://secure-banking.com/intesasanpaolo/login
+      <div class="url-display">
+        <span class="url-proto">https://</span><span class="url-danger url-danger-reveal">secure-banking</span><span class="url-tld">.com</span><span class="url-path">/intesasanpaolo/login</span>
       </div>
       <div class="options">
         <div class="option" data-value="safe" onclick="QuizEngine.check(5,'safe','suspicious','Sbagliato! Il dominio reale e\\' secure-banking.com, che non e\\' il sito ufficiale di Intesa Sanpaolo (intesasanpaolo.com). Il percorso /intesasanpaolo/login e\\' solo un tentativo di sembrare legittimo. Verifica sempre che il dominio corrisponda esattamente al sito ufficiale della banca.','Corretto! Questo URL e\\' sicuro.')">
@@ -114,8 +114,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Question 6 -->
     <div class="question" id="q-6">
       <h3><span class="q-number">Q6.</span> Questo URL e' sicuro o sospetto?</h3>
-      <div style="background:#0f172a;border:1px solid #475569;border-radius:6px;padding:0.75rem 1rem;margin-bottom:0.75rem;font-family:monospace;font-size:0.85rem;color:#38bdf8;word-break:break-all;">
-        https://www.paypal.com/signin
+      <div class="url-display">
+        <span class="url-proto">https://</span><span class="url-subdomain">www.</span><span class="url-domain">paypal</span><span class="url-tld">.com</span><span class="url-path">/signin</span>
       </div>
       <div class="options">
         <div class="option" data-value="safe" onclick="QuizEngine.check(6,'safe','safe','Corretto! Questo e\\' il vero sito PayPal. Il dominio paypal.com e\\' legittimo, usa HTTPS, e /signin e\\' la pagina di accesso ufficiale.','Sbagliato! Questo URL e\\' sicuro.')">
@@ -131,8 +131,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Question 7 -->
     <div class="question" id="q-7">
       <h3><span class="q-number">Q7.</span> Questo URL e' sicuro o sospetto?</h3>
-      <div style="background:#0f172a;border:1px solid #475569;border-radius:6px;padding:0.75rem 1rem;margin-bottom:0.75rem;font-family:monospace;font-size:0.85rem;color:#38bdf8;word-break:break-all;">
-        http://192.168.1.1/admin
+      <div class="url-display">
+        <span class="url-proto">http://</span><span class="url-danger url-danger-reveal">192.168.1.1</span><span class="url-path">/admin</span>
       </div>
       <div class="options">
         <div class="option" data-value="safe" onclick="QuizEngine.check(7,'safe','suspicious','Sbagliato! Un URL con un indirizzo IP al posto del nome di dominio e\\' sospetto. I siti legittimi usano nomi di dominio registrati, non indirizzi IP. Inoltre, usa HTTP senza crittografia. Anche se 192.168.x.x e\\' un IP di rete locale, in un link ricevuto via email e\\' un segnale di allarme.','Corretto! Questo URL e\\' sicuro.')">
@@ -148,8 +148,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Question 8 -->
     <div class="question" id="q-8">
       <h3><span class="q-number">Q8.</span> Questo URL e' sicuro o sospetto?</h3>
-      <div style="background:#0f172a;border:1px solid #475569;border-radius:6px;padding:0.75rem 1rem;margin-bottom:0.75rem;font-family:monospace;font-size:0.85rem;color:#38bdf8;word-break:break-all;">
-        https://login.microsoftonline.com/
+      <div class="url-display">
+        <span class="url-proto">https://</span><span class="url-subdomain">login.</span><span class="url-domain">microsoftonline</span><span class="url-tld">.com</span><span class="url-path">/</span>
       </div>
       <div class="options">
         <div class="option" data-value="safe" onclick="QuizEngine.check(8,'safe','safe','Corretto! login.microsoftonline.com e\\' il dominio ufficiale di Microsoft per l\\'autenticazione di Office 365 e Azure AD. Il sottodominio \\'login\\' e\\' parte legittima del dominio microsoftonline.com di proprieta\\' di Microsoft.','Sbagliato! Questo URL e\\' sicuro.')">

@@ -25,12 +25,22 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 1: Zero al posto della O -->
     <div class="question" id="q-1">
       <h3><span class="q-number">Domanda 1.</span> Quale di questi indirizzi e' il mittente legittimo di Poste Italiane?</h3>
+      <div class="domain-compare">
+        <div class="domain-card card-a">
+          <div class="dc-label">Opzione A</div>
+          <div class="dc-email">supporto@p0steitaliane.it</div>
+        </div>
+        <div class="domain-card card-b">
+          <div class="dc-label">Opzione B</div>
+          <div class="dc-email">supporto@posteitaliane.it</div>
+        </div>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(1,'a','b','Sbagliato! L\\'indirizzo p0steitaliane.it usa uno zero (0) al posto della lettera O. Questo e\\' un classico trucco di sostituzione di caratteri per ingannare l\\'utente.','Sbagliato! L\\'indirizzo p0steitaliane.it usa uno zero (0) al posto della lettera O.')">
-          <input type="radio" name="q1"> supporto@p0steitaliane.it
+          <input type="radio" name="q1"> Opzione A
         </div>
         <div class="option" data-value="b" onclick="QuizEngine.check(1,'b','b','Corretto! Questo e\\' il dominio ufficiale di Poste Italiane con la lettera O corretta. L\\'altro indirizzo usava uno zero (0) al posto della O.','Corretto! Questo e\\' il dominio autentico di Poste Italiane.')">
-          <input type="radio" name="q1"> supporto@posteitaliane.it
+          <input type="radio" name="q1"> Opzione B
         </div>
       </div>
       <div class="feedback"></div>
@@ -39,12 +49,22 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 2: Lettere extra -->
     <div class="question" id="q-2">
       <h3><span class="q-number">Domanda 2.</span> Quale di questi indirizzi e' il mittente legittimo di Intesa Sanpaolo?</h3>
+      <div class="domain-compare">
+        <div class="domain-card card-a">
+          <div class="dc-label">Opzione A</div>
+          <div class="dc-email">info@intesasanpaolo.com</div>
+        </div>
+        <div class="domain-card card-b">
+          <div class="dc-label">Opzione B</div>
+          <div class="dc-email">info@intesasanpaolto.com</div>
+        </div>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(2,'a','a','Corretto! Il dominio ufficiale e\\' intesasanpaolo.com. L\\'altro indirizzo ha una T in piu\\' (intesasanpaolto.com), un errore subdolo difficile da notare.','Corretto! Questo e\\' il dominio ufficiale della banca.')">
-          <input type="radio" name="q2"> info@intesasanpaolo.com
+          <input type="radio" name="q2"> Opzione A
         </div>
         <div class="option" data-value="b" onclick="QuizEngine.check(2,'b','a','Sbagliato! L\\'indirizzo intesasanpaolto.com contiene una T extra prima del .com. Questo tipo di errore e\\' chiamato typosquatting: registrare domini con piccoli errori di battitura.','Sbagliato! Nota la T extra in sanpaolto.')">
-          <input type="radio" name="q2"> info@intesasanpaolto.com
+          <input type="radio" name="q2"> Opzione B
         </div>
       </div>
       <div class="feedback"></div>
@@ -53,12 +73,22 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 3: TLD sbagliato -->
     <div class="question" id="q-3">
       <h3><span class="q-number">Domanda 3.</span> Quale di questi indirizzi e' il mittente legittimo dell'Agenzia delle Entrate?</h3>
+      <div class="domain-compare">
+        <div class="domain-card card-a">
+          <div class="dc-label">Opzione A</div>
+          <div class="dc-email">noreply@agenziaentrate.ru</div>
+        </div>
+        <div class="domain-card card-b">
+          <div class="dc-label">Opzione B</div>
+          <div class="dc-email">noreply@agenziaentrate.gov.it</div>
+        </div>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(3,'a','b','Sbagliato! Il dominio agenziaentrate.ru usa il TLD .ru (Russia) invece di .gov.it. L\\'Agenzia delle Entrate e\\' un ente governativo italiano e usa esclusivamente domini .gov.it.','Sbagliato! Il TLD .ru indica un dominio russo, non italiano.')">
-          <input type="radio" name="q3"> noreply@agenziaentrate.ru
+          <input type="radio" name="q3"> Opzione A
         </div>
         <div class="option" data-value="b" onclick="QuizEngine.check(3,'b','b','Corretto! L\\'Agenzia delle Entrate usa il dominio governativo .gov.it. Diffida sempre di email da enti pubblici italiani con TLD diversi da .it o .gov.it.','Corretto! Il TLD .gov.it conferma che si tratta di un ente governativo italiano.')">
-          <input type="radio" name="q3"> noreply@agenziaentrate.gov.it
+          <input type="radio" name="q3"> Opzione B
         </div>
       </div>
       <div class="feedback"></div>
@@ -67,12 +97,22 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 4: Sottodominio ingannevole -->
     <div class="question" id="q-4">
       <h3><span class="q-number">Domanda 4.</span> Quale di questi indirizzi e' il mittente legittimo di Amazon Italia?</h3>
+      <div class="domain-compare">
+        <div class="domain-card card-a">
+          <div class="dc-label">Opzione A</div>
+          <div class="dc-email">ordini@amazon.it</div>
+        </div>
+        <div class="domain-card card-b">
+          <div class="dc-label">Opzione B</div>
+          <div class="dc-email">ordini@amazon.servizio-clienti.com</div>
+        </div>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(4,'a','a','Corretto! Il dominio amazon.it e\\' quello ufficiale. L\\'altro indirizzo usa un trucco con sottodomini: amazon.servizio-clienti.com appartiene in realta\\' al dominio servizio-clienti.com, non ad Amazon.','Corretto! Questo e\\' il dominio ufficiale di Amazon Italia.')">
-          <input type="radio" name="q4"> ordini@amazon.it
+          <input type="radio" name="q4"> Opzione A
         </div>
         <div class="option" data-value="b" onclick="QuizEngine.check(4,'b','a','Sbagliato! L\\'indirizzo amazon.servizio-clienti.com sembra legittimo, ma il dominio reale e\\' servizio-clienti.com. Amazon e\\' solo un sottodominio usato per ingannare. Il dominio vero e\\' sempre l\\'ultima parte prima del TLD.','Sbagliato! Il dominio reale qui e\\' servizio-clienti.com, non amazon.')">
-          <input type="radio" name="q4"> ordini@amazon.servizio-clienti.com
+          <input type="radio" name="q4"> Opzione B
         </div>
       </div>
       <div class="feedback"></div>
@@ -81,12 +121,22 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 5: Attacco omografico (rn sembra m) -->
     <div class="question" id="q-5">
       <h3><span class="q-number">Domanda 5.</span> Quale di questi indirizzi e' il mittente legittimo di Aruba?</h3>
+      <div class="domain-compare">
+        <div class="domain-card card-a">
+          <div class="dc-label">Opzione A</div>
+          <div class="dc-email">assistenza@arnuba.it</div>
+        </div>
+        <div class="domain-card card-b">
+          <div class="dc-label">Opzione B</div>
+          <div class="dc-email">assistenza@aruba.it</div>
+        </div>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(5,'a','b','Sbagliato! L\\'indirizzo usa arnuba.it con le lettere rn al posto della m. Questo e\\' un attacco omografico: in molti font, \\'rn\\' appare visivamente identico a \\'m\\'. Guarda con attenzione!','Sbagliato! Le lettere rn in arnuba simulano la lettera m.')">
-          <input type="radio" name="q5"> assistenza@arnuba.it
+          <input type="radio" name="q5"> Opzione A
         </div>
         <div class="option" data-value="b" onclick="QuizEngine.check(5,'b','b','Corretto! aruba.it e\\' il dominio ufficiale. L\\'altro indirizzo usava il trucco omografico \\'rn\\' che in certi font appare identico alla lettera \\'m\\'.','Corretto! Questo e\\' il dominio autentico di Aruba.')">
-          <input type="radio" name="q5"> assistenza@aruba.it
+          <input type="radio" name="q5"> Opzione B
         </div>
       </div>
       <div class="feedback"></div>
@@ -95,12 +145,22 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 6: Dominio simile ma diverso -->
     <div class="question" id="q-6">
       <h3><span class="q-number">Domanda 6.</span> Quale di questi indirizzi e' il mittente legittimo di UniCredit?</h3>
+      <div class="domain-compare">
+        <div class="domain-card card-a">
+          <div class="dc-label">Opzione A</div>
+          <div class="dc-email">sicurezza@unicredit-italia.com</div>
+        </div>
+        <div class="domain-card card-b">
+          <div class="dc-label">Opzione B</div>
+          <div class="dc-email">sicurezza@unicredit.it</div>
+        </div>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(6,'a','b','Sbagliato! Il dominio unicredit-italia.com non e\\' quello ufficiale della banca. I truffatori aggiungono parole come \\'italia\\' o \\'sicurezza\\' per rendere il dominio piu\\' credibile. Il dominio autentico e\\' unicredit.it.','Sbagliato! Aggiungere -italia al dominio e\\' un trucco per sembrare piu\\' credibili.')">
-          <input type="radio" name="q6"> sicurezza@unicredit-italia.com
+          <input type="radio" name="q6"> Opzione A
         </div>
         <div class="option" data-value="b" onclick="QuizEngine.check(6,'b','b','Corretto! unicredit.it e\\' il dominio ufficiale della banca. Diffida sempre di domini che aggiungono parole extra come -italia, -sicurezza o -online al nome del brand.','Corretto! Questo e\\' il dominio ufficiale di UniCredit.')">
-          <input type="radio" name="q6"> sicurezza@unicredit.it
+          <input type="radio" name="q6"> Opzione B
         </div>
       </div>
       <div class="feedback"></div>

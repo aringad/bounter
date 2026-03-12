@@ -26,10 +26,19 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Q1 -->
     <div class="question" id="q-1">
       <h3><span class="q-number">1.</span> Che ne pensi dei permessi di questa app?</h3>
-      <div style="background:#0f172a;border-radius:8px;padding:1rem;margin-bottom:0.75rem;">
-        <div style="font-size:1.5rem;margin-bottom:0.4rem;">🔦 <strong>Torcia LED</strong></div>
-        <div style="color:#94a3b8;font-size:0.82rem;margin-bottom:0.6rem;">Utilita' &mdash; Accendi il flash come torcia</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🔦</div>
+          <div class="app-info">
+            <h4>Torcia LED</h4>
+            <div class="app-cat">Utilita' &mdash; Accendi il flash come torcia</div>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <div class="risk-meter-label"><span class="low">Basso rischio</span><span class="high">Alto rischio</span></div>
+          <div class="risk-bar"><div class="risk-fill danger"></div></div>
+        </div>
+        <div class="perm-tags">
           <span class="tag danger">📷 Camera</span>
           <span class="tag danger">👥 Contatti</span>
           <span class="tag danger">💬 SMS</span>
@@ -50,10 +59,19 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Q2 -->
     <div class="question" id="q-2">
       <h3><span class="q-number">2.</span> Che ne pensi dei permessi di questa app?</h3>
-      <div style="background:#0f172a;border-radius:8px;padding:1rem;margin-bottom:0.75rem;">
-        <div style="font-size:1.5rem;margin-bottom:0.4rem;">💬 <strong>WhatsApp</strong></div>
-        <div style="color:#94a3b8;font-size:0.82rem;margin-bottom:0.6rem;">Messaggistica &mdash; Chat, chiamate e videochiamate</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">💬</div>
+          <div class="app-info">
+            <h4>WhatsApp</h4>
+            <div class="app-cat">Messaggistica &mdash; Chat, chiamate e videochiamate</div>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <div class="risk-meter-label"><span class="low">Basso rischio</span><span class="high">Alto rischio</span></div>
+          <div class="risk-bar"><div class="risk-fill safe"></div></div>
+        </div>
+        <div class="perm-tags">
           <span class="tag safe">📷 Camera</span>
           <span class="tag safe">🎤 Microfono</span>
           <span class="tag safe">👥 Contatti</span>
@@ -74,10 +92,19 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Q3 -->
     <div class="question" id="q-3">
       <h3><span class="q-number">3.</span> Che ne pensi dei permessi di questa app?</h3>
-      <div style="background:#0f172a;border-radius:8px;padding:1rem;margin-bottom:0.75rem;">
-        <div style="font-size:1.5rem;margin-bottom:0.4rem;">🧮 <strong>Calcolatrice Plus</strong></div>
-        <div style="color:#94a3b8;font-size:0.82rem;margin-bottom:0.6rem;">Utilita' &mdash; Calcolatrice scientifica</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🧮</div>
+          <div class="app-info">
+            <h4>Calcolatrice Plus</h4>
+            <div class="app-cat">Utilita' &mdash; Calcolatrice scientifica</div>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <div class="risk-meter-label"><span class="low">Basso rischio</span><span class="high">Alto rischio</span></div>
+          <div class="risk-bar"><div class="risk-fill danger"></div></div>
+        </div>
+        <div class="perm-tags">
           <span class="tag danger">📍 Posizione</span>
           <span class="tag danger">📞 Registro chiamate</span>
           <span class="tag danger">👥 Contatti</span>
@@ -97,10 +124,19 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Q4 -->
     <div class="question" id="q-4">
       <h3><span class="q-number">4.</span> Che ne pensi dei permessi di questa app?</h3>
-      <div style="background:#0f172a;border-radius:8px;padding:1rem;margin-bottom:0.75rem;">
-        <div style="font-size:1.5rem;margin-bottom:0.4rem;">🗺️ <strong>Google Maps</strong></div>
-        <div style="color:#94a3b8;font-size:0.82rem;margin-bottom:0.6rem;">Navigazione &mdash; Mappe, indicazioni e traffico</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🗺️</div>
+          <div class="app-info">
+            <h4>Google Maps</h4>
+            <div class="app-cat">Navigazione &mdash; Mappe, indicazioni e traffico</div>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <div class="risk-meter-label"><span class="low">Basso rischio</span><span class="high">Alto rischio</span></div>
+          <div class="risk-bar"><div class="risk-fill safe"></div></div>
+        </div>
+        <div class="perm-tags">
           <span class="tag safe">📍 Posizione</span>
           <span class="tag safe">📁 Archivio</span>
           <span class="tag safe">📷 Fotocamera</span>
@@ -120,10 +156,19 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Q5 -->
     <div class="question" id="q-5">
       <h3><span class="q-number">5.</span> Che ne pensi dei permessi di questa app?</h3>
-      <div style="background:#0f172a;border-radius:8px;padding:1rem;margin-bottom:0.75rem;">
-        <div style="font-size:1.5rem;margin-bottom:0.4rem;">🃏 <strong>Gioco Solitario</strong></div>
-        <div style="color:#94a3b8;font-size:0.82rem;margin-bottom:0.6rem;">Giochi &mdash; Il classico solitario di carte</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🃏</div>
+          <div class="app-info">
+            <h4>Gioco Solitario</h4>
+            <div class="app-cat">Giochi &mdash; Il classico solitario di carte</div>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <div class="risk-meter-label"><span class="low">Basso rischio</span><span class="high">Alto rischio</span></div>
+          <div class="risk-bar"><div class="risk-fill danger"></div></div>
+        </div>
+        <div class="perm-tags">
           <span class="tag danger">💬 SMS</span>
           <span class="tag danger">📞 Telefono</span>
           <span class="tag danger">👥 Contatti</span>
@@ -144,10 +189,19 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Q6 -->
     <div class="question" id="q-6">
       <h3><span class="q-number">6.</span> Che ne pensi dei permessi di questa app?</h3>
-      <div style="background:#0f172a;border-radius:8px;padding:1rem;margin-bottom:0.75rem;">
-        <div style="font-size:1.5rem;margin-bottom:0.4rem;">📹 <strong>Zoom</strong></div>
-        <div style="color:#94a3b8;font-size:0.82rem;margin-bottom:0.6rem;">Comunicazione &mdash; Videoconferenze e riunioni</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">📹</div>
+          <div class="app-info">
+            <h4>Zoom</h4>
+            <div class="app-cat">Comunicazione &mdash; Videoconferenze e riunioni</div>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <div class="risk-meter-label"><span class="low">Basso rischio</span><span class="high">Alto rischio</span></div>
+          <div class="risk-bar"><div class="risk-fill safe"></div></div>
+        </div>
+        <div class="perm-tags">
           <span class="tag safe">📷 Camera</span>
           <span class="tag safe">🎤 Microfono</span>
           <span class="tag safe">📅 Calendario</span>

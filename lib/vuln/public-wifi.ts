@@ -29,6 +29,23 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 1 -->
     <div class="question" id="q-1">
       <h3><span class="q-number">Domanda 1.</span> Sei al bar "Bar Roma". Vedi queste reti Wi-Fi disponibili: "Bar_Roma_Free", "BarRoma_WiFi", "Free_WiFi_Roma". Qual e' la scelta piu' sicura?</h3>
+      <div class="wifi-list">
+        <div class="wifi-card">
+          <div class="wifi-signal"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          <div class="wifi-name">Bar_Roma_Free</div>
+          <div class="wifi-open">&#128275; Aperta</div>
+        </div>
+        <div class="wifi-card">
+          <div class="wifi-signal"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          <div class="wifi-name">BarRoma_WiFi</div>
+          <div class="wifi-open">&#128275; Aperta</div>
+        </div>
+        <div class="wifi-card">
+          <div class="wifi-signal weak"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          <div class="wifi-name">Free_WiFi_Roma</div>
+          <div class="wifi-open">&#128275; Aperta</div>
+        </div>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(1, 'a', 'b',
           'Corretto! Dovresti sempre chiedere al personale quale sia la rete ufficiale.',
@@ -85,6 +102,16 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <!-- Domanda 3 -->
     <div class="question" id="q-3">
       <h3><span class="q-number">Domanda 3.</span> Cosa fa una VPN quando sei connesso a un Wi-Fi pubblico?</h3>
+      <div style="background:#0f172a;border:1px solid #334155;border-radius:8px;padding:1rem;margin:0.5rem 0;font-size:0.82rem;">
+        <div style="margin-bottom:0.5rem;">
+          <span style="color:#ef4444">&#128275;</span> <span style="color:#94a3b8">Senza VPN:</span>
+          <span style="color:#fca5a5;font-family:monospace;">password123 &bull; mario@email.it &bull; IBAN...</span>
+        </div>
+        <div>
+          <span style="color:#22c55e">&#128274;</span> <span style="color:#94a3b8">Con VPN:</span>
+          <span style="color:#86efac;font-family:monospace;">a7$kL!9x... &#8226; m#Qp2&amp;... &#8226; 8Yx$...</span>
+        </div>
+      </div>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(3, 'a', 'a',
           'Corretto! Una VPN crea un tunnel crittografato tra il tuo dispositivo e il server VPN. Anche se qualcuno intercetta il traffico sulla rete pubblica, vedra\\u0027 solo dati cifrati e illeggibili.',
