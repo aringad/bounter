@@ -1,0 +1,42 @@
+<h2>Path Traversal <span class="badge">Challenge</span></h2>
+
+<div class="card">
+  <p style="margin-bottom: 1rem; color: #94a3b8;">
+    This file viewer downloads documents from the server. Can you read files outside the intended directory?
+  </p>
+
+  <h3 style="margin-bottom: 0.75rem;">Download a File</h3>
+  <form method="GET" action="/challenges/path-traversal/download">
+    <input type="text" name="file" placeholder="Filename (e.g. readme.txt)" value="<%= filename || '' %>" required>
+    <input type="submit" value="Download">
+  </form>
+
+  <p style="margin-top: 0.75rem; color: #64748b;">Available files: <code>readme.txt</code>, <code>report.txt</code></p>
+</div>
+
+<% if (error) { %>
+  <div class="card"><div class="alert alert-danger"><%= error %></div></div>
+<% } %>
+
+<% if (content) { %>
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">File: <%= filename %></h3>
+  <pre style="background:#0f172a;padding:1rem;border-radius:4px;overflow-x:auto;white-space:pre-wrap;font-size:0.85rem;"><%= content %></pre>
+</div>
+<% } %>
+
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">Hints</h3>
+  <details>
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 1</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">The server reads files from a fixed directory. The URL parameter is the filename.</p>
+  </details>
+  <details style="margin-top: 0.5rem;">
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 2</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">What does <code>../</code> mean in a file path?</p>
+  </details>
+  <details style="margin-top: 0.5rem;">
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 3</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">Try: <code>../../../etc/passwd</code></p>
+  </details>
+</div>

@@ -1,0 +1,36 @@
+<h2>Insecure Direct Object Reference (IDOR) <span class="badge medium">Challenge</span></h2>
+
+<div class="card">
+  <p style="margin-bottom: 1rem; color: #94a3b8;">
+    You are logged in as user <strong>alice</strong> (ID: 2). Can you access other users' profiles?
+  </p>
+
+  <h3 style="margin-bottom: 0.75rem;">Your Profile</h3>
+  <a href="/challenges/idor/profile?id=2" style="color: #38bdf8;">View My Profile (ID: 2)</a>
+</div>
+
+<% if (profile) { %>
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">User Profile</h3>
+  <table>
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><td>ID</td><td><%= profile.id %></td></tr>
+    <tr><td>Username</td><td><%= profile.username %></td></tr>
+    <tr><td>Email</td><td><%= profile.email %></td></tr>
+    <tr><td>Role</td><td><%= profile.role %></td></tr>
+    <tr><td>Balance</td><td>$<%= profile.balance %></td></tr>
+  </table>
+</div>
+<% } %>
+
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">Hints</h3>
+  <details>
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 1</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">Look at the URL when you view your profile. Notice the <code>id</code> parameter.</p>
+  </details>
+  <details style="margin-top: 0.5rem;">
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 2</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">What happens if you change <code>id=2</code> to <code>id=1</code>?</p>
+  </details>
+</div>

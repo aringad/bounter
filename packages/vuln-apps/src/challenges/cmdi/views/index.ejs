@@ -1,0 +1,36 @@
+<h2>Command Injection <span class="badge">Challenge</span></h2>
+
+<div class="card">
+  <p style="margin-bottom: 1rem; color: #94a3b8;">
+    This network utility runs a ping command on the server. Can you inject additional commands?
+  </p>
+
+  <h3 style="margin-bottom: 0.75rem;">Ping Utility</h3>
+  <form method="POST" action="/challenges/cmdi/ping">
+    <input type="text" name="host" placeholder="Enter hostname or IP (e.g. 127.0.0.1)" value="<%= host || '' %>" required>
+    <input type="submit" value="Ping">
+  </form>
+</div>
+
+<% if (output) { %>
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">Output</h3>
+  <pre style="background:#0f172a;padding:1rem;border-radius:4px;overflow-x:auto;white-space:pre-wrap;font-size:0.85rem;"><%= output %></pre>
+</div>
+<% } %>
+
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">Hints</h3>
+  <details>
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 1</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">The server runs: <code>ping -c 2 [your input]</code></p>
+  </details>
+  <details style="margin-top: 0.5rem;">
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 2</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">Shell metacharacters like <code>;</code> <code>&&</code> <code>|</code> <code>$()</code> can chain commands.</p>
+  </details>
+  <details style="margin-top: 0.5rem;">
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 3</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">Try: <code>127.0.0.1; whoami</code></p>
+  </details>
+</div>

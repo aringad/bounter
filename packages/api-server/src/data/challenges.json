@@ -1,0 +1,58 @@
+[
+  {
+    "id": "xss",
+    "title": "Cross-Site Scripting (XSS)",
+    "category": "Injection",
+    "difficulty": "easy",
+    "description": "Inject JavaScript into a forum with reflected and stored XSS vulnerabilities. Learn how user input rendered without sanitization can execute arbitrary scripts.",
+    "targetPath": "/challenges/xss"
+  },
+  {
+    "id": "sqli",
+    "title": "SQL Injection",
+    "category": "Injection",
+    "difficulty": "medium",
+    "description": "Bypass authentication and extract data through SQL injection. The login form uses string concatenation to build SQL queries.",
+    "targetPath": "/challenges/sqli"
+  },
+  {
+    "id": "csrf",
+    "title": "Cross-Site Request Forgery (CSRF)",
+    "category": "Session",
+    "difficulty": "medium",
+    "description": "Forge cross-site requests to transfer funds. The transfer form has no CSRF token protection.",
+    "targetPath": "/challenges/csrf"
+  },
+  {
+    "id": "cmdi",
+    "title": "Command Injection",
+    "category": "Injection",
+    "difficulty": "hard",
+    "description": "Exploit a ping utility that passes user input directly to a shell command without sanitization.",
+    "targetPath": "/challenges/cmdi"
+  },
+  {
+    "id": "path-traversal",
+    "title": "Path Traversal",
+    "category": "Access Control",
+    "difficulty": "hard",
+    "description": "Escape the intended file directory and read sensitive server files using directory traversal sequences.",
+    "targetPath": "/challenges/path-traversal"
+  },
+  {
+    "id": "idor",
+    "title": "Insecure Direct Object Reference (IDOR)",
+    "category": "Access Control",
+    "difficulty": "medium",
+    "description": "Access other users' profiles by manipulating predictable object identifiers in the URL.",
+    "targetPath": "/challenges/idor"
+  },
+  {
+    "id": "broken-auth",
+    "title": "Broken Authentication",
+    "category": "Session",
+    "difficulty": "hard",
+    "description": "Forge session tokens to impersonate the admin. The session management uses predictable, easily reversible tokens.",
+    "targetPath": "/challenges/broken-auth"
+  }
+]

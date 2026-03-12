@@ -1,0 +1,52 @@
+<h2>Broken Authentication <span class="badge">Challenge</span></h2>
+
+<% if (currentUser) { %>
+<div class="card">
+  <div class="alert alert-success">
+    Logged in as <strong><%= currentUser.username %></strong> (role: <%= currentUser.role %>)
+  </div>
+  <table>
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><td>Username</td><td><%= currentUser.username %></td></tr>
+    <tr><td>Email</td><td><%= currentUser.email %></td></tr>
+    <tr><td>Role</td><td><%= currentUser.role %></td></tr>
+    <tr><td>Balance</td><td>$<%= currentUser.balance %></td></tr>
+  </table>
+  <a href="/challenges/broken-auth/logout" style="color: #ef4444; display: inline-block; margin-top: 1rem;">Logout</a>
+</div>
+<% } else { %>
+<div class="card">
+  <p style="margin-bottom: 1rem; color: #94a3b8;">
+    This login system uses weak session tokens. Can you forge a session to impersonate the admin?
+  </p>
+
+  <% if (error) { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+
+  <h3 style="margin-bottom: 0.75rem;">Login</h3>
+  <form method="POST" action="/challenges/broken-auth/login">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="submit" value="Login">
+  </form>
+
+  <p style="margin-top: 0.75rem; color: #64748b;">Try logging in as <code>alice</code> / <code>password123</code></p>
+</div>
+<% } %>
+
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">Hints</h3>
+  <details>
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 1</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">After logging in, inspect your cookies. What does the session cookie look like?</p>
+  </details>
+  <details style="margin-top: 0.5rem;">
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 2</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">The session token looks like Base64 encoding. Try decoding it.</p>
+  </details>
+  <details style="margin-top: 0.5rem;">
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 3</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">If the token is <code>base64("alice")</code>, what token would give you admin access?</p>
+  </details>
+</div>

@@ -1,0 +1,28 @@
+<h2>Search Results <span class="badge easy">XSS</span></h2>
+
+<div class="card">
+  <%# VULNERABLE: Reflected XSS - user input rendered without escaping %>
+  <p>Showing results for: <strong><%- query %></strong></p>
+
+  <form method="GET" action="/challenges/xss/search" style="margin-top: 1rem;">
+    <input type="text" name="q" placeholder="Search posts..." value="<%- query %>">
+    <input type="submit" value="Search">
+  </form>
+</div>
+
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">Results</h3>
+  <% if (results && results.length > 0) { %>
+    <% results.forEach(function(post) { %>
+      <div class="post">
+        <span class="author"><%= post.author %></span>
+        <span class="date"> - <%= post.created_at %></span>
+        <p style="margin-top: 0.5rem;"><%- post.content %></p>
+      </div>
+    <% }); %>
+  <% } else { %>
+    <p style="color: #64748b;">No posts matching your search.</p>
+  <% } %>
+</div>
+
+<a href="/challenges/xss" style="color: #38bdf8;">Back to forum</a>

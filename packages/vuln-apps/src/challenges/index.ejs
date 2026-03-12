@@ -1,0 +1,48 @@
+<h2>Bounter Challenges</h2>
+<p style="color: #94a3b8; margin-bottom: 1.5rem;">
+  Select a vulnerability category to practice. Each challenge has multiple difficulty levels and built-in hints.
+</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+  <a href="/challenges/xss" class="card" style="text-decoration: none; color: inherit; transition: border-color 0.2s;">
+    <span class="badge easy">Easy</span>
+    <h3 style="margin: 0.5rem 0; color: #38bdf8;">Cross-Site Scripting (XSS)</h3>
+    <p style="color: #94a3b8; font-size: 0.9rem;">Inject JavaScript into a forum. Covers reflected and stored XSS.</p>
+  </a>
+
+  <a href="/challenges/sqli" class="card" style="text-decoration: none; color: inherit;">
+    <span class="badge medium">Medium</span>
+    <h3 style="margin: 0.5rem 0; color: #38bdf8;">SQL Injection</h3>
+    <p style="color: #94a3b8; font-size: 0.9rem;">Bypass login and extract data through SQL injection in a login form.</p>
+  </a>
+
+  <a href="/challenges/csrf" class="card" style="text-decoration: none; color: inherit;">
+    <span class="badge medium">Medium</span>
+    <h3 style="margin: 0.5rem 0; color: #38bdf8;">CSRF</h3>
+    <p style="color: #94a3b8; font-size: 0.9rem;">Forge cross-site requests to transfer funds without the user's consent.</p>
+  </a>
+
+  <a href="/challenges/cmdi" class="card" style="text-decoration: none; color: inherit;">
+    <span class="badge">Hard</span>
+    <h3 style="margin: 0.5rem 0; color: #38bdf8;">Command Injection</h3>
+    <p style="color: #94a3b8; font-size: 0.9rem;">Exploit a ping utility to execute arbitrary system commands.</p>
+  </a>
+
+  <a href="/challenges/path-traversal" class="card" style="text-decoration: none; color: inherit;">
+    <span class="badge">Hard</span>
+    <h3 style="margin: 0.5rem 0; color: #38bdf8;">Path Traversal</h3>
+    <p style="color: #94a3b8; font-size: 0.9rem;">Escape the file directory and read sensitive files from the server.</p>
+  </a>
+
+  <a href="/challenges/idor" class="card" style="text-decoration: none; color: inherit;">
+    <span class="badge medium">Medium</span>
+    <h3 style="margin: 0.5rem 0; color: #38bdf8;">IDOR</h3>
+    <p style="color: #94a3b8; font-size: 0.9rem;">Access other users' profiles by manipulating object references.</p>
+  </a>
+
+  <a href="/challenges/broken-auth" class="card" style="text-decoration: none; color: inherit;">
+    <span class="badge">Hard</span>
+    <h3 style="margin: 0.5rem 0; color: #38bdf8;">Broken Authentication</h3>
+    <p style="color: #94a3b8; font-size: 0.9rem;">Forge session tokens to impersonate the admin user.</p>
+  </a>
+</div>

@@ -1,0 +1,60 @@
+<h2>SQL Injection <span class="badge medium">Challenge</span></h2>
+
+<div class="card">
+  <p style="margin-bottom: 1rem; color: #94a3b8;">
+    This login form connects to a database. Can you bypass authentication without knowing the password?
+  </p>
+
+  <% if (typeof error !== 'undefined' && error) { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+  <% if (typeof success !== 'undefined' && success) { %>
+    <div class="alert alert-success"><%- success %></div>
+  <% } %>
+
+  <h3 style="margin-bottom: 0.75rem;">Login</h3>
+  <form method="POST" action="/challenges/sqli/login">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="submit" value="Login">
+  </form>
+</div>
+
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">User Search</h3>
+  <p style="color: #94a3b8; margin-bottom: 0.75rem;">Search for users by username.</p>
+  <form method="GET" action="/challenges/sqli/search">
+    <input type="text" name="username" placeholder="Search username..." required>
+    <input type="submit" value="Search">
+  </form>
+
+  <% if (typeof searchResults !== 'undefined' && searchResults) { %>
+    <table style="margin-top: 1rem;">
+      <tr><th>ID</th><th>Username</th><th>Email</th><th>Role</th></tr>
+      <% searchResults.forEach(function(user) { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role %></td>
+        </tr>
+      <% }); %>
+    </table>
+  <% } %>
+</div>
+
+<div class="card">
+  <h3 style="margin-bottom: 0.75rem;">Hints</h3>
+  <details>
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 1</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">Think about how SQL queries are constructed with string concatenation.</p>
+  </details>
+  <details style="margin-top: 0.5rem;">
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 2</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">What happens if a username contains a single quote (<code>'</code>)?</p>
+  </details>
+  <details style="margin-top: 0.5rem;">
+    <summary style="cursor: pointer; color: #38bdf8;">Show hint 3</summary>
+    <p style="margin-top: 0.5rem; color: #94a3b8;">Try: <code>' OR 1=1 --</code> as the username.</p>
+  </details>
+</div>

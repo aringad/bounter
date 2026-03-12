@@ -1,0 +1,54 @@
+services:
+  student-ui:
+    build: ./packages/student-ui
+    ports:
+      - "3000:3000"
+    networks:
+      - frontend
+    depends_on:
+      - api-server
+
+  api-server:
+    build: ./packages/api-server
+    ports:
+      - "4000:4000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - AGENT_URL=http://ai-agent:6000
+      - BROWSER_CDP_URL=ws://chromium:9222
+      - VULN_APP_URL=http://vuln-apps:5000
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - ai-agent
+      - vuln-apps
+
+  ai-agent:
+    build: ./packages/ai-agent
+    environment:
+      - BROWSER_CDP_URL=ws://chromium:9222
+      - VULN_APP_URL=http://vuln-apps:5000
+    networks:
+      - backend
+    depends_on:
+      - chromium
+      - vuln-apps
+
+  chromium:
+    build: ./docker/chromium
+    networks:
+      - backend
+    shm_size: "2gb"
+
+  vuln-apps:
+    build: ./packages/vuln-apps
+    networks:
+      - backend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+    internal: true
