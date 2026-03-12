@@ -262,11 +262,11 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         </div>
         <div class="option" data-value="b" onclick="QuizEngine.check(4, 'b', 'c',
           'Corretto!',
-          'Sbagliato. Il 2FA non riguarda la lunghezza ma l\'aggiunta di un secondo fattore di verifica.')">
+          'Sbagliato. Il 2FA non riguarda la lunghezza ma l\\'aggiunta di un secondo fattore di verifica.')">
           <input type="radio" name="q4"> <span>Una password che deve essere lunga il doppio</span>
         </div>
         <div class="option" data-value="c" onclick="QuizEngine.check(4, 'c', 'c',
-          'Corretto! Il 2FA aggiunge un secondo livello di sicurezza: oltre alla password (qualcosa che sai), serve un codice dal telefono (qualcosa che hai) o un\'impronta (qualcosa che sei). Anche se la password viene rubata, l\'attaccante non può accedere senza il secondo fattore.',
+          'Corretto! Il 2FA aggiunge un secondo livello di sicurezza: oltre alla password (qualcosa che sai), serve un codice dal telefono (qualcosa che hai) o un\\'impronta (qualcosa che sei). Anche se la password viene rubata, l\\'attaccante non può accedere senza il secondo fattore.',
           'Sbagliato.')">
           <input type="radio" name="q4"> <span>Un secondo livello di verifica oltre alla password (es. codice dal telefono)</span>
         </div>
