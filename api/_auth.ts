@@ -4,8 +4,8 @@ import { createHash } from "crypto";
 // Two-tier password system:
 // - Basic password: access to general/beginner quizzes only
 // - Pro password: access to everything (technical challenges, AI, settings)
-const BASIC_PASSWORD_HASH = process.env.BASIC_PASSWORD_HASH || "102de1b6d2a94b4a617d5ac869dd56d990b940c20b391fefc74370ff7de0cddf"; // Sos2025$$
-const PRO_PASSWORD_HASH = process.env.PRO_PASSWORD_HASH || "d2a24068836a22cf8994780cdf3817d4e425b05ce1f8a77454989b45c42b4ace"; // Mediaform@2026!
+const BASIC_PASSWORD_HASH = process.env.BASIC_PASSWORD_HASH || "c3f23bd3246be312eb88e554101a31e621b5fc63723711bc50eb29f81fdf0091"; // Sos2025$
+const PRO_PASSWORD_HASH = process.env.PRO_PASSWORD_HASH || "a03f17d7c6c5ed0286e550d23eff2606720b8890d66f07a44ef686b277c73c47"; // Mediaform@2026!
 
 const TOKEN_COOKIE = "bounter_token";
 
