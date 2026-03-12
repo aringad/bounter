@@ -1,7 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { isAuthenticated } from "./_auth";
+import { isAuthenticated, getGeminiKey } from "./_auth";
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
 interface DemoStep {
@@ -27,8 +26,8 @@ Each step must have:
 
 IMPORTANT: Respond ONLY with the JSON array, no markdown, no code fences.`;
 
-async function callGemini(prompt: string): Promise<string> {
-  const res = await fetch(`${GEMINI_URL}?key=${GEMINI_API_KEY}`, {
+async function callGemini(apiKey: string, prompt: string): Promise<string> {
+  const res = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -54,12 +53,12 @@ function parseSteps(text: string): DemoStep[] {
   return JSON.parse(jsonMatch[0]);
 }
 
-async function generateHint(challengeId: string, message?: string): Promise<string> {
+async function generateHint(apiKey: string, challengeId: string, message?: string): Promise<string> {
   const prompt = `The student is working on the "${challengeId}" challenge in Bounter (a purpose-built vulnerable web app for education).
 They said: "${message || "I need a hint"}"
 Give a helpful hint without revealing the full answer. Be encouraging. 2-3 sentences max.`;
 
-  return callGemini(prompt);
+  return callGemini(apiKey, prompt);
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -70,8 +69,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === "OPTIONS") return res.status(200).end();
   if (!isAuthenticated(req)) return res.status(401).json({ error: "Unauthorized" });
 
-  if (!GEMINI_API_KEY) {
-    return res.status(500).json({ error: "GEMINI_API_KEY not configured" });
+  // Get Gemini API key from user's cookie (or fallback to env var)
+  const geminiKey = getGeminiKey(req) || process.env.GEMINI_API_KEY || "";
+
+  if (!geminiKey) {
+    return res.status(400).json({ error: "Gemini API key not configured. Add your key in Settings." });
   }
 
   // POST /api/sessions — start demo
@@ -85,7 +87,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 The vulnerable app is at /vuln/${challengeId} (relative URL, student will see it in an iframe).
 Show the exact inputs to type and buttons to click to exploit the vulnerability.`;
 
-        const text = await callGemini(prompt);
+        const text = await callGemini(geminiKey, prompt);
         const steps = parseSteps(text);
 
         return res.json({
@@ -119,7 +121,7 @@ Show the exact inputs to type and buttons to click to exploit the vulnerability.
   if (req.method === "POST" && req.query.action === "hint") {
     try {
       const { challengeId, message } = req.body;
-      const hint = await generateHint(challengeId, message);
+      const hint = await generateHint(geminiKey, challengeId, message);
       return res.json({ hint });
     } catch (err: any) {
       return res.status(500).json({ error: err.message });

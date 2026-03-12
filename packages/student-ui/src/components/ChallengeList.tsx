@@ -30,14 +30,14 @@ export default function ChallengeList({ onSelect }: Props) {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p style={{ color: "#64748b" }}>Loading challenges...</p>;
-  if (error) return <p style={{ color: "#ef4444" }}>Error: {error}</p>;
+  if (loading) return <p style={{ color: "#64748b" }}>Caricamento challenges...</p>;
+  if (error) return <p style={{ color: "#ef4444" }}>Errore: {error}</p>;
 
   return (
     <div>
-      <h2 style={{ color: "#38bdf8", marginBottom: "0.5rem" }}>Challenges</h2>
+      <h2 style={{ color: "#e09900", marginBottom: "0.5rem" }}>Challenges</h2>
       <p style={{ color: "#94a3b8", marginBottom: "1.5rem" }}>
-        Select a vulnerability to explore. Each challenge runs on a purpose-built vulnerable app.
+        Seleziona una vulnerabilita' da esplorare. Ogni challenge gira su un'app vulnerabile creata appositamente.
       </p>
 
       <div
@@ -52,19 +52,19 @@ export default function ChallengeList({ onSelect }: Props) {
             key={c.id}
             onClick={() => onSelect(c)}
             style={{
-              background: "#1e293b",
-              border: "1px solid #334155",
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
               borderRadius: "8px",
               padding: "1.25rem",
               cursor: "pointer",
               transition: "border-color 0.2s, transform 0.2s",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "#38bdf8";
+              e.currentTarget.style.borderColor = "#e09900";
               e.currentTarget.style.transform = "translateY(-2px)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "#334155";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >
