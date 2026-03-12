@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { Lang, t } from "../i18n";
 
 interface Props {
   show: boolean;
+  lang: Lang;
 }
 
-export default function ApiKeyBanner({ show }: Props) {
+export default function ApiKeyBanner({ show, lang }: Props) {
   const [status, setStatus] = useState<{ hasKey: boolean; masked: string } | null>(null);
 
   useEffect(() => {
@@ -34,9 +36,9 @@ export default function ApiKeyBanner({ show }: Props) {
             fontSize: "0.85rem",
           }}
         >
-          <span style={{ color: "#e09900", fontWeight: 600 }}>Attenzione:</span>
+          <span style={{ color: "#e09900", fontWeight: 600 }}>{t("warning", lang)}:</span>
           <span style={{ color: "#e2e8f0" }}>
-            Nessuna API key Gemini configurata. Contattare l'amministratore.
+            {t("noApiKey", lang)}
           </span>
         </div>
       );
@@ -54,12 +56,12 @@ export default function ApiKeyBanner({ show }: Props) {
     >
       <div style={{ maxWidth: "600px" }}>
         <h3 style={{ color: "#e09900", marginBottom: "0.5rem", fontSize: "1rem" }}>
-          Impostazioni
+          {t("settings", lang)}
         </h3>
 
         <div style={{ marginBottom: "0.75rem" }}>
           <label style={{ color: "#94a3b8", fontSize: "0.85rem", display: "block", marginBottom: "0.35rem" }}>
-            Google Gemini API Key
+            {t("geminiApiKey", lang)}
           </label>
 
           {status?.hasKey ? (
@@ -75,7 +77,7 @@ export default function ApiKeyBanner({ show }: Props) {
                 fontSize: "0.85rem",
               }}
             >
-              <span style={{ color: "#22c55e" }}>Attiva:</span>
+              <span style={{ color: "#22c55e" }}>{t("active", lang)}:</span>
               <code style={{ color: "#e2e8f0", background: "rgba(255,255,255,0.1)", padding: "0.1rem 0.3rem", borderRadius: "3px" }}>
                 {status.masked}
               </code>
@@ -91,7 +93,7 @@ export default function ApiKeyBanner({ show }: Props) {
                 color: "#fca5a5",
               }}
             >
-              Non configurata. La key va impostata come variabile d'ambiente <code style={{ background: "rgba(255,255,255,0.1)", padding: "0.1rem 0.3rem", borderRadius: "3px" }}>GEMINI_API_KEY</code> su Vercel.
+              {t("notConfigured", lang)} <code style={{ background: "rgba(255,255,255,0.1)", padding: "0.1rem 0.3rem", borderRadius: "3px" }}>GEMINI_API_KEY</code> {t("onVercel", lang)}
             </div>
           )}
         </div>

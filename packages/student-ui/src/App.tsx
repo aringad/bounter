@@ -3,15 +3,23 @@ import { Challenge, SessionResponse } from "./types";
 import ChallengeList from "./components/ChallengeList";
 import ChallengeSession from "./components/ChallengeSession";
 import ApiKeyBanner from "./components/ApiKeyBanner";
+import { Lang, t, getStoredLang, setStoredLang } from "./i18n";
 
 export default function App() {
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null);
   const [sessionData, setSessionData] = useState<SessionResponse | null>(null);
   const [showSettings, setShowSettings] = useState(false);
+  const [lang, setLang] = useState<Lang>(getStoredLang());
 
   const handleBack = () => {
     setSelectedChallenge(null);
     setSessionData(null);
+  };
+
+  const toggleLang = () => {
+    const next = lang === "it" ? "en" : "it";
+    setLang(next);
+    setStoredLang(next);
   };
 
   return (
@@ -40,10 +48,25 @@ export default function App() {
           Mediaform
         </h1>
         <span style={{ color: "#2ea3f2", fontSize: "0.8rem", fontWeight: 500 }}>
-          Security Lab
+          {t("securityLab", lang)}
         </span>
 
         <div style={{ marginLeft: "auto", display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <button
+            onClick={toggleLang}
+            style={{
+              background: "rgba(255,255,255,0.1)",
+              color: "#e2e8f0",
+              border: "1px solid rgba(255,255,255,0.15)",
+              padding: "0.35rem 0.6rem",
+              borderRadius: "6px",
+              cursor: "pointer",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+            }}
+          >
+            {lang === "it" ? "EN" : "IT"}
+          </button>
           {selectedChallenge && (
             <button
               onClick={handleBack}
@@ -57,7 +80,7 @@ export default function App() {
                 fontSize: "0.85rem",
               }}
             >
-              Challenges
+              {t("challenges", lang)}
             </button>
           )}
           <button
@@ -73,23 +96,24 @@ export default function App() {
               fontWeight: showSettings ? 600 : 400,
             }}
           >
-            Impostazioni
+            {t("settings", lang)}
           </button>
         </div>
       </header>
 
       {/* API Key Banner / Settings */}
-      <ApiKeyBanner show={showSettings} />
+      <ApiKeyBanner show={showSettings} lang={lang} />
 
       {/* Main Content */}
       <main style={{ flex: 1, padding: "2rem", maxWidth: "1400px", margin: "0 auto", width: "100%" }}>
         {!selectedChallenge ? (
-          <ChallengeList onSelect={setSelectedChallenge} />
+          <ChallengeList onSelect={setSelectedChallenge} lang={lang} />
         ) : (
           <ChallengeSession
             challenge={selectedChallenge}
             sessionData={sessionData}
             onSessionData={setSessionData}
+            lang={lang}
           />
         )}
       </main>

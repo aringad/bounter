@@ -1,4 +1,5 @@
 import { Challenge, SessionResponse } from "../types";
+import { Lang } from "../i18n";
 
 const API_BASE = "/api";
 
@@ -19,12 +20,13 @@ export async function fetchChallenges(): Promise<Challenge[]> {
 
 export async function startSession(
   challengeId: string,
-  mode: "demo" | "practice" = "demo"
+  mode: "demo" | "practice" = "demo",
+  lang: Lang = "it"
 ): Promise<SessionResponse> {
   const res = await authFetch(`${API_BASE}/sessions`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ challengeId, mode }),
+    body: JSON.stringify({ challengeId, mode, lang }),
   });
   if (!res.ok) {
     const error = await res.json().catch(() => ({ error: "Unknown error" }));
@@ -33,11 +35,11 @@ export async function startSession(
   return res.json();
 }
 
-export async function getHint(challengeId: string, message?: string): Promise<string> {
+export async function getHint(challengeId: string, message?: string, lang: Lang = "it"): Promise<string> {
   const res = await authFetch(`${API_BASE}/sessions?action=hint`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ challengeId, message }),
+    body: JSON.stringify({ challengeId, message, lang }),
   });
   if (!res.ok) throw new Error("Failed to get hint");
   const data = await res.json();

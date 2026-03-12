@@ -1,8 +1,11 @@
+import { Lang, t } from "../i18n";
+
 interface Props {
   targetPath?: string;
+  lang: Lang;
 }
 
-export default function BrowserView({ targetPath }: Props) {
+export default function BrowserView({ targetPath, lang }: Props) {
   const url = targetPath || "about:blank";
 
   return (
@@ -65,8 +68,8 @@ export default function BrowserView({ targetPath }: Props) {
           />
         ) : (
           <div style={{ color: "#64748b", textAlign: "center", padding: "3rem" }}>
-            <p style={{ fontSize: "1.2rem", marginBottom: "0.5rem" }}>Select a challenge to begin</p>
-            <p style={{ fontSize: "0.9rem" }}>The vulnerable app will appear here</p>
+            <p style={{ fontSize: "1.2rem", marginBottom: "0.5rem" }}>{t("selectChallenge", lang)}</p>
+            <p style={{ fontSize: "0.9rem" }}>{t("appWillAppear", lang)}</p>
           </div>
         )}
       </div>

@@ -12,7 +12,12 @@ interface DemoStep {
   whatToObserve: string;
 }
 
-const SYSTEM_PROMPT = `You are Bounter, an AI security instructor that teaches web vulnerabilities to students.
+function getSystemPrompt(lang: string): string {
+  const langInstruction = lang === "it"
+    ? "IMPORTANT: Write ALL explanation and whatToObserve fields in Italian."
+    : "Write all explanation and whatToObserve fields in English.";
+
+  return `You are Bounter, an AI security instructor that teaches web vulnerabilities to students.
 You demonstrate OWASP Top 10 attacks on purpose-built vulnerable applications (educational only).
 
 When asked to demo a vulnerability, respond with a JSON array of 5-8 steps.
@@ -24,15 +29,18 @@ Each step must have:
 - explanation: 2-3 sentence educational explanation for the student
 - whatToObserve: what the student should look at on the page
 
-IMPORTANT: Respond ONLY with the JSON array, no markdown, no code fences.`;
+${langInstruction}
 
-async function callGemini(apiKey: string, prompt: string): Promise<string> {
+IMPORTANT: Respond ONLY with the JSON array, no markdown, no code fences.`;
+}
+
+async function callGemini(apiKey: string, prompt: string, lang: string): Promise<string> {
   const res = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       contents: [
-        { role: "user", parts: [{ text: SYSTEM_PROMPT + "\n\n" + prompt }] },
+        { role: "user", parts: [{ text: getSystemPrompt(lang) + "\n\n" + prompt }] },
       ],
       generationConfig: { temperature: 0.7, maxOutputTokens: 4096 },
     }),
@@ -53,12 +61,14 @@ function parseSteps(text: string): DemoStep[] {
   return JSON.parse(jsonMatch[0]);
 }
 
-async function generateHint(apiKey: string, challengeId: string, message?: string): Promise<string> {
+async function generateHint(apiKey: string, challengeId: string, message?: string, lang?: string): Promise<string> {
+  const langNote = lang === "it" ? "Rispondi in italiano." : "Respond in English.";
   const prompt = `The student is working on the "${challengeId}" challenge in Bounter (a purpose-built vulnerable web app for education).
-They said: "${message || "I need a hint"}"
-Give a helpful hint without revealing the full answer. Be encouraging. 2-3 sentences max.`;
+They said: "${message || (lang === "it" ? "Ho bisogno di un suggerimento" : "I need a hint")}"
+Give a helpful hint without revealing the full answer. Be encouraging. 2-3 sentences max.
+${langNote}`;
 
-  return callGemini(apiKey, prompt);
+  return callGemini(apiKey, prompt, lang || "en");
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -77,7 +87,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // POST /api/sessions — start demo
   if (req.method === "POST" && !req.query.action) {
-    const { challengeId, mode = "demo" } = req.body;
+    const { challengeId, mode = "demo", lang = "en" } = req.body;
     const sessionId = Math.random().toString(36).slice(2) + Date.now().toString(36);
 
     if (mode === "demo") {
@@ -86,7 +96,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 The vulnerable app is at /vuln/${challengeId} (relative URL, student will see it in an iframe).
 Show the exact inputs to type and buttons to click to exploit the vulnerability.`;
 
-        const text = await callGemini(geminiKey, prompt);
+        const text = await callGemini(geminiKey, prompt, lang);
         const steps = parseSteps(text);
 
         return res.json({
@@ -119,8 +129,8 @@ Show the exact inputs to type and buttons to click to exploit the vulnerability.
   // POST /api/sessions?action=hint
   if (req.method === "POST" && req.query.action === "hint") {
     try {
-      const { challengeId, message } = req.body;
-      const hint = await generateHint(geminiKey, challengeId, message);
+      const { challengeId, message, lang = "en" } = req.body;
+      const hint = await generateHint(geminiKey, challengeId, message, lang);
       return res.json({ hint });
     } catch (err: any) {
       return res.status(500).json({ error: err.message });

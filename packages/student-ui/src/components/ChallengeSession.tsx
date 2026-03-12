@@ -3,14 +3,16 @@ import { Challenge, SessionResponse } from "../types";
 import { startSession } from "../services/api";
 import BrowserView from "./BrowserView";
 import ExplanationPanel from "./ExplanationPanel";
+import { Lang, t } from "../i18n";
 
 interface Props {
   challenge: Challenge;
   sessionData: SessionResponse | null;
   onSessionData: (data: SessionResponse | null) => void;
+  lang: Lang;
 }
 
-export default function ChallengeSession({ challenge, sessionData, onSessionData }: Props) {
+export default function ChallengeSession({ challenge, sessionData, onSessionData, lang }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [currentStep, setCurrentStep] = useState(0);
@@ -22,7 +24,7 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
     setCurrentStep(0);
 
     try {
-      const data = await startSession(challenge.id, mode);
+      const data = await startSession(challenge.id, mode, lang);
       onSessionData(data);
     } catch (err: any) {
       setError(err.message);
@@ -57,7 +59,7 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
             marginBottom: "1.5rem",
           }}
         >
-          <h3 style={{ color: "#e2e8f0", marginBottom: "1rem" }}>Choose Mode</h3>
+          <h3 style={{ color: "#e2e8f0", marginBottom: "1rem" }}>{t("chooseMode", lang)}</h3>
           <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
             <button
               onClick={() => setMode("demo")}
@@ -72,9 +74,9 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
                 textAlign: "left",
               }}
             >
-              <strong style={{ display: "block", marginBottom: "0.25rem" }}>Watch AI Demo</strong>
+              <strong style={{ display: "block", marginBottom: "0.25rem" }}>{t("watchDemo", lang)}</strong>
               <span style={{ fontSize: "0.85rem", opacity: 0.8 }}>
-                The AI explains the exploit step-by-step. Try it yourself in the iframe!
+                {t("watchDemoDesc", lang)}
               </span>
             </button>
             <button
@@ -90,9 +92,9 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
                 textAlign: "left",
               }}
             >
-              <strong style={{ display: "block", marginBottom: "0.25rem" }}>Practice Mode</strong>
+              <strong style={{ display: "block", marginBottom: "0.25rem" }}>{t("practiceMode", lang)}</strong>
               <span style={{ fontSize: "0.85rem", opacity: 0.8 }}>
-                Try to exploit the vulnerability yourself with AI hints
+                {t("practiceModeDesc", lang)}
               </span>
             </button>
           </div>
@@ -111,11 +113,11 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
               fontWeight: 600,
             }}
           >
-            {loading ? "Starting session..." : "Start"}
+            {loading ? t("startingSession", lang) : t("start", lang)}
           </button>
 
           {error && (
-            <p style={{ color: "#ef4444", marginTop: "1rem" }}>Error: {error}</p>
+            <p style={{ color: "#ef4444", marginTop: "1rem" }}>{t("error", lang)}: {error}</p>
           )}
         </div>
       )}
@@ -125,8 +127,8 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
             <span style={{ color: "#64748b" }}>
-              Mode: {sessionData.session.mode === "demo" ? "AI Demo" : "Practice"}
-              {" | "}Follow the steps and try them in the app below
+              {t("modeLabel", lang)}: {sessionData.session.mode === "demo" ? t("aiDemo", lang) : t("practice", lang)}
+              {" | "}{t("followSteps", lang)}
             </span>
             <button
               onClick={handleClose}
@@ -139,21 +141,19 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
                 cursor: "pointer",
               }}
             >
-              End Session
+              {t("endSession", lang)}
             </button>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 400px", gap: "1rem", minHeight: "600px" }}>
-            {/* Browser iframe */}
-            <BrowserView targetPath={challenge.targetPath} />
-
-            {/* Explanation Panel */}
+            <BrowserView targetPath={challenge.targetPath} lang={lang} />
             <ExplanationPanel
               steps={steps}
               currentStep={currentStep}
               onStepChange={setCurrentStep}
               challengeId={challenge.id}
               mode={sessionData.session.mode as "demo" | "practice"}
+              lang={lang}
             />
           </div>
         </div>

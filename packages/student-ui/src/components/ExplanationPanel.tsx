@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StepResult } from "../types";
 import { getHint } from "../services/api";
+import { Lang, t } from "../i18n";
 
 interface Props {
   steps: StepResult[];
@@ -8,29 +9,30 @@ interface Props {
   onStepChange: (step: number) => void;
   challengeId: string;
   mode: "demo" | "practice";
+  lang: Lang;
 }
 
-const actionLabels: Record<string, string> = {
-  navigate: "Navigate",
-  click: "Click",
-  type: "Type",
-  observe: "Observe",
-  screenshot: "Screenshot",
-};
-
-export default function ExplanationPanel({ steps, currentStep, onStepChange, challengeId, mode }: Props) {
+export default function ExplanationPanel({ steps, currentStep, onStepChange, challengeId, mode, lang }: Props) {
   const [hint, setHint] = useState<string | null>(null);
   const [hintMessage, setHintMessage] = useState("");
   const [loadingHint, setLoadingHint] = useState(false);
 
+  const actionLabels: Record<string, string> = {
+    navigate: t("navigate", lang),
+    click: t("click", lang),
+    type: t("type", lang),
+    observe: t("observe", lang),
+    screenshot: t("screenshot", lang),
+  };
+
   const handleGetHint = async () => {
     setLoadingHint(true);
     try {
-      const h = await getHint(challengeId, hintMessage || undefined);
+      const h = await getHint(challengeId, hintMessage || undefined, lang);
       setHint(h);
       setHintMessage("");
     } catch (err: any) {
-      setHint("Failed to get hint: " + err.message);
+      setHint(t("hintFailed", lang) + err.message);
     } finally {
       setLoadingHint(false);
     }
@@ -49,12 +51,12 @@ export default function ExplanationPanel({ steps, currentStep, onStepChange, cha
     >
       <div style={{ padding: "1rem", borderBottom: "1px solid #334155" }}>
         <h3 style={{ color: "#38bdf8", marginBottom: "0.25rem" }}>
-          {mode === "demo" ? "AI Walkthrough" : "Practice Mode"}
+          {mode === "demo" ? t("aiWalkthrough", lang) : t("practiceModeTitle", lang)}
         </h3>
         <p style={{ color: "#64748b", fontSize: "0.8rem" }}>
           {mode === "demo"
-            ? `Step ${currentStep + 1} of ${steps.length} — follow along in the iframe`
-            : "Try the exploit in the iframe. Ask for hints!"}
+            ? `${t("stepOf", lang)} ${currentStep + 1} ${t("of", lang)} ${steps.length} ${t("followInIframe", lang)}`
+            : t("tryExploit", lang)}
         </p>
       </div>
 
@@ -62,8 +64,8 @@ export default function ExplanationPanel({ steps, currentStep, onStepChange, cha
       <div style={{ flex: 1, overflow: "auto", padding: "0.5rem" }}>
         {steps.length === 0 && mode === "practice" && (
           <div style={{ padding: "1rem", color: "#94a3b8", fontSize: "0.9rem" }}>
-            <p>The vulnerable app is loaded on the left. Try to find and exploit the vulnerability!</p>
-            <p style={{ marginTop: "0.5rem" }}>Use the hint button below if you get stuck.</p>
+            <p>{t("practiceInstructions", lang)}</p>
+            <p style={{ marginTop: "0.5rem" }}>{t("useHintButton", lang)}</p>
           </div>
         )}
         {steps.map((step, i) => (
@@ -92,7 +94,7 @@ export default function ExplanationPanel({ steps, currentStep, onStepChange, cha
               >
                 {actionLabels[step.action] || step.action}
               </span>
-              <span style={{ color: "#64748b", fontSize: "0.75rem" }}>Step {i + 1}</span>
+              <span style={{ color: "#64748b", fontSize: "0.75rem" }}>{t("stepOf", lang)} {i + 1}</span>
             </div>
             <p style={{ color: "#e2e8f0", fontSize: "0.85rem", lineHeight: 1.4 }}>
               {step.explanation}
@@ -130,7 +132,7 @@ export default function ExplanationPanel({ steps, currentStep, onStepChange, cha
               cursor: currentStep === 0 ? "not-allowed" : "pointer",
             }}
           >
-            Previous
+            {t("previous", lang)}
           </button>
           <button
             onClick={() => onStepChange(Math.min(steps.length - 1, currentStep + 1))}
@@ -145,7 +147,7 @@ export default function ExplanationPanel({ steps, currentStep, onStepChange, cha
               cursor: currentStep === steps.length - 1 ? "not-allowed" : "pointer",
             }}
           >
-            Next
+            {t("next", lang)}
           </button>
         </div>
       )}
@@ -175,7 +177,7 @@ export default function ExplanationPanel({ steps, currentStep, onStepChange, cha
             type="text"
             value={hintMessage}
             onChange={(e) => setHintMessage(e.target.value)}
-            placeholder="Ask for a hint..."
+            placeholder={t("askHint", lang)}
             style={{
               flex: 1,
               padding: "0.5rem",
@@ -201,7 +203,7 @@ export default function ExplanationPanel({ steps, currentStep, onStepChange, cha
               fontSize: "0.85rem",
             }}
           >
-            {loadingHint ? "..." : "Hint"}
+            {loadingHint ? "..." : t("hint", lang)}
           </button>
         </div>
       </div>
