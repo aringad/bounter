@@ -2,9 +2,10 @@ export interface Challenge {
   id: string;
   title: string;
   category: string;
-  difficulty: "easy" | "medium" | "hard";
+  difficulty: "beginner" | "easy" | "medium" | "hard";
   description: string;
   targetPath: string;
+  type: "technical" | "general";
 }
 
 export interface StepResult {

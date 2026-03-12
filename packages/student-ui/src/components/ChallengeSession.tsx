@@ -17,12 +17,18 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
   const [error, setError] = useState<string | null>(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [mode, setMode] = useState<"demo" | "practice">("demo");
+  const [quizStarted, setQuizStarted] = useState(false);
+
+  const isGeneral = challenge.type === "general";
 
   const handleStart = async () => {
+    if (isGeneral) {
+      setQuizStarted(true);
+      return;
+    }
     setLoading(true);
     setError(null);
     setCurrentStep(0);
-
     try {
       const data = await startSession(challenge.id, mode, lang);
       onSessionData(data);
@@ -34,21 +40,111 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
   };
 
   const handleClose = () => {
+    if (isGeneral) {
+      setQuizStarted(false);
+      return;
+    }
     onSessionData(null);
     setCurrentStep(0);
   };
 
   const steps = sessionData?.steps || [];
+  const descKey = `desc.${challenge.id}` as any;
+  const localDesc = t(descKey, lang);
 
+  // General quiz: full-width iframe, no side panel
+  if (isGeneral) {
+    return (
+      <div>
+        <div style={{ marginBottom: "1.5rem" }}>
+          <h2 style={{ color: "#2ea3f2", marginBottom: "0.5rem" }}>{challenge.title}</h2>
+          <p style={{ color: "#94a3b8" }}>{localDesc !== descKey ? localDesc : challenge.description}</p>
+        </div>
+
+        {!quizStarted ? (
+          <div
+            style={{
+              background: "#1e293b",
+              border: "1px solid #334155",
+              borderRadius: "8px",
+              padding: "1.5rem",
+              marginBottom: "1.5rem",
+              textAlign: "center",
+            }}
+          >
+            <p style={{ color: "#e2e8f0", marginBottom: "1rem", fontSize: "0.95rem" }}>
+              {lang === "it"
+                ? "Quiz interattivo con feedback immediato. Nessuna IA richiesta."
+                : "Interactive quiz with immediate feedback. No AI required."}
+            </p>
+            <button
+              onClick={handleStart}
+              style={{
+                background: "#2ea3f2",
+                color: "white",
+                border: "none",
+                padding: "0.75rem 2rem",
+                borderRadius: "6px",
+                cursor: "pointer",
+                fontSize: "1rem",
+                fontWeight: 600,
+              }}
+            >
+              {t("startQuiz", lang)}
+            </button>
+          </div>
+        ) : (
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+              <span style={{ color: "#64748b" }}>
+                {t("quiz", lang)}
+              </span>
+              <button
+                onClick={handleClose}
+                style={{
+                  background: "#dc2626",
+                  color: "white",
+                  border: "none",
+                  padding: "0.4rem 1rem",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                }}
+              >
+                {t("closeQuiz", lang)}
+              </button>
+            </div>
+            <div style={{
+              background: "#1e293b",
+              border: "1px solid #334155",
+              borderRadius: "8px",
+              overflow: "hidden",
+              minHeight: "700px",
+            }}>
+              <iframe
+                src={challenge.targetPath}
+                style={{
+                  width: "100%",
+                  height: "700px",
+                  border: "none",
+                  background: "#0f172a",
+                }}
+                title={challenge.title}
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // Technical challenge: existing AI-powered flow
   return (
     <div>
-      {/* Challenge Header */}
       <div style={{ marginBottom: "1.5rem" }}>
         <h2 style={{ color: "#38bdf8", marginBottom: "0.5rem" }}>{challenge.title}</h2>
-        <p style={{ color: "#94a3b8" }}>{challenge.description}</p>
+        <p style={{ color: "#94a3b8" }}>{localDesc !== descKey ? localDesc : challenge.description}</p>
       </div>
 
-      {/* Controls */}
       {!sessionData && (
         <div
           style={{
@@ -122,7 +218,6 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
         </div>
       )}
 
-      {/* Session View */}
       {sessionData && (
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>

@@ -6,16 +6,22 @@ const translations = {
   challenges: { it: "Sfide", en: "Challenges" },
   settings: { it: "Impostazioni", en: "Settings" },
 
-  // ChallengeList
-  challengesTitle: { it: "Sfide", en: "Challenges" },
-  challengesSubtitle: {
-    it: "Seleziona una vulnerabilità da esplorare. Ogni sfida gira su un'app vulnerabile creata appositamente.",
-    en: "Select a vulnerability to explore. Each challenge runs on a purpose-built vulnerable app.",
+  // ChallengeList sections
+  generalSection: { it: "Sicurezza Generale", en: "General Security" },
+  generalSubtitle: {
+    it: "Quiz interattivi per imparare le basi della sicurezza informatica. Nessuna conoscenza tecnica richiesta.",
+    en: "Interactive quizzes to learn cybersecurity basics. No technical knowledge required.",
+  },
+  technicalSection: { it: "Sicurezza Tecnica", en: "Technical Security" },
+  technicalSubtitle: {
+    it: "Esplora le vulnerabilità OWASP Top 10 su app vulnerabili con supporto IA.",
+    en: "Explore OWASP Top 10 vulnerabilities on vulnerable apps with AI support.",
   },
   loadingChallenges: { it: "Caricamento sfide...", en: "Loading challenges..." },
   error: { it: "Errore", en: "Error" },
 
   // Difficulty
+  beginner: { it: "principiante", en: "beginner" },
   easy: { it: "facile", en: "easy" },
   medium: { it: "medio", en: "medium" },
   hard: { it: "difficile", en: "hard" },
@@ -34,13 +40,20 @@ const translations = {
   },
   start: { it: "Avvia", en: "Start" },
   startingSession: { it: "Avvio sessione...", en: "Starting session..." },
+  startQuiz: { it: "Inizia Quiz", en: "Start Quiz" },
   endSession: { it: "Termina Sessione", en: "End Session" },
+  closeQuiz: { it: "Chiudi Quiz", en: "Close Quiz" },
   modeLabel: { it: "Modalità", en: "Mode" },
   aiDemo: { it: "Demo IA", en: "AI Demo" },
   practice: { it: "Pratica", en: "Practice" },
+  quiz: { it: "Quiz interattivo", en: "Interactive quiz" },
   followSteps: {
     it: "Segui i passaggi e provali nell'app qui sotto",
     en: "Follow the steps and try them in the app below",
+  },
+  quizInstructions: {
+    it: "Rispondi alle domande nel pannello a sinistra",
+    en: "Answer the questions in the left panel",
   },
 
   // ExplanationPanel
@@ -92,7 +105,41 @@ const translations = {
   },
   onVercel: { it: "su Vercel.", en: "on Vercel." },
 
-  // Challenge descriptions (Italian)
+  // Challenge descriptions - General
+  "desc.phishing": {
+    it: "Analizza email sospette e impara a distinguere i messaggi di phishing da quelli legittimi.",
+    en: "Analyze suspicious emails and learn to distinguish phishing messages from legitimate ones.",
+  },
+  "desc.sender": {
+    it: "Impara a verificare l'autenticità dei mittenti email analizzando domini e indirizzi.",
+    en: "Learn to verify email sender authenticity by analyzing domains and addresses.",
+  },
+  "desc.passwords": {
+    it: "Scopri cosa rende una password sicura e testa la forza delle tue password.",
+    en: "Discover what makes a password secure and test the strength of your passwords.",
+  },
+  "desc.suspicious-urls": {
+    it: "Impara a riconoscere link pericolosi prima di cliccarci sopra.",
+    en: "Learn to recognize dangerous links before clicking on them.",
+  },
+  "desc.social-engineering": {
+    it: "Riconosci i tentativi di manipolazione e impara a difenderti dal social engineering.",
+    en: "Recognize manipulation attempts and learn to defend against social engineering.",
+  },
+  "desc.permissions": {
+    it: "Valuta quali permessi sono ragionevoli per un'app e quali sono sospetti.",
+    en: "Evaluate which app permissions are reasonable and which are suspicious.",
+  },
+  "desc.public-wifi": {
+    it: "Impara i rischi delle reti Wi-Fi pubbliche e come proteggerti.",
+    en: "Learn the risks of public Wi-Fi networks and how to protect yourself.",
+  },
+  "desc.backup": {
+    it: "Conosci le buone pratiche per aggiornamenti, backup e protezione dai ransomware.",
+    en: "Learn best practices for updates, backups, and ransomware protection.",
+  },
+
+  // Challenge descriptions - Technical
   "desc.xss": {
     it: "Inietta JavaScript in un forum con vulnerabilità XSS riflesse e memorizzate.",
     en: "Inject JavaScript into a forum with reflected and stored XSS vulnerabilities.",
