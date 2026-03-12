@@ -5,6 +5,8 @@ const translations = {
   securityLab: { it: "Laboratorio Sicurezza", en: "Security Lab" },
   challenges: { it: "Sfide", en: "Challenges" },
   settings: { it: "Impostazioni", en: "Settings" },
+  logout: { it: "Esci", en: "Logout" },
+  back: { it: "Indietro", en: "Back" },
 
   // ChallengeList sections
   generalSection: { it: "Sicurezza Generale", en: "General Security" },

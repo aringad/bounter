@@ -8,7 +8,7 @@ const files: Record<string, string> = {
   "report.txt": "Q4 2025 Sales Report\n=====================\nRevenue: $1,250,000\nNet Profit: $360,000",
   "../secret.txt": "FLAG{path_traversal_success}",
   "../../../etc/passwd": "root:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin\nwww-data:x:33:33:www-data:/var/www:/usr/sbin/nologin\nnobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin",
-  "../../etc/passwd": "root:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin\nwww-data:x:33:33:www-data:/var/www:/usr/sbin/nologin",
+  "../../etc/passwd": "root:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin\nwww-data:x:33:33:www-data:/var/www:/usr/sbin/nologin\nnobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin",
   "../config.json": '{"database": "sqlite:///app/bounter.db", "secret_key": "bounter-super-secret-key-2025", "debug": true}',
   "../../app/flag.txt": "FLAG{path_traversal_success}",
 };
@@ -34,7 +34,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
   const html = wrapLayout(
     "Path Traversal",
-    `<h2>Path Traversal <span class="badge">Challenge</span></h2>
+    `<h2>Path Traversal <span class="badge hard">Challenge</span></h2>
     <div class="card">
       <p style="color:#94a3b8;margin-bottom:0.75rem">This file viewer downloads documents from the server. Can you read files outside the intended directory?</p>
       <h3>Download a File</h3>

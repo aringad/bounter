@@ -15,6 +15,7 @@ export function wrapLayout(title: string, body: string): string {
     .badge { background: #ef4444; color: white; padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
     .badge.medium { background: #f59e0b; }
     .badge.easy { background: #22c55e; }
+    .badge.hard { background: #ef4444; }
     .container { max-width: 800px; margin: 1.5rem auto; padding: 0 1rem; }
     .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; }
     h2 { color: #38bdf8; margin-bottom: 0.75rem; font-size: 1.2rem; }
