@@ -12,11 +12,10 @@ export interface StepResult {
   stepIndex: number;
   action: string;
   explanation: string;
-  screenshot?: string;
+  whatToObserve?: string;
+  target?: string;
+  value?: string;
   success: boolean;
-  error?: string;
-  pageUrl?: string;
-  pageTitle?: string;
 }
 
 export interface Session {

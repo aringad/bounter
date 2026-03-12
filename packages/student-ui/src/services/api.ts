@@ -8,12 +8,6 @@ export async function fetchChallenges(): Promise<Challenge[]> {
   return res.json();
 }
 
-export async function fetchChallenge(id: string): Promise<Challenge> {
-  const res = await fetch(`${API_BASE}/challenges/${id}`);
-  if (!res.ok) throw new Error("Challenge not found");
-  return res.json();
-}
-
 export async function startSession(
   challengeId: string,
   mode: "demo" | "practice" = "demo"
@@ -30,30 +24,13 @@ export async function startSession(
   return res.json();
 }
 
-export async function getHint(sessionId: string, message?: string): Promise<string> {
-  const res = await fetch(`${API_BASE}/sessions/${sessionId}/hint`, {
+export async function getHint(challengeId: string, message?: string): Promise<string> {
+  const res = await fetch(`${API_BASE}/sessions?action=hint`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message }),
+    body: JSON.stringify({ challengeId, message }),
   });
   if (!res.ok) throw new Error("Failed to get hint");
   const data = await res.json();
   return data.hint;
-}
-
-export async function executeAction(
-  sessionId: string,
-  step: { action: string; selector?: string; value?: string; url?: string; explanation: string }
-): Promise<any> {
-  const res = await fetch(`${API_BASE}/sessions/${sessionId}/action`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ step }),
-  });
-  if (!res.ok) throw new Error("Failed to execute action");
-  return res.json();
-}
-
-export async function closeSession(sessionId: string): Promise<void> {
-  await fetch(`${API_BASE}/sessions/${sessionId}`, { method: "DELETE" });
 }

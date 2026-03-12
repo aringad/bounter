@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd packages/student-ui && npm install && npm run build",
+  "outputDirectory": "packages/student-ui/dist",
+  "framework": null,
+  "installCommand": "npm install",
+  "rewrites": [
+    { "source": "/vuln/:path*", "destination": "/api/vuln/:path*" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}

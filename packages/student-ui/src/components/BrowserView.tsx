@@ -1,10 +1,10 @@
 interface Props {
-  screenshot?: string;
-  pageUrl?: string;
-  pageTitle?: string;
+  targetPath?: string;
 }
 
-export default function BrowserView({ screenshot, pageUrl, pageTitle }: Props) {
+export default function BrowserView({ targetPath }: Props) {
+  const url = targetPath || "about:blank";
+
   return (
     <div
       style={{
@@ -14,6 +14,7 @@ export default function BrowserView({ screenshot, pageUrl, pageTitle }: Props) {
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
+        height: "100%",
       }}
     >
       {/* Browser Chrome */}
@@ -45,22 +46,27 @@ export default function BrowserView({ screenshot, pageUrl, pageTitle }: Props) {
             whiteSpace: "nowrap",
           }}
         >
-          {pageUrl || "about:blank"}
+          {url}
         </div>
       </div>
 
-      {/* Screenshot */}
-      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", minHeight: "400px" }}>
-        {screenshot ? (
-          <img
-            src={`data:image/jpeg;base64,${screenshot}`}
-            alt={pageTitle || "Browser view"}
-            style={{ width: "100%", height: "auto", display: "block" }}
+      {/* Iframe */}
+      <div style={{ flex: 1, minHeight: "500px" }}>
+        {targetPath ? (
+          <iframe
+            src={url}
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              background: "#0f172a",
+            }}
+            title="Vulnerable App"
           />
         ) : (
-          <div style={{ color: "#64748b", textAlign: "center", padding: "2rem" }}>
-            <p style={{ fontSize: "1.2rem", marginBottom: "0.5rem" }}>No screenshot available</p>
-            <p style={{ fontSize: "0.9rem" }}>Start a session to see the browser view</p>
+          <div style={{ color: "#64748b", textAlign: "center", padding: "3rem" }}>
+            <p style={{ fontSize: "1.2rem", marginBottom: "0.5rem" }}>Select a challenge to begin</p>
+            <p style={{ fontSize: "0.9rem" }}>The vulnerable app will appear here</p>
           </div>
         )}
       </div>

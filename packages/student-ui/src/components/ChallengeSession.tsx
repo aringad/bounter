@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Challenge, SessionResponse, StepResult } from "../types";
-import { startSession, closeSession } from "../services/api";
+import { Challenge, SessionResponse } from "../types";
+import { startSession } from "../services/api";
 import BrowserView from "./BrowserView";
 import ExplanationPanel from "./ExplanationPanel";
 
@@ -31,16 +31,12 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
     }
   };
 
-  const handleClose = async () => {
-    if (sessionData?.session?.id) {
-      await closeSession(sessionData.session.id).catch(() => {});
-    }
+  const handleClose = () => {
     onSessionData(null);
     setCurrentStep(0);
   };
 
   const steps = sessionData?.steps || [];
-  const currentScreenshot = steps[currentStep]?.screenshot;
 
   return (
     <div>
@@ -78,7 +74,7 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
             >
               <strong style={{ display: "block", marginBottom: "0.25rem" }}>Watch AI Demo</strong>
               <span style={{ fontSize: "0.85rem", opacity: 0.8 }}>
-                The AI demonstrates the exploit step-by-step with explanations
+                The AI explains the exploit step-by-step. Try it yourself in the iframe!
               </span>
             </button>
             <button
@@ -129,7 +125,8 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
             <span style={{ color: "#64748b" }}>
-              Session: {sessionData.session.id.slice(0, 8)}... | Mode: {sessionData.session.mode}
+              Mode: {sessionData.session.mode === "demo" ? "AI Demo" : "Practice"}
+              {" | "}Follow the steps and try them in the app below
             </span>
             <button
               onClick={handleClose}
@@ -146,20 +143,16 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
             </button>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 400px", gap: "1rem", minHeight: "500px" }}>
-            {/* Browser View */}
-            <BrowserView
-              screenshot={currentScreenshot}
-              pageUrl={steps[currentStep]?.pageUrl}
-              pageTitle={steps[currentStep]?.pageTitle}
-            />
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 400px", gap: "1rem", minHeight: "600px" }}>
+            {/* Browser iframe */}
+            <BrowserView targetPath={challenge.targetPath} />
 
             {/* Explanation Panel */}
             <ExplanationPanel
               steps={steps}
               currentStep={currentStep}
               onStepChange={setCurrentStep}
-              sessionId={sessionData.session.id}
+              challengeId={challenge.id}
               mode={sessionData.session.mode as "demo" | "practice"}
             />
           </div>
