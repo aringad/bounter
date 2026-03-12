@@ -59,9 +59,8 @@ export function wrapQuiz(title: string, body: string): string {
     <h1>${title}</h1>
     <div class="subtitle">Mediaform Security Lab</div>
   </div>
-  <div class="container">${body}</div>
   <script>
-    // Shared quiz logic
+    // Shared quiz logic — must be defined BEFORE body so init() calls work
     window.QuizEngine = {
       answered: {},
       correct: 0,
@@ -119,6 +118,7 @@ export function wrapQuiz(title: string, body: string): string {
       }
     };
   </script>
+  <div class="container">${body}</div>
 </body>
 </html>`;
 }
