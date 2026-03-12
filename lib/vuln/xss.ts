@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { isAuthenticated, sendLoginPage } from "../_auth";
-import { wrapLayout } from "./_layout";
+import { isAuthenticated, sendLoginPage } from "../../api/_auth";
+import { wrapLayout } from "../../api/vuln/_layout";
 
 // In-memory posts store (resets on cold start, which is fine for educational purposes)
 let posts = [

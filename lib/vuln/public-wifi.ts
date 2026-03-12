@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { isAuthenticated, sendLoginPage } from "../_auth";
-import { wrapQuiz } from "./_quiz-layout";
+import { isAuthenticated, sendLoginPage } from "../../api/_auth";
+import { wrapQuiz } from "../../api/vuln/_quiz-layout";
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
   if (!isAuthenticated(req)) return sendLoginPage(res);

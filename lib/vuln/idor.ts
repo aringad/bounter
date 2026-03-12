@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { isAuthenticated, sendLoginPage } from "../_auth";
-import { wrapLayout } from "./_layout";
+import { isAuthenticated, sendLoginPage } from "../../api/_auth";
+import { wrapLayout } from "../../api/vuln/_layout";
 
 const users = [
   { id: 1, username: "admin", email: "admin@bounter.local", role: "admin", balance: 10000 },
