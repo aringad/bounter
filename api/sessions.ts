@@ -69,8 +69,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === "OPTIONS") return res.status(200).end();
   if (!isAuthenticated(req)) return res.status(401).json({ error: "Unauthorized" });
 
-  // Get Gemini API key from user's cookie (or fallback to env var)
-  const geminiKey = getGeminiKey(req) || process.env.GEMINI_API_KEY || "";
+  const geminiKey = getGeminiKey();
 
   if (!geminiKey) {
     return res.status(400).json({ error: "Gemini API key not configured. Add your key in Settings." });

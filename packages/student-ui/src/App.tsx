@@ -79,7 +79,7 @@ export default function App() {
       </header>
 
       {/* API Key Banner / Settings */}
-      <ApiKeyBanner show={showSettings} onClose={() => setShowSettings(false)} />
+      <ApiKeyBanner show={showSettings} />
 
       {/* Main Content */}
       <main style={{ flex: 1, padding: "2rem", maxWidth: "1400px", margin: "0 auto", width: "100%" }}>

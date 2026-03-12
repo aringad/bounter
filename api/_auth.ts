@@ -31,17 +31,8 @@ export function getAuthCookieHeader(): string {
   return `${TOKEN_COOKIE}=${VALID_TOKEN}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`;
 }
 
-export function getGeminiKey(req: VercelRequest): string | null {
-  const cookie = req.headers.cookie || "";
-  const match = cookie.match(/gemini_key=([^;]+)/);
-  if (match) {
-    try {
-      return decodeURIComponent(match[1]);
-    } catch {
-      return null;
-    }
-  }
-  return null;
+export function getGeminiKey(): string {
+  return process.env.GEMINI_API_KEY || "";
 }
 
 export function sendLoginPage(res: VercelResponse, error?: string): void {

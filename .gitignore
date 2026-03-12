@@ -3,3 +3,4 @@ dist/
 .env
 *.db
 .DS_Store
+api-keys.local.txt
