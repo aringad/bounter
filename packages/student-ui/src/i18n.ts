@@ -23,7 +23,7 @@ const translations = {
   error: { it: "Errore", en: "Error" },
 
   // Difficulty
-  beginner: { it: "principiante", en: "beginner" },
+  beginner: { it: "fondamenti", en: "fundamentals" },
   easy: { it: "facile", en: "easy" },
   medium: { it: "medio", en: "medium" },
   hard: { it: "difficile", en: "hard" },
@@ -139,6 +139,10 @@ const translations = {
   "desc.backup": {
     it: "Conosci le buone pratiche per aggiornamenti, backup e protezione dai ransomware.",
     en: "Learn best practices for updates, backups, and ransomware protection.",
+  },
+  "desc.fake-notifications": {
+    it: "Impara a distinguere le notifiche del browser legittime da quelle fasulle usate per truffe e malware.",
+    en: "Learn to distinguish legitimate browser notifications from fake ones used for scams and malware.",
   },
 
   // Challenge descriptions - Technical
