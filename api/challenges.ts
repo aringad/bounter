@@ -75,6 +75,15 @@ const challenges = [
     targetPath: "/vuln/backup",
     type: "general",
   },
+  {
+    id: "fake-notifications",
+    title: "Notifiche Fasulle",
+    category: "Awareness",
+    difficulty: "beginner",
+    description: "Impara a distinguere le notifiche del browser legittime da quelle fasulle usate per truffe e malware.",
+    targetPath: "/vuln/fake-notifications",
+    type: "general",
+  },
   // === Technical Cybersecurity (with AI) ===
   {
     id: "xss",

@@ -15,6 +15,7 @@ import socialEngineeringHandler from "../../lib/vuln/social-engineering";
 import permissionsHandler from "../../lib/vuln/permissions";
 import publicWifiHandler from "../../lib/vuln/public-wifi";
 import backupHandler from "../../lib/vuln/backup";
+import fakeNotificationsHandler from "../../lib/vuln/fake-notifications";
 
 const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any> = {
   xss: xssHandler,
@@ -32,6 +33,7 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   permissions: permissionsHandler,
   "public-wifi": publicWifiHandler,
   backup: backupHandler,
+  "fake-notifications": fakeNotificationsHandler,
 };
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
