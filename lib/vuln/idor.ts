@@ -41,22 +41,23 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     `<h2>Insecure Direct Object Reference (IDOR) <span class="badge medium">Challenge</span></h2>
     <div class="card">
       <p style="color:#94a3b8;margin-bottom:0.75rem">You are logged in as <strong>alice</strong> (ID: 2). Can you access other users' profiles?</p>
-      <div style="background:#0f172a;border:1px solid #334155;border-radius:8px;padding:0.5rem 0.75rem;display:flex;align-items:center;gap:0.5rem;margin:0.75rem 0;font-family:monospace;font-size:0.88rem;">
-        <span style="color:#22c55e;">🔒</span>
-        <span style="color:#64748b;">bounter.vercel.app/vuln/idor?id=</span>
-        <input id="id-input" type="number" min="1" max="99" value="${currentId}"
-          style="width:3rem;background:#1e293b;border:1px solid #475569;border-radius:4px;color:#f59e0b;font-family:monospace;font-size:1rem;font-weight:700;padding:0.25rem 0.4rem;text-align:center;outline:none;"
-          onkeydown="if(event.key==='Enter')document.getElementById('go-btn').click()">
-        <button id="go-btn" onclick="window.location.href='/vuln/idor?id='+document.getElementById('id-input').value"
-          style="background:#e09900;color:#1c1b3a;border:none;padding:0.3rem 0.75rem;border-radius:4px;cursor:pointer;font-weight:600;font-size:0.82rem;font-family:inherit;">Go</button>
-      </div>
-      <p style="color:#64748b;font-size:0.78rem;">👆 Try changing the ID number and press Go</p>
+      <form action="/vuln/idor" method="get" style="background:#0f172a;border:1px solid #334155;border-radius:8px;padding:0.5rem 0.75rem;display:flex;align-items:center;gap:0;margin:0.75rem 0;font-family:monospace;font-size:0.85rem;overflow-x:auto;">
+        <span style="color:#22c55e;margin-right:0.4rem;">🔒</span>
+        <span style="color:#64748b;white-space:nowrap;">bounter.vercel.app/vuln/idor?id=</span>
+        <input name="id" value="${currentId}"
+          style="background:transparent;border:none;color:#e2e8f0;font-family:monospace;font-size:0.85rem;width:4rem;outline:none;padding:0;"
+          onclick="this.select()">
+        <button type="submit" style="background:transparent;border:1px solid #475569;color:#64748b;padding:0.15rem 0.4rem;border-radius:3px;cursor:pointer;font-size:0.72rem;margin-left:auto;white-space:nowrap;">↵</button>
+      </form>
+      <h3>Your Profile</h3>
+      <a href="/vuln/idor?id=2" style="color:#38bdf8">View My Profile</a>
     </div>
     ${profile}
     <div class="card">
       <h3>Hints</h3>
-      <details><summary>Hint 1</summary><p style="margin-top:0.3rem;color:#94a3b8">Look at the URL bar above. You're viewing profile with <code>id=${currentId}</code>.</p></details>
-      <details><summary>Hint 2</summary><p style="margin-top:0.3rem;color:#94a3b8">What happens if you change the ID to <code>1</code>? Who might have ID 1?</p></details>
+      <details><summary>Hint 1</summary><p style="margin-top:0.3rem;color:#94a3b8">Take a look at the URL bar. Notice anything interesting about how the app identifies your profile?</p></details>
+      <details><summary>Hint 2</summary><p style="margin-top:0.3rem;color:#94a3b8">The URL contains a parameter that controls which profile is displayed. What if it had a different value?</p></details>
+      <details><summary>Hint 3</summary><p style="margin-top:0.3rem;color:#94a3b8">Try editing the URL directly in the address bar above. Change the number after <code>id=</code> and press Enter.</p></details>
     </div>`
   );
 
