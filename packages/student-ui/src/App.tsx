@@ -77,16 +77,17 @@ export default function App() {
             <button
               onClick={handleBack}
               style={{
-                background: "rgba(255,255,255,0.1)",
-                color: "#e2e8f0",
-                border: "1px solid rgba(255,255,255,0.15)",
+                background: "rgba(46,163,242,0.2)",
+                color: "#38bdf8",
+                border: "1px solid rgba(56,189,248,0.3)",
                 padding: "0.35rem 0.8rem",
                 borderRadius: "6px",
                 cursor: "pointer",
                 fontSize: "0.85rem",
+                fontWeight: 600,
               }}
             >
-              {t("challenges", lang)}
+              &#8592; {t("back", lang)}
             </button>
           )}
           {isPro && (
@@ -106,6 +107,20 @@ export default function App() {
               {t("settings", lang)}
             </button>
           )}
+          <button
+            onClick={() => { window.location.href = "/api/logout"; }}
+            style={{
+              background: "rgba(239,68,68,0.15)",
+              color: "#fca5a5",
+              border: "1px solid rgba(239,68,68,0.3)",
+              padding: "0.35rem 0.8rem",
+              borderRadius: "6px",
+              cursor: "pointer",
+              fontSize: "0.85rem",
+            }}
+          >
+            {t("logout", lang)}
+          </button>
         </div>
       </header>
 

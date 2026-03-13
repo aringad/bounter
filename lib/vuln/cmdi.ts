@@ -75,7 +75,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
   const html = wrapLayout(
     "Command Injection",
-    `<h2>Command Injection <span class="badge">Challenge</span></h2>
+    `<h2>Command Injection <span class="badge hard">Challenge</span></h2>
     <div class="card">
       <p style="color:#94a3b8;margin-bottom:0.75rem">This network utility runs a ping command on the server. Can you inject additional commands?</p>
       <h3>Ping Utility</h3>

@@ -6,6 +6,7 @@ const users: Record<string, { username: string; password: string; email: string;
   admin: { username: "admin", password: "supersecretpassword", email: "admin@bounter.local", role: "admin", balance: 10000 },
   alice: { username: "alice", password: "password123", email: "alice@bounter.local", role: "user", balance: 500 },
   bob: { username: "bob", password: "bobpass", email: "bob@bounter.local", role: "user", balance: 250 },
+  charlie: { username: "charlie", password: "charlie1", email: "charlie@bounter.local", role: "user", balance: 750 },
 };
 
 function parseSessionCookie(cookieHeader: string | undefined): string | null {
@@ -61,7 +62,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
 function renderPage(currentUser: any, error: string | null): string {
   if (currentUser) {
-    return `<h2>Broken Authentication <span class="badge">Challenge</span></h2>
+    return `<h2>Broken Authentication <span class="badge hard">Challenge</span></h2>
     <div class="card">
       <div class="alert alert-success">Logged in as <strong>${currentUser.username}</strong> (role: ${currentUser.role})</div>
       <table>
@@ -81,7 +82,7 @@ function renderPage(currentUser: any, error: string | null): string {
     </div>`;
   }
 
-  return `<h2>Broken Authentication <span class="badge">Challenge</span></h2>
+  return `<h2>Broken Authentication <span class="badge hard">Challenge</span></h2>
   <div class="card">
     <p style="color:#94a3b8;margin-bottom:0.75rem">This login system uses weak session tokens. Can you forge a session to impersonate the admin?</p>
     ${error ? `<div class="alert alert-danger">${error}</div>` : ""}

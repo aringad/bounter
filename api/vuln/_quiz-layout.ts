@@ -28,7 +28,7 @@ export function wrapQuiz(title: string, body: string): string {
     .option.correct-answer { border-color: #22c55e !important; background: rgba(34,197,94,0.15) !important; opacity: 1 !important; }
     .option.wrong-answer { border-color: #ef4444 !important; background: rgba(239,68,68,0.15) !important; opacity: 1 !important; }
     .option.disabled { pointer-events: none; opacity: 0.5; }
-    .option input[type="radio"] { margin-top: 2px; accent-color: #e09900; }
+    .option input[type="radio"] { margin-top: 2px; accent-color: #e09900; pointer-events: none; flex-shrink: 0; }
     .feedback { margin-top: 0.75rem; padding: 0.75rem; border-radius: 6px; font-size: 0.85rem; line-height: 1.5; display: none; }
     .feedback.show { display: block; }
     .feedback.correct { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); color: #86efac; }
@@ -153,9 +153,8 @@ export function wrapQuiz(title: string, body: string): string {
     <h1>${title}</h1>
     <div class="subtitle">Mediaform Security Lab</div>
   </div>
-  <div class="container">${body}</div>
   <script>
-    // Shared quiz logic
+    // Shared quiz logic — must be defined BEFORE body so init() calls work
     window.QuizEngine = {
       answered: {},
       correct: 0,
@@ -174,9 +173,13 @@ export function wrapQuiz(title: string, body: string): string {
         q.classList.add(isCorrect ? 'correct' : 'wrong');
         const options = q.querySelectorAll('.option');
         options.forEach(o => {
-          o.classList.add('disabled');
           const radio = o.querySelector('input[type="radio"]');
-          if (o.dataset.value === selectedValue && radio) radio.checked = true;
+          if (radio) radio.checked = false;
+          o.classList.add('disabled');
+          if (o.dataset.value === selectedValue) {
+            if (radio) radio.checked = true;
+            o.classList.add('selected');
+          }
           if (o.dataset.value === correctValue) o.classList.add('correct-answer');
           else if (o.dataset.value === selectedValue && !isCorrect) o.classList.add('wrong-answer');
         });
@@ -210,6 +213,7 @@ export function wrapQuiz(title: string, body: string): string {
       }
     };
   </script>
+  <div class="container">${body}</div>
 </body>
 </html>`;
 }
