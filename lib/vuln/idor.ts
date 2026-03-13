@@ -34,19 +34,29 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     }
   }
 
+  const currentId = id ? String(id) : "2";
+
   const html = wrapLayout(
     "IDOR Challenge",
     `<h2>Insecure Direct Object Reference (IDOR) <span class="badge medium">Challenge</span></h2>
     <div class="card">
       <p style="color:#94a3b8;margin-bottom:0.75rem">You are logged in as <strong>alice</strong> (ID: 2). Can you access other users' profiles?</p>
-      <h3>Your Profile</h3>
-      <a href="/vuln/idor?id=2" style="color:#38bdf8">View My Profile (ID: 2)</a>
+      <div style="background:#0f172a;border:1px solid #334155;border-radius:8px;padding:0.5rem 0.75rem;display:flex;align-items:center;gap:0.5rem;margin:0.75rem 0;font-family:monospace;font-size:0.88rem;">
+        <span style="color:#22c55e;">🔒</span>
+        <span style="color:#64748b;">bounter.vercel.app/vuln/idor?id=</span>
+        <input id="id-input" type="number" min="1" max="99" value="${currentId}"
+          style="width:3rem;background:#1e293b;border:1px solid #475569;border-radius:4px;color:#f59e0b;font-family:monospace;font-size:1rem;font-weight:700;padding:0.25rem 0.4rem;text-align:center;outline:none;"
+          onkeydown="if(event.key==='Enter')document.getElementById('go-btn').click()">
+        <button id="go-btn" onclick="window.location.href='/vuln/idor?id='+document.getElementById('id-input').value"
+          style="background:#e09900;color:#1c1b3a;border:none;padding:0.3rem 0.75rem;border-radius:4px;cursor:pointer;font-weight:600;font-size:0.82rem;font-family:inherit;">Go</button>
+      </div>
+      <p style="color:#64748b;font-size:0.78rem;">👆 Try changing the ID number and press Go</p>
     </div>
     ${profile}
     <div class="card">
       <h3>Hints</h3>
-      <details><summary>Hint 1</summary><p style="margin-top:0.3rem;color:#94a3b8">Look at the URL when you view your profile. Notice the <code>id</code> parameter.</p></details>
-      <details><summary>Hint 2</summary><p style="margin-top:0.3rem;color:#94a3b8">What happens if you change <code>id=2</code> to <code>id=1</code>?</p></details>
+      <details><summary>Hint 1</summary><p style="margin-top:0.3rem;color:#94a3b8">Look at the URL bar above. You're viewing profile with <code>id=${currentId}</code>.</p></details>
+      <details><summary>Hint 2</summary><p style="margin-top:0.3rem;color:#94a3b8">What happens if you change the ID to <code>1</code>? Who might have ID 1?</p></details>
     </div>`
   );
 
