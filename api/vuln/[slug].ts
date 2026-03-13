@@ -16,6 +16,7 @@ import permissionsHandler from "../../lib/vuln/permissions";
 import publicWifiHandler from "../../lib/vuln/public-wifi";
 import backupHandler from "../../lib/vuln/backup";
 import fakeNotificationsHandler from "../../lib/vuln/fake-notifications";
+import qrCodesHandler from "../../lib/vuln/qr-codes";
 
 const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any> = {
   xss: xssHandler,
@@ -34,6 +35,7 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "public-wifi": publicWifiHandler,
   backup: backupHandler,
   "fake-notifications": fakeNotificationsHandler,
+  "qr-codes": qrCodesHandler,
 };
 
 export default function handler(req: VercelRequest, res: VercelResponse) {

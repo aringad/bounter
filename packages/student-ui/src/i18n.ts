@@ -144,6 +144,10 @@ const translations = {
     it: "Impara a distinguere le notifiche del browser legittime da quelle fasulle usate per truffe e malware.",
     en: "Learn to distinguish legitimate browser notifications from fake ones used for scams and malware.",
   },
+  "desc.qr-codes": {
+    it: "Impara a riconoscere QR Code truffa e a proteggerti dal quishing.",
+    en: "Learn to recognize scam QR codes and protect yourself from quishing.",
+  },
 
   // Challenge descriptions - Technical
   "desc.xss": {

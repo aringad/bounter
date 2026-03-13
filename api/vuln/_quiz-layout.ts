@@ -179,6 +179,48 @@ export function wrapQuiz(title: string, body: string): string {
     .consent-btn { padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.78rem; font-weight: 500; cursor: default; }
     .consent-block { background: transparent; border: 1px solid #475569; color: #94a3b8; }
     .consent-allow { background: #3b82f6; color: #fff; border: 1px solid #3b82f6; }
+
+    /* QR Code simulation */
+    .qr-explainer { background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 1rem; margin: 0.75rem 0; }
+    .qr-visual { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .qr-arrow { color: #64748b; font-size: 1.5rem; }
+    .qr-result { text-align: center; }
+    .qr-result-icon { font-size: 1.5rem; }
+    .qr-result-url { color: #38bdf8; font-family: monospace; font-size: 0.82rem; }
+    .qr-fake { width: 80px; height: 80px; background: #fff; border-radius: 4px; position: relative; padding: 6px; }
+    .qr-fake.small { width: 64px; height: 64px; padding: 5px; }
+    .qr-corner { position: absolute; width: 18px; height: 18px; border: 3px solid #000; border-radius: 2px; }
+    .qr-fake.small .qr-corner { width: 14px; height: 14px; border-width: 2.5px; }
+    .qr-corner.tl { top: 5px; left: 5px; }
+    .qr-corner.tr { top: 5px; right: 5px; }
+    .qr-corner.bl { bottom: 5px; left: 5px; }
+    .qr-dots { position: absolute; inset: 24px; background: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 0 0 / 6px 6px; border-radius: 1px; }
+    .qr-fake.small .qr-dots { inset: 19px; background-size: 5px 5px; }
+    .qr-scenario { background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 1.25rem; margin: 0.75rem 0; }
+    .qr-location { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #1e293b; }
+    .qr-location-icon { font-size: 1.3rem; }
+    .qr-location-name { color: #e2e8f0; font-weight: 600; font-size: 0.9rem; }
+    .qr-sticker { background: #fff; border-radius: 6px; padding: 0.75rem; display: inline-flex; flex-direction: column; align-items: center; gap: 0.5rem; position: relative; margin: 0.5rem 0; }
+    .qr-sticker.safe { border: 2px solid #22c55e; }
+    .qr-sticker:not(.safe) { border: 2px dashed #f59e0b; }
+    .qr-sticker-label { color: #333; font-size: 0.78rem; font-weight: 600; text-align: center; }
+    .qr-sticker-overlay { position: absolute; top: -8px; right: -8px; }
+    .qr-overlay-tag { background: #fef3c7; color: #92400e; font-size: 0.68rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 4px; border: 1px solid #f59e0b; white-space: nowrap; }
+    .qr-preview { margin-top: 0.75rem; padding: 0.5rem 0.75rem; background: #1e293b; border-radius: 6px; font-size: 0.82rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .qr-preview-label { color: #64748b; font-size: 0.75rem; }
+    .qr-preview-url { font-family: monospace; word-break: break-all; }
+    .qr-preview-url.danger { color: #f87171; }
+    .qr-preview-url.safe { color: #4ade80; }
+    .qr-email { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .qr-flyer { background: linear-gradient(135deg, #1a1a2e, #16213e); border: 2px dashed #f59e0b; border-radius: 10px; padding: 1.5rem; text-align: center; }
+    .qr-flyer-header { color: #f59e0b; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .qr-flyer-text { color: #e2e8f0; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.5rem; }
+    .qr-flyer-cta { color: #38bdf8; font-weight: 600; font-size: 0.88rem; margin-top: 0.5rem; }
+    .qr-flyer-fine { color: #64748b; font-size: 0.68rem; margin-top: 0.5rem; font-style: italic; }
+    .qr-tips { display: flex; flex-direction: column; gap: 0.5rem; }
+    .qr-tip { display: flex; align-items: center; gap: 0.75rem; background: #1e293b; padding: 0.75rem; border-radius: 8px; }
+    .qr-tip-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .qr-tip-text { color: #e2e8f0; font-size: 0.88rem; }
   </style>
 </head>
 <body>

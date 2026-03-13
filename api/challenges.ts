@@ -84,6 +84,15 @@ const challenges = [
     targetPath: "/vuln/fake-notifications",
     type: "general",
   },
+  {
+    id: "qr-codes",
+    title: "Truffe con QR Code",
+    category: "Awareness",
+    difficulty: "beginner",
+    description: "Impara a riconoscere QR Code truffa e a proteggerti dal quishing.",
+    targetPath: "/vuln/qr-codes",
+    type: "general",
+  },
   // === Technical Cybersecurity (with AI) ===
   {
     id: "xss",
