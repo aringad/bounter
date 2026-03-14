@@ -10,12 +10,22 @@ const difficultyColors: Record<string, string> = {
   hard: "#ef4444",
 };
 
-const categoryIcons: Record<string, string> = {
-  Awareness: "🛡️",
-  Injection: ">>",
-  Session: "**",
-  "Access Control": "##",
-};
+interface SectionConfig {
+  type: string;
+  titleKey: string;
+  subtitleKey: string;
+  color: string;
+  badge: string;
+  icon: string;
+}
+
+const sections: SectionConfig[] = [
+  { type: "general", titleKey: "generalSection", subtitleKey: "generalSubtitle", color: "#2ea3f2", badge: "Quiz", icon: "🛡️" },
+  { type: "networking", titleKey: "networkingSection", subtitleKey: "networkingSubtitle", color: "#8b5cf6", badge: "Lab", icon: "🔌" },
+  { type: "dns", titleKey: "dnsSection", subtitleKey: "dnsSubtitle", color: "#06b6d4", badge: "Lab", icon: "🌐" },
+  { type: "tcp-udp", titleKey: "tcpUdpSection", subtitleKey: "tcpUdpSubtitle", color: "#f97316", badge: "Lab", icon: "🔗" },
+  { type: "technical", titleKey: "technicalSection", subtitleKey: "technicalSubtitle", color: "#e09900", badge: "OWASP + AI", icon: "⚔️" },
+];
 
 interface Props {
   onSelect: (challenge: Challenge) => void;
@@ -49,7 +59,7 @@ function ChallengeCard({ c, lang, onSelect }: { c: Challenge; lang: Lang; onSele
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
         <span style={{ color: "#64748b", fontSize: "0.8rem" }}>
-          {categoryIcons[c.category] || ""} {c.category}
+          {c.category}
         </span>
         <span
           style={{
@@ -87,76 +97,46 @@ export default function ChallengeList({ onSelect, lang }: Props) {
   if (loading) return <p style={{ color: "#64748b" }}>{t("loadingChallenges", lang)}</p>;
   if (error) return <p style={{ color: "#ef4444" }}>{t("error", lang)}: {error}</p>;
 
-  const general = challenges.filter((c) => c.type === "general");
-  const technical = challenges.filter((c) => c.type === "technical");
-
   return (
     <div>
-      {/* General Security Section */}
-      <div style={{ marginBottom: "2.5rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
-          <h2 style={{ color: "#2ea3f2" }}>{t("generalSection", lang)}</h2>
-          <span style={{
-            background: "#2ea3f2",
-            color: "#1c1b3a",
-            padding: "0.15rem 0.5rem",
-            borderRadius: "4px",
-            fontSize: "0.7rem",
-            fontWeight: 700,
-            textTransform: "uppercase",
-          }}>
-            {lang === "it" ? "Quiz" : "Quiz"}
-          </span>
-        </div>
-        <p style={{ color: "#94a3b8", marginBottom: "1.25rem", fontSize: "0.9rem" }}>
-          {t("generalSubtitle", lang)}
-        </p>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gap: "1rem",
-          }}
-        >
-          {general.map((c) => (
-            <ChallengeCard key={c.id} c={c} lang={lang} onSelect={onSelect} />
-          ))}
-        </div>
-      </div>
-
-      {/* Technical Security Section (pro only) */}
-      {technical.length > 0 && (
-        <div>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
-            <h2 style={{ color: "#e09900" }}>{t("technicalSection", lang)}</h2>
-            <span style={{
-              background: "#e09900",
-              color: "#1c1b3a",
-              padding: "0.15rem 0.5rem",
-              borderRadius: "4px",
-              fontSize: "0.7rem",
-              fontWeight: 700,
-              textTransform: "uppercase",
-            }}>
-              OWASP + AI
-            </span>
+      {sections.map((section) => {
+        const items = challenges.filter((c) => c.type === section.type);
+        if (items.length === 0) return null;
+        return (
+          <div key={section.type} style={{ marginBottom: "2.5rem" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
+              <h2 style={{ color: section.color }}>
+                {section.icon} {t(section.titleKey as any, lang)}
+              </h2>
+              <span style={{
+                background: section.color,
+                color: "#1c1b3a",
+                padding: "0.15rem 0.5rem",
+                borderRadius: "4px",
+                fontSize: "0.7rem",
+                fontWeight: 700,
+                textTransform: "uppercase",
+              }}>
+                {section.badge}
+              </span>
+            </div>
+            <p style={{ color: "#94a3b8", marginBottom: "1.25rem", fontSize: "0.9rem" }}>
+              {t(section.subtitleKey as any, lang)}
+            </p>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+                gap: "1rem",
+              }}
+            >
+              {items.map((c) => (
+                <ChallengeCard key={c.id} c={c} lang={lang} onSelect={onSelect} />
+              ))}
+            </div>
           </div>
-          <p style={{ color: "#94a3b8", marginBottom: "1.25rem", fontSize: "0.9rem" }}>
-            {t("technicalSubtitle", lang)}
-          </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-              gap: "1rem",
-            }}
-          >
-            {technical.map((c) => (
-              <ChallengeCard key={c.id} c={c} lang={lang} onSelect={onSelect} />
-            ))}
-          </div>
-        </div>
-      )}
+        );
+      })}
     </div>
   );
 }

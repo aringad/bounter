@@ -17,6 +17,27 @@ import publicWifiHandler from "../../lib/vuln/public-wifi";
 import backupHandler from "../../lib/vuln/backup";
 import fakeNotificationsHandler from "../../lib/vuln/fake-notifications";
 import qrCodesHandler from "../../lib/vuln/qr-codes";
+// Networking: LAN & Infrastructure
+import netDevicesHandler from "../../lib/vuln/net-devices";
+import netCablingHandler from "../../lib/vuln/net-cabling";
+import netSubnettingHandler from "../../lib/vuln/net-subnetting";
+import netVlanHandler from "../../lib/vuln/net-vlan";
+import netDhcpHandler from "../../lib/vuln/net-dhcp";
+import netNatHandler from "../../lib/vuln/net-nat";
+// Networking: DNS
+import dnsResolutionHandler from "../../lib/vuln/dns-resolution";
+import dnsRecordsHandler from "../../lib/vuln/dns-records";
+import dnsDigHandler from "../../lib/vuln/dns-dig";
+import dnsEmailAuthHandler from "../../lib/vuln/dns-email-auth";
+import dnsAttacksHandler from "../../lib/vuln/dns-attacks";
+import dnsTroubleshootingHandler from "../../lib/vuln/dns-troubleshooting";
+// Networking: TCP, UDP & Ports
+import tcpHandshakeHandler from "../../lib/vuln/tcp-handshake";
+import tcpVsUdpHandler from "../../lib/vuln/tcp-vs-udp";
+import tcpPortsHandler from "../../lib/vuln/tcp-ports";
+import tcpSegmentHandler from "../../lib/vuln/tcp-segment";
+import tcpFirewallHandler from "../../lib/vuln/tcp-firewall";
+import tcpNetstatHandler from "../../lib/vuln/tcp-netstat";
 
 const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any> = {
   xss: xssHandler,
@@ -36,6 +57,27 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   backup: backupHandler,
   "fake-notifications": fakeNotificationsHandler,
   "qr-codes": qrCodesHandler,
+  // LAN & Infrastructure
+  "net-devices": netDevicesHandler,
+  "net-cabling": netCablingHandler,
+  "net-subnetting": netSubnettingHandler,
+  "net-vlan": netVlanHandler,
+  "net-dhcp": netDhcpHandler,
+  "net-nat": netNatHandler,
+  // DNS
+  "dns-resolution": dnsResolutionHandler,
+  "dns-records": dnsRecordsHandler,
+  "dns-dig": dnsDigHandler,
+  "dns-email-auth": dnsEmailAuthHandler,
+  "dns-attacks": dnsAttacksHandler,
+  "dns-troubleshooting": dnsTroubleshootingHandler,
+  // TCP, UDP & Ports
+  "tcp-handshake": tcpHandshakeHandler,
+  "tcp-vs-udp": tcpVsUdpHandler,
+  "tcp-ports": tcpPortsHandler,
+  "tcp-segment": tcpSegmentHandler,
+  "tcp-firewall": tcpFirewallHandler,
+  "tcp-netstat": tcpNetstatHandler,
 };
 
 export default function handler(req: VercelRequest, res: VercelResponse) {

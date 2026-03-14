@@ -14,7 +14,22 @@ const translations = {
     it: "Quiz interattivi per imparare le basi della sicurezza informatica. Nessuna conoscenza tecnica richiesta.",
     en: "Interactive quizzes to learn cybersecurity basics. No technical knowledge required.",
   },
-  technicalSection: { it: "Sicurezza Tecnica", en: "Technical Security" },
+  networkingSection: { it: "Reti e Infrastruttura", en: "Networking & Infrastructure" },
+  networkingSubtitle: {
+    it: "Dispositivi, cablaggio, subnetting, VLAN, DHCP e NAT. Esercizi pratici per system integrator.",
+    en: "Devices, cabling, subnetting, VLANs, DHCP and NAT. Hands-on exercises for system integrators.",
+  },
+  dnsSection: { it: "Domain Name System", en: "Domain Name System" },
+  dnsSubtitle: {
+    it: "Risoluzione DNS, record, sicurezza email (SPF/DKIM/DMARC), attacchi e troubleshooting.",
+    en: "DNS resolution, records, email security (SPF/DKIM/DMARC), attacks and troubleshooting.",
+  },
+  tcpUdpSection: { it: "TCP, UDP e Porte", en: "TCP, UDP & Ports" },
+  tcpUdpSubtitle: {
+    it: "Protocolli di trasporto, handshake, porte well-known, firewall e analisi connessioni.",
+    en: "Transport protocols, handshake, well-known ports, firewalls and connection analysis.",
+  },
+  technicalSection: { it: "Cybersecurity Hands-On", en: "Cybersecurity Hands-On" },
   technicalSubtitle: {
     it: "Esplora le vulnerabilità OWASP Top 10 su app vulnerabili con supporto IA.",
     en: "Explore OWASP Top 10 vulnerabilities on vulnerable apps with AI support.",
@@ -147,6 +162,82 @@ const translations = {
   "desc.qr-codes": {
     it: "Impara a riconoscere QR Code truffa e a proteggerti dal quishing.",
     en: "Learn to recognize scam QR codes and protect yourself from quishing.",
+  },
+
+  // Challenge descriptions - Networking
+  "desc.net-devices": {
+    it: "Riconosci hub, switch, router e access point e scegli il dispositivo giusto per ogni scenario.",
+    en: "Identify hubs, switches, routers and access points and choose the right device for each scenario.",
+  },
+  "desc.net-cabling": {
+    it: "Scegli il cavo di rete corretto in base a distanza, velocità e ambiente.",
+    en: "Choose the right network cable based on distance, speed and environment.",
+  },
+  "desc.net-subnetting": {
+    it: "Calcola network address, broadcast, range host e subnet mask a partire da IP e CIDR.",
+    en: "Calculate network address, broadcast, host range and subnet mask from IP and CIDR.",
+  },
+  "desc.net-vlan": {
+    it: "Configura le VLAN assegnando porte a reti logiche separate su uno switch.",
+    en: "Configure VLANs by assigning ports to separate logical networks on a switch.",
+  },
+  "desc.net-dhcp": {
+    it: "Comprendi il processo Discover-Offer-Request-Acknowledge e le opzioni DHCP.",
+    en: "Understand the Discover-Offer-Request-Acknowledge process and DHCP options.",
+  },
+  "desc.net-nat": {
+    it: "Comprendi come NAT e PAT traducono gli indirizzi IP interni verso l'esterno.",
+    en: "Understand how NAT and PAT translate internal IP addresses to external ones.",
+  },
+  // Challenge descriptions - DNS
+  "desc.dns-resolution": {
+    it: "Segui passo passo una query DNS dalla richiesta alla risposta.",
+    en: "Follow a DNS query step by step from request to response.",
+  },
+  "desc.dns-records": {
+    it: "Associa ogni tipo di record DNS (A, AAAA, CNAME, MX, TXT, SRV) al suo utilizzo.",
+    en: "Match each DNS record type (A, AAAA, CNAME, MX, TXT, SRV) to its use case.",
+  },
+  "desc.dns-dig": {
+    it: "Interpreta l'output del comando dig identificando record, TTL e sezioni.",
+    en: "Interpret dig command output identifying records, TTL and sections.",
+  },
+  "desc.dns-email-auth": {
+    it: "Configura i record TXT per proteggere il dominio dallo spoofing email.",
+    en: "Configure TXT records to protect your domain from email spoofing.",
+  },
+  "desc.dns-attacks": {
+    it: "Identifica gli attacchi DNS: cache poisoning, hijacking, typosquatting e tunneling.",
+    en: "Identify DNS attacks: cache poisoning, hijacking, typosquatting and tunneling.",
+  },
+  "desc.dns-troubleshooting": {
+    it: "Risolvi problemi di rete seguendo un metodo diagnostico step-by-step.",
+    en: "Troubleshoot network issues following a step-by-step diagnostic method.",
+  },
+  // Challenge descriptions - TCP/UDP
+  "desc.tcp-handshake": {
+    it: "Completa la sequenza SYN, SYN-ACK, ACK con i numeri di sequenza corretti.",
+    en: "Complete the SYN, SYN-ACK, ACK sequence with the correct sequence numbers.",
+  },
+  "desc.tcp-vs-udp": {
+    it: "Scegli il protocollo di trasporto corretto per ogni servizio e applicazione.",
+    en: "Choose the correct transport protocol for each service and application.",
+  },
+  "desc.tcp-ports": {
+    it: "Associa i servizi alle porte well-known: SSH, HTTP, HTTPS, SMTP, RDP, SMB e altre.",
+    en: "Match services to well-known ports: SSH, HTTP, HTTPS, SMTP, RDP, SMB and more.",
+  },
+  "desc.tcp-segment": {
+    it: "Analizza un header TCP campo per campo: flag, window size, sequence number.",
+    en: "Analyze a TCP header field by field: flags, window size, sequence number.",
+  },
+  "desc.tcp-firewall": {
+    it: "Scrivi regole firewall per filtrare traffico in base a porta, protocollo e direzione.",
+    en: "Write firewall rules to filter traffic based on port, protocol and direction.",
+  },
+  "desc.tcp-netstat": {
+    it: "Interpreta l'output di netstat/ss per identificare connessioni sospette.",
+    en: "Interpret netstat/ss output to identify suspicious connections.",
   },
 
   // Challenge descriptions - Technical

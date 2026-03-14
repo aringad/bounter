@@ -5,7 +5,7 @@ export interface Challenge {
   difficulty: "beginner" | "easy" | "medium" | "hard";
   description: string;
   targetPath: string;
-  type: "technical" | "general";
+  type: "general" | "networking" | "dns" | "tcp-udp" | "technical";
 }
 
 export interface StepResult {
