@@ -189,7 +189,6 @@ export function sendLoginPage(res: VercelResponse, error?: string): void {
   <div class="login-wrapper">
     <div class="logo-area">
       <img src="/logo.png" alt="Mediaform" onerror="this.style.display='none'">
-      <h1>Mediaform</h1>
       <div class="subtitle">L'informatica a tutti i livelli</div>
     </div>
 

@@ -44,15 +44,10 @@ export default function App() {
         <img
           src="/logo.png"
           alt="Mediaform"
-          style={{ height: "32px", width: "auto" }}
+          style={{ height: "32px", width: "auto", cursor: "pointer" }}
+          onClick={handleBack}
           onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
         />
-        <h1
-          style={{ color: "#e09900", fontSize: "1.3rem", cursor: "pointer", fontWeight: 700 }}
-          onClick={handleBack}
-        >
-          Mediaform
-        </h1>
         <span style={{ color: "#2ea3f2", fontSize: "0.8rem", fontWeight: 500 }}>
           {t("securityLab", lang)}
         </span>
