@@ -19,10 +19,10 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
   const [mode, setMode] = useState<"demo" | "practice">("demo");
   const [quizStarted, setQuizStarted] = useState(false);
 
-  const isGeneral = challenge.type === "general";
+  const isQuiz = challenge.type !== "technical";
 
   const handleStart = async () => {
-    if (isGeneral) {
+    if (isQuiz) {
       setQuizStarted(true);
       return;
     }
@@ -40,7 +40,7 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
   };
 
   const handleClose = () => {
-    if (isGeneral) {
+    if (isQuiz) {
       setQuizStarted(false);
       return;
     }
@@ -53,7 +53,7 @@ export default function ChallengeSession({ challenge, sessionData, onSessionData
   const localDesc = t(descKey, lang);
 
   // General quiz: full-width iframe, no side panel
-  if (isGeneral) {
+  if (isQuiz) {
     return (
       <div>
         <div style={{ marginBottom: "1.5rem" }}>
