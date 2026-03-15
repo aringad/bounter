@@ -82,6 +82,104 @@ function ChallengeCard({ c, lang, onSelect }: { c: Challenge; lang: Lang; onSele
   );
 }
 
+function CollapsibleSection({
+  section,
+  items,
+  lang,
+  onSelect,
+  defaultOpen,
+}: {
+  section: SectionConfig;
+  items: Challenge[];
+  lang: Lang;
+  onSelect: (c: Challenge) => void;
+  defaultOpen: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
+
+  return (
+    <div style={{ marginBottom: "1rem" }}>
+      <div
+        onClick={() => setOpen(!open)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.75rem",
+          padding: "1rem 1.25rem",
+          background: open ? `${section.color}15` : "rgba(255,255,255,0.03)",
+          border: `1px solid ${open ? section.color + "40" : "rgba(255,255,255,0.08)"}`,
+          borderRadius: open ? "12px 12px 0 0" : "12px",
+          cursor: "pointer",
+          transition: "all 0.2s",
+          userSelect: "none",
+        }}
+        onMouseEnter={(e) => {
+          if (!open) e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+        }}
+        onMouseLeave={(e) => {
+          if (!open) e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+        }}
+      >
+        <span style={{ fontSize: "1.3rem" }}>{section.icon}</span>
+        <h2 style={{ color: section.color, margin: 0, fontSize: "1.15rem", flex: 1 }}>
+          {t(section.titleKey as any, lang)}
+        </h2>
+        <span style={{
+          background: section.color,
+          color: "#1c1b3a",
+          padding: "0.15rem 0.5rem",
+          borderRadius: "4px",
+          fontSize: "0.65rem",
+          fontWeight: 700,
+          textTransform: "uppercase",
+        }}>
+          {section.badge}
+        </span>
+        <span style={{
+          color: "#64748b",
+          fontSize: "0.85rem",
+          marginLeft: "0.25rem",
+        }}>
+          {items.length} {items.length === 1 ? "quiz" : "quiz"}
+        </span>
+        <span style={{
+          color: "#64748b",
+          fontSize: "0.8rem",
+          transition: "transform 0.2s",
+          transform: open ? "rotate(180deg)" : "rotate(0deg)",
+        }}>
+          ▼
+        </span>
+      </div>
+
+      {open && (
+        <div style={{
+          border: `1px solid ${section.color}40`,
+          borderTop: "none",
+          borderRadius: "0 0 12px 12px",
+          padding: "1.25rem",
+          background: "rgba(255,255,255,0.02)",
+        }}>
+          <p style={{ color: "#94a3b8", marginBottom: "1rem", fontSize: "0.9rem" }}>
+            {t(section.subtitleKey as any, lang)}
+          </p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+              gap: "1rem",
+            }}
+          >
+            {items.map((c) => (
+              <ChallengeCard key={c.id} c={c} lang={lang} onSelect={onSelect} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function ChallengeList({ onSelect, lang }: Props) {
   const [challenges, setChallenges] = useState<Challenge[]>([]);
   const [loading, setLoading] = useState(true);
@@ -99,42 +197,18 @@ export default function ChallengeList({ onSelect, lang }: Props) {
 
   return (
     <div>
-      {sections.map((section) => {
+      {sections.map((section, i) => {
         const items = challenges.filter((c) => c.type === section.type);
         if (items.length === 0) return null;
         return (
-          <div key={section.type} style={{ marginBottom: "2.5rem" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
-              <h2 style={{ color: section.color }}>
-                {section.icon} {t(section.titleKey as any, lang)}
-              </h2>
-              <span style={{
-                background: section.color,
-                color: "#1c1b3a",
-                padding: "0.15rem 0.5rem",
-                borderRadius: "4px",
-                fontSize: "0.7rem",
-                fontWeight: 700,
-                textTransform: "uppercase",
-              }}>
-                {section.badge}
-              </span>
-            </div>
-            <p style={{ color: "#94a3b8", marginBottom: "1.25rem", fontSize: "0.9rem" }}>
-              {t(section.subtitleKey as any, lang)}
-            </p>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-                gap: "1rem",
-              }}
-            >
-              {items.map((c) => (
-                <ChallengeCard key={c.id} c={c} lang={lang} onSelect={onSelect} />
-              ))}
-            </div>
-          </div>
+          <CollapsibleSection
+            key={section.type}
+            section={section}
+            items={items}
+            lang={lang}
+            onSelect={onSelect}
+            defaultOpen={i === 0}
+          />
         );
       })}
     </div>
