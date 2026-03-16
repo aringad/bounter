@@ -29,6 +29,11 @@ const translations = {
     it: "Protocolli di trasporto, handshake, porte well-known, firewall e analisi connessioni.",
     en: "Transport protocols, handshake, well-known ports, firewalls and connection analysis.",
   },
+  aiSection: { it: "Intelligenza Artificiale", en: "Artificial Intelligence" },
+  aiSubtitle: {
+    it: "Fondamenti di AI: come funzionano gli LLM, prompt engineering, modelli, deepfake, privacy e strumenti pratici.",
+    en: "AI fundamentals: how LLMs work, prompt engineering, models, deepfakes, privacy and practical tools.",
+  },
   technicalSection: { it: "Cybersecurity Hands-On", en: "Cybersecurity Hands-On" },
   technicalSubtitle: {
     it: "Esplora le vulnerabilità OWASP Top 10 su app vulnerabili con supporto IA.",
@@ -238,6 +243,32 @@ const translations = {
   "desc.tcp-netstat": {
     it: "Interpreta l'output di netstat/ss per identificare connessioni sospette.",
     en: "Interpret netstat/ss output to identify suspicious connections.",
+  },
+
+  // Challenge descriptions - AI
+  "desc.ai-llm": {
+    it: "Scopri come funzionano i Large Language Model: token, temperatura, hallucination e context window.",
+    en: "Discover how Large Language Models work: tokens, temperature, hallucination and context window.",
+  },
+  "desc.ai-prompt": {
+    it: "Impara le tecniche per comunicare efficacemente con l'AI: few-shot, chain-of-thought, role prompting.",
+    en: "Learn techniques for effective AI communication: few-shot, chain-of-thought, role prompting.",
+  },
+  "desc.ai-models": {
+    it: "GPT, Claude, Gemini, Llama: confronta modelli closed e open-source, SaaS e self-hosted.",
+    en: "GPT, Claude, Gemini, Llama: compare closed and open-source models, SaaS and self-hosted.",
+  },
+  "desc.ai-deepfake": {
+    it: "Riconosci deepfake video, voice cloning e immagini generate. Impara a verificare l'autenticità.",
+    en: "Recognize video deepfakes, voice cloning and generated images. Learn to verify authenticity.",
+  },
+  "desc.ai-privacy": {
+    it: "Shadow AI, GDPR, data leakage: gestisci i rischi privacy quando usi strumenti di intelligenza artificiale.",
+    en: "Shadow AI, GDPR, data leakage: manage privacy risks when using artificial intelligence tools.",
+  },
+  "desc.ai-tools": {
+    it: "Usa l'AI come assistente: best practice per coding, documenti, analisi dati e i limiti da conoscere.",
+    en: "Use AI as an assistant: best practices for coding, documents, data analysis and limits to know.",
   },
 
   // Challenge descriptions - Technical

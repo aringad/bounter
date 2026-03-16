@@ -39,6 +39,14 @@ import tcpSegmentHandler from "../../lib/vuln/tcp-segment";
 import tcpFirewallHandler from "../../lib/vuln/tcp-firewall";
 import tcpNetstatHandler from "../../lib/vuln/tcp-netstat";
 
+// AI
+import aiLlmHandler from "../../lib/vuln/ai-llm";
+import aiPromptHandler from "../../lib/vuln/ai-prompt";
+import aiModelsHandler from "../../lib/vuln/ai-models";
+import aiDeepfakeHandler from "../../lib/vuln/ai-deepfake";
+import aiPrivacyHandler from "../../lib/vuln/ai-privacy";
+import aiToolsHandler from "../../lib/vuln/ai-tools";
+
 const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any> = {
   xss: xssHandler,
   sqli: sqliHandler,
@@ -71,6 +79,13 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "dns-email-auth": dnsEmailAuthHandler,
   "dns-attacks": dnsAttacksHandler,
   "dns-troubleshooting": dnsTroubleshootingHandler,
+  // AI
+  "ai-llm": aiLlmHandler,
+  "ai-prompt": aiPromptHandler,
+  "ai-models": aiModelsHandler,
+  "ai-deepfake": aiDeepfakeHandler,
+  "ai-privacy": aiPrivacyHandler,
+  "ai-tools": aiToolsHandler,
   // TCP, UDP & Ports
   "tcp-handshake": tcpHandshakeHandler,
   "tcp-vs-udp": tcpVsUdpHandler,
