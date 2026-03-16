@@ -28,7 +28,11 @@ export function wrapQuiz(title: string, body: string): string {
     .option.correct-answer { border-color: #22c55e !important; background: rgba(34,197,94,0.15) !important; opacity: 1 !important; }
     .option.wrong-answer { border-color: #ef4444 !important; background: rgba(239,68,68,0.15) !important; opacity: 1 !important; }
     .option.disabled { pointer-events: none; opacity: 0.5; }
-    .option input[type="radio"] { margin-top: 2px; accent-color: #e09900; pointer-events: none; flex-shrink: 0; }
+    .option input[type="radio"] { display: none; }
+    .option::before { content: ''; width: 18px; height: 18px; border: 2px solid #475569; border-radius: 50%; flex-shrink: 0; margin-top: 1px; transition: all 0.2s; }
+    .option.selected::before { border-color: #2ea3f2; background: #2ea3f2; box-shadow: inset 0 0 0 3px #1e293b; }
+    .option.correct-answer::before { border-color: #22c55e; background: #22c55e; box-shadow: inset 0 0 0 3px #1e293b; }
+    .option.wrong-answer::before { border-color: #ef4444; background: #ef4444; box-shadow: inset 0 0 0 3px #1e293b; }
     .feedback { margin-top: 0.75rem; padding: 0.75rem; border-radius: 6px; font-size: 0.85rem; line-height: 1.5; display: none; }
     .feedback.show { display: block; }
     .feedback.correct { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); color: #86efac; }
