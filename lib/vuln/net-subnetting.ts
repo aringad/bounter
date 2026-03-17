@@ -16,7 +16,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         <li><strong style="color:#38bdf8;">Subnet Mask:</strong> Una maschera a 32 bit che separa la parte di rete dalla parte host di un indirizzo IP (es. 255.255.255.0).</li>
         <li><strong style="color:#38bdf8;">Notazione CIDR:</strong> Indica quanti bit sono dedicati alla rete. Es. /24 significa che i primi 24 bit identificano la rete.</li>
         <li><strong style="color:#38bdf8;">Indirizzo di rete:</strong> Il primo indirizzo della sottorete, con tutti i bit host a 0. Identifica la sottorete stessa.</li>
-        <li><strong style="color:#38bdf8;">Indirizzo di broadcast:</strong> L\\'ultimo indirizzo della sottorete, con tutti i bit host a 1. Usato per inviare pacchetti a tutti gli host della sottorete.</li>
+        <li><strong style="color:#38bdf8;">Indirizzo di broadcast:</strong> L'ultimo indirizzo della sottorete, con tutti i bit host a 1. Usato per inviare pacchetti a tutti gli host della sottorete.</li>
         <li><strong style="color:#38bdf8;">Host utilizzabili:</strong> Tutti gli indirizzi tra il network address e il broadcast address. Formula: 2^(bit host) - 2.</li>
       </ul>
     </div>

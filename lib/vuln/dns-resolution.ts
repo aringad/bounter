@@ -142,7 +142,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         <div class="option" data-value="b" onclick="QuizEngine.check(5, 'b', 'a',
           'Corretto!',
           'Sbagliato. La differenza non riguarda la velocita\\' ma il modello di delega: nella ricorsiva il resolver fa tutto per conto del client, nella iterativa riceve riferimenti passo dopo passo.')">
-          <input type="radio" name="q5"> <span>Ricorsiva e\\' piu\\' veloce; Iterativa e\\' piu\\' lenta</span>
+          <input type="radio" name="q5"> <span>Ricorsiva e' piu' veloce; Iterativa e' piu' lenta</span>
         </div>
         <div class="option" data-value="c" onclick="QuizEngine.check(5, 'c', 'a',
           'Corretto!',
@@ -152,7 +152,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         <div class="option" data-value="d" onclick="QuizEngine.check(5, 'd', 'a',
           'Corretto!',
           'Sbagliato. Non c\\'e\\' differenza di sicurezza intrinseca. La distinzione e\\': ricorsiva = il resolver gestisce tutto; iterativa = il resolver segue i riferimenti passo dopo passo.')">
-          <input type="radio" name="q5"> <span>Ricorsiva e\\' piu\\' sicura; Iterativa e\\' meno sicura</span>
+          <input type="radio" name="q5"> <span>Ricorsiva e' piu' sicura; Iterativa e' meno sicura</span>
         </div>
       </div>
       <div class="feedback"></div>

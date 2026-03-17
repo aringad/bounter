@@ -16,7 +16,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         <li><strong style="color:#38bdf8;">NAT Statico:</strong> Mappa un indirizzo IP privato a un indirizzo IP pubblico fisso, in modo permanente (relazione 1:1).</li>
         <li><strong style="color:#38bdf8;">NAT Dinamico:</strong> Assegna un indirizzo IP pubblico da un pool disponibile a un host privato quando necessario. La mappatura non e' fissa.</li>
         <li><strong style="color:#38bdf8;">PAT (Port Address Translation):</strong> Chiamato anche NAT Overload. Permette a molti dispositivi privati di condividere un singolo IP pubblico, distinguendoli tramite numeri di porta diversi.</li>
-        <li><strong style="color:#38bdf8;">Port Forwarding:</strong> Regola NAT che inoltra il traffico in arrivo su una porta specifica dell\\'IP pubblico verso un server interno con IP privato.</li>
+        <li><strong style="color:#38bdf8;">Port Forwarding:</strong> Regola NAT che inoltra il traffico in arrivo su una porta specifica dell'IP pubblico verso un server interno con IP privato.</li>
         <li><strong style="color:#38bdf8;">Indirizzi privati:</strong> Range riservati (RFC 1918) non instradabili su Internet: 10.0.0.0/8, 172.16.0.0/12 e 192.168.0.0/16.</li>
       </ul>
     </div>
@@ -112,7 +112,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         <div class="option" data-value="b" onclick="QuizEngine.check(4, 'b', 'b',
           'Corretto! Il NAT e\\' stato inventato per far fronte all\\'esaurimento degli indirizzi IPv4. Con soli circa 4,3 miliardi di indirizzi pubblici disponibili (insufficienti per tutti i dispositivi del mondo), il NAT permette a milioni di reti private di riutilizzare gli stessi range di IP interni, condividendo pochi indirizzi pubblici.',
           '')">
-          <input type="radio" name="q4"> <span>Per l\\'esaurimento degli indirizzi IPv4</span>
+          <input type="radio" name="q4"> <span>Per l'esaurimento degli indirizzi IPv4</span>
         </div>
         <div class="option" data-value="c" onclick="QuizEngine.check(4, 'c', 'b',
           '',

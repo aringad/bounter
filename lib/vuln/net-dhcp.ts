@@ -15,9 +15,9 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       <ul style="margin-top:0.75rem;padding-left:1.25rem;color:#94a3b8;font-size:0.9rem;line-height:1.8;">
         <li><strong style="color:#38bdf8;">Discover:</strong> Il client invia un messaggio broadcast per cercare un server DHCP nella rete.</li>
         <li><strong style="color:#38bdf8;">Offer:</strong> Il server DHCP risponde offrendo un indirizzo IP disponibile e i parametri di configurazione.</li>
-        <li><strong style="color:#38bdf8;">Request:</strong> Il client accetta l\\'offerta e richiede formalmente l\\'indirizzo IP proposto.</li>
-        <li><strong style="color:#38bdf8;">Acknowledge:</strong> Il server conferma l\\'assegnazione e il client puo\\' usare l\\'indirizzo IP per il periodo di lease.</li>
-        <li><strong style="color:#38bdf8;">Lease Time:</strong> Il tempo per cui l\\'indirizzo IP e\\' valido. Alla scadenza, il client deve rinnovarlo o ottenerne uno nuovo.</li>
+        <li><strong style="color:#38bdf8;">Request:</strong> Il client accetta l'offerta e richiede formalmente l'indirizzo IP proposto.</li>
+        <li><strong style="color:#38bdf8;">Acknowledge:</strong> Il server conferma l'assegnazione e il client puo' usare l'indirizzo IP per il periodo di lease.</li>
+        <li><strong style="color:#38bdf8;">Lease Time:</strong> Il tempo per cui l'indirizzo IP e' valido. Alla scadenza, il client deve rinnovarlo o ottenerne uno nuovo.</li>
       </ul>
     </div>
 
@@ -84,12 +84,12 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         <div class="option" data-value="a" onclick="QuizEngine.check(3, 'a', 'b',
           '',
           'Sbagliato. L\\'indirizzo non viene mantenuto per sempre. Alla scadenza del lease, il client deve rinnovarlo. In genere il client tenta il rinnovo al 50% della durata del lease e, se fallisce, riprova all\\'87.5%.')">
-          <input type="radio" name="q3"> <span>L\\'indirizzo resta assegnato per sempre</span>
+          <input type="radio" name="q3"> <span>L'indirizzo resta assegnato per sempre</span>
         </div>
         <div class="option" data-value="b" onclick="QuizEngine.check(3, 'b', 'b',
           'Corretto! Alla scadenza del lease, il client deve rinnovare l\\'indirizzo IP con il server DHCP. Normalmente il client tenta il rinnovo al 50% della durata del lease (T1) e, se fallisce, riprova all\\'87.5% (T2). Se non riesce a rinnovare, perde l\\'indirizzo e deve ricominciare il processo DORA.',
           '')">
-          <input type="radio" name="q3"> <span>Il client deve rinnovare l\\'indirizzo con il server</span>
+          <input type="radio" name="q3"> <span>Il client deve rinnovare l'indirizzo con il server</span>
         </div>
         <div class="option" data-value="c" onclick="QuizEngine.check(3, 'c', 'b',
           '',
@@ -112,7 +112,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         <div class="option" data-value="b" onclick="QuizEngine.check(4, 'b', 'c',
           '',
           'Sbagliato. L\\'indirizzo MAC e\\' gia\\' assegnato alla scheda di rete dal produttore. Il DHCP fornisce indirizzo IP, subnet mask, default gateway e server DNS.')">
-          <input type="radio" name="q4"> <span>Solo l\\'indirizzo MAC</span>
+          <input type="radio" name="q4"> <span>Solo l'indirizzo MAC</span>
         </div>
         <div class="option" data-value="c" onclick="QuizEngine.check(4, 'c', 'c',
           'Corretto! Il server DHCP fornisce al client tutti i parametri necessari per comunicare in rete: indirizzo IP, subnet mask (per identificare la sottorete), default gateway (per raggiungere altre reti) e server DNS (per risolvere i nomi di dominio in indirizzi IP).',
@@ -122,7 +122,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         <div class="option" data-value="d" onclick="QuizEngine.check(4, 'd', 'c',
           '',
           'Sbagliato. Solo l\\'indirizzo IP non basta. Senza subnet mask il client non sa quale parte e\\' rete e quale host, senza gateway non raggiunge altre reti. Il DHCP fornisce IP, subnet mask, gateway e DNS.')">
-          <input type="radio" name="q4"> <span>Solo l\\'indirizzo IP</span>
+          <input type="radio" name="q4"> <span>Solo l'indirizzo IP</span>
         </div>
       </div>
       <div class="feedback"></div>

@@ -10,18 +10,18 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       <h2>Strumenti AI nel Lavoro</h2>
       <p>
         Gli strumenti di intelligenza artificiale stanno trasformando il modo di lavorare: dalla scrittura
-        alla programmazione, dall\\'analisi dati alla traduzione. Ma sono assistenti, non sostituti.
+        alla programmazione, dall'analisi dati alla traduzione. Ma sono assistenti, non sostituti.
       </p>
       <p style="margin-top:0.5rem">
-        Capire i limiti dell\\'AI e\\u0027 fondamentale per usarla in modo efficace e responsabile.
-        In questo quiz verificheremo la tua conoscenza pratica degli strumenti AI piu\\u0027 diffusi
+        Capire i limiti dell'AI e' fondamentale per usarla in modo efficace e responsabile.
+        In questo quiz verificheremo la tua conoscenza pratica degli strumenti AI piu' diffusi
         e delle best practice per integrarli nel lavoro quotidiano.
       </p>
     </div>
 
     <!-- Domanda 1 -->
     <div class="question" id="q-1">
-      <h3><span class="q-number">Domanda 1.</span> Per quale compito l\\'AI e\\u0027 piu\\u0027 affidabile oggi?</h3>
+      <h3><span class="q-number">Domanda 1.</span> Per quale compito l'AI e' piu' affidabile oggi?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(1, 'a', 'b',
           'Corretto!',
@@ -49,7 +49,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Domanda 2 -->
     <div class="question" id="q-2">
-      <h3><span class="q-number">Domanda 2.</span> Devi scrivere un report tecnico. Come usi l\\'AI al meglio?</h3>
+      <h3><span class="q-number">Domanda 2.</span> Devi scrivere un report tecnico. Come usi l'AI al meglio?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(2, 'a', 'b',
           'Corretto!',
@@ -77,7 +77,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Domanda 3 -->
     <div class="question" id="q-3">
-      <h3><span class="q-number">Domanda 3.</span> Cos\\'e\\u0027 GitHub Copilot?</h3>
+      <h3><span class="q-number">Domanda 3.</span> Cos'e' GitHub Copilot?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(3, 'a', 'c',
           'Corretto!',
@@ -105,7 +105,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Domanda 4 -->
     <div class="question" id="q-4">
-      <h3><span class="q-number">Domanda 4.</span> Qual e\\u0027 il limite principale degli strumenti AI per l\\'analisi dati?</h3>
+      <h3><span class="q-number">Domanda 4.</span> Qual e' il limite principale degli strumenti AI per l'analisi dati?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(4, 'a', 'b',
           'Corretto!',
@@ -133,7 +133,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Domanda 5 -->
     <div class="question" id="q-5">
-      <h3><span class="q-number">Domanda 5.</span> Un collega dice "l\\'AI ha detto che..." come fonte autorevole in una riunione. E\\u0027 corretto?</h3>
+      <h3><span class="q-number">Domanda 5.</span> Un collega dice "l'AI ha detto che..." come fonte autorevole in una riunione. E' corretto?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(5, 'a', 'c',
           'Corretto!',

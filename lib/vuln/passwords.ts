@@ -219,7 +219,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         <div class="option" data-value="b" onclick="QuizEngine.check(2, 'b', 'b',
           'Corretto! Le informazioni personali (nomi di familiari, animali, date di nascita) sono facilmente reperibili sui social media e sono tra i primi tentativi negli attacchi mirati.',
           'Sbagliato.')">
-          <input type="radio" name="q2"> <span>Perché è un\'informazione personale facilmente reperibile online</span>
+          <input type="radio" name="q2"> <span>Perché è un'informazione personale facilmente reperibile online</span>
         </div>
         <div class="option" data-value="c" onclick="QuizEngine.check(2, 'c', 'b',
           'Corretto!',

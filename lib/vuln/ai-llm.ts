@@ -204,7 +204,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <script>QuizEngine.init(6);</script>
   `;
 
-  const html = wrapQuiz("Cos\\'e\\' un LLM", body);
+  const html = wrapQuiz("Cos'e' un LLM", body);
   res.setHeader("Content-Type", "text/html");
   res.status(200).send(html);
 }

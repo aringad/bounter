@@ -9,17 +9,17 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <div class="intro">
       <h2>AI e Privacy: opportunita' e rischi</h2>
       <p>
-        L\\'intelligenza artificiale porta enormi vantaggi in termini di produttivita', ma introduce anche
+        L'intelligenza artificiale porta enormi vantaggi in termini di produttivita', ma introduce anche
         <strong>rischi significativi per la privacy</strong>. Il GDPR si applica ogni volta che dati personali
         vengono trattati da sistemi di AI, sia interni che esterni. Le aziende devono dotarsi di policy chiare
-        per governare l\\'uso degli strumenti AI e proteggere i dati di clienti e dipendenti.
-        In questo quiz affronterai 6 domande per capire come usare l\\'AI in modo sicuro e conforme.
+        per governare l'uso degli strumenti AI e proteggere i dati di clienti e dipendenti.
+        In questo quiz affronterai 6 domande per capire come usare l'AI in modo sicuro e conforme.
       </p>
     </div>
 
     <!-- Domanda 1 -->
     <div class="question" id="q-1">
-      <h3><span class="q-number">Domanda 1.</span> Cos\\'e\\' la "shadow AI"?</h3>
+      <h3><span class="q-number">Domanda 1.</span> Cos'e' la "shadow AI"?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(1,'a','b','Corretto! La shadow AI e\\' l\\'uso non autorizzato di strumenti AI da parte dei dipendenti, spesso con dati aziendali sensibili. E\\' un rischio crescente perche\\' i tool AI sono facilmente accessibili e i dipendenti li usano per velocizzare il lavoro senza passare dall\\'IT o dalla compliance.','Sbagliato! La shadow AI non riguarda l\\'AI malevola. Si riferisce ai dipendenti che usano strumenti AI non approvati dall\\'azienda, caricando potenzialmente dati riservati su piattaforme esterne senza controllo.')">
           <input type="radio" name="q1"> Un tipo di intelligenza artificiale usata dagli hacker per attaccare le aziende
@@ -76,7 +76,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Domanda 4 -->
     <div class="question" id="q-4">
-      <h3><span class="q-number">Domanda 4.</span> Cos\\'e\\' una "AI policy" aziendale?</h3>
+      <h3><span class="q-number">Domanda 4.</span> Cos'e' una "AI policy" aziendale?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(4,'a','c','Corretto! Una AI policy aziendale definisce regole chiare su quali strumenti AI possono essere usati, con quali dati, e le procedure di approvazione. Include indicazioni su classificazione dei dati, strumenti approvati, divieti specifici e responsabilita\\'. E\\' fondamentale per prevenire la shadow AI e garantire la compliance GDPR.','Sbagliato! Una AI policy non e\\' un software ma un documento di governance. Stabilisce le regole aziendali sull\\'uso degli strumenti AI: quali tool sono approvati, quali dati possono essere condivisi, chi deve approvare l\\'uso e le responsabilita\\' in caso di violazione.')">
           <input type="radio" name="q4"> Un software che monitora automaticamente l'uso dell'AI in azienda
