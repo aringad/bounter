@@ -1,10 +1,12 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { createHash } from "crypto";
 
-// Two-tier password system:
+// Three-tier password system:
 // - Basic password: access to general/beginner quizzes only
+// - Proxima password: fundamentals + networking + DNS
 // - Pro password: access to everything (technical challenges, AI, settings)
 const BASIC_PASSWORD_HASH = process.env.BASIC_PASSWORD_HASH || "102de1b6d2a94b4a617d5ac869dd56d990b940c20b391fefc74370ff7de0cddf"; // Sos2025$$
+const PROXIMA_PASSWORD_HASH = process.env.PROXIMA_PASSWORD_HASH || "e659f3138de491565748df69a76ee1419670db616504a093c29400b5ba062ea3"; // Proxima!2026
 const PRO_PASSWORD_HASH = process.env.PRO_PASSWORD_HASH || "a03f17d7c6c5ed0286e550d23eff2606720b8890d66f07a44ef686b277c73c47"; // Mediaform@2026!
 
 const TOKEN_COOKIE = "bounter_token";
@@ -18,6 +20,7 @@ function generateToken(passwordHash: string, tier: string): string {
 }
 
 const BASIC_TOKEN = generateToken(BASIC_PASSWORD_HASH, "basic");
+const PROXIMA_TOKEN = generateToken(PROXIMA_PASSWORD_HASH, "proxima");
 const PRO_TOKEN = generateToken(PRO_PASSWORD_HASH, "pro");
 
 function getTokenFromRequest(req: VercelRequest): string | null {
@@ -26,11 +29,12 @@ function getTokenFromRequest(req: VercelRequest): string | null {
   return match?.[1] || null;
 }
 
-export type AuthTier = "none" | "basic" | "pro";
+export type AuthTier = "none" | "basic" | "proxima" | "pro";
 
 export function getAuthTier(req: VercelRequest): AuthTier {
   const token = getTokenFromRequest(req);
   if (token === PRO_TOKEN) return "pro";
+  if (token === PROXIMA_TOKEN) return "proxima";
   if (token === BASIC_TOKEN) return "basic";
   return "none";
 }
@@ -46,12 +50,13 @@ export function isProUser(req: VercelRequest): boolean {
 export function verifyPassword(password: string): { valid: boolean; tier: AuthTier } {
   const hash = hashPassword(password);
   if (hash === PRO_PASSWORD_HASH) return { valid: true, tier: "pro" };
+  if (hash === PROXIMA_PASSWORD_HASH) return { valid: true, tier: "proxima" };
   if (hash === BASIC_PASSWORD_HASH) return { valid: true, tier: "basic" };
   return { valid: false, tier: "none" };
 }
 
 export function getAuthCookieHeader(tier: AuthTier): string {
-  const token = tier === "pro" ? PRO_TOKEN : BASIC_TOKEN;
+  const token = tier === "pro" ? PRO_TOKEN : tier === "proxima" ? PROXIMA_TOKEN : BASIC_TOKEN;
   return `${TOKEN_COOKIE}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`;
 }
 

@@ -391,7 +391,9 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return res.json(challenge);
   }
 
-  // Basic users only see general challenges
-  const filtered = tier === "pro" ? challenges : challenges.filter(c => c.type === "general");
+  const PROXIMA_TYPES = ["general", "networking", "dns"];
+  const filtered = tier === "pro" ? challenges
+    : tier === "proxima" ? challenges.filter(c => PROXIMA_TYPES.includes(c.type))
+    : challenges.filter(c => c.type === "general");
   return res.json(filtered);
 }
