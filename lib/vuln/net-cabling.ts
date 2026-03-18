@@ -77,26 +77,26 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Q3 -->
     <div class="question" id="q-3">
-      <h3><span class="q-number">3.</span> Qual e' la distanza massima per un singolo tratto di cavo in rame Cat6?</h3>
+      <h3><span class="q-number">3.</span> Qual e' la distanza massima per un singolo tratto di cavo in rame Cat6 <em>a 10 Gbps</em>?</h3>
       <div class="options">
-        <div class="option" data-value="a" onclick="QuizEngine.check(3, 'a', 'b',
-          '',
-          'Sbagliato. 50 metri e\\' il limite solo per il Cat6 a 10 Gbps. Per Gigabit Ethernet, il limite standard di tutti i cavi in rame e\\' 100 metri.')">
-          <input type="radio" name="q3"> <span>50 metri</span>
-        </div>
-        <div class="option" data-value="b" onclick="QuizEngine.check(3, 'b', 'b',
-          'Corretto! Tutti i cavi Ethernet in rame (Cat5e, Cat6, Cat6a, Cat7) hanno un limite massimo di 100 metri per tratta. Oltre questa distanza serve la fibra ottica o un ripetitore.',
+        <div class="option" data-value="a" onclick="QuizEngine.check(3, 'a', 'a',
+          'Corretto! Il Cat6 supporta 10 Gbps solo fino a 55 metri. Oltre questa distanza la velocita\\' scende a 1 Gbps (fino a 100m). Per 10 Gbps su distanze maggiori serve il Cat6a, che regge 10 Gbps fino a 100m.',
           '')">
+          <input type="radio" name="q3"> <span>55 metri</span>
+        </div>
+        <div class="option" data-value="b" onclick="QuizEngine.check(3, 'b', 'a',
+          '',
+          'Sbagliato. 100 metri e\\' il limite del Cat6 per Gigabit (1 Gbps). A 10 Gbps il Cat6 arriva solo a 55 metri. Per 10 Gbps a 100m serve il Cat6a.')">
           <input type="radio" name="q3"> <span>100 metri</span>
         </div>
-        <div class="option" data-value="c" onclick="QuizEngine.check(3, 'c', 'b',
+        <div class="option" data-value="c" onclick="QuizEngine.check(3, 'c', 'a',
           '',
-          'Sbagliato. 200 metri supera il limite standard. I cavi in rame Ethernet possono coprire al massimo 100 metri per tratta.')">
+          'Sbagliato. 200 metri supera il limite di qualsiasi cavo in rame Ethernet. Il Cat6 a 10 Gbps arriva a soli 55 metri.')">
           <input type="radio" name="q3"> <span>200 metri</span>
         </div>
-        <div class="option" data-value="d" onclick="QuizEngine.check(3, 'd', 'b',
+        <div class="option" data-value="d" onclick="QuizEngine.check(3, 'd', 'a',
           '',
-          'Sbagliato. 500 metri e\\' raggiungibile solo con la fibra ottica. Il rame si ferma a 100 metri.')">
+          'Sbagliato. 500 metri e\\' raggiungibile solo con la fibra ottica. Il Cat6 a 10 Gbps si ferma a 55 metri.')">
           <input type="radio" name="q3"> <span>500 metri</span>
         </div>
       </div>
