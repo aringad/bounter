@@ -15,7 +15,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       <ul style="margin-top:0.75rem;padding-left:1.25rem;color:#94a3b8;font-size:0.9rem;line-height:1.8;">
         <li><strong style="color:#38bdf8;">NIC (Network Interface Card):</strong> La scheda di rete che permette a un dispositivo di collegarsi alla rete (via cavo Ethernet o WiFi).</li>
         <li><strong style="color:#38bdf8;">Hub:</strong> Dispositivo Layer 1 che ripete il segnale a tutte le porte. Tutti i dispositivi ricevono tutti i pacchetti (dominio di collisione unico).</li>
-        <li><strong style="color:#38bdf8;">Switch:</strong> Dispositivo Layer 2 che inoltra i frame solo alla porta corretta usando la tabella MAC. Supporta VLAN per segmentare la rete.</li>
+        <li><strong style="color:#38bdf8;">Switch:</strong> Dispositivo Layer 2 che inoltra i frame solo alla porta corretta usando la tabella MAC. Gli switch managed (L2+) supportano VLAN per segmentare la rete; gli switch Layer 3 aggiungono anche il routing tra VLAN.</li>
         <li><strong style="color:#38bdf8;">Router:</strong> Dispositivo Layer 3 che collega reti diverse (es. LAN a Internet) e instrada i pacchetti tramite indirizzi IP.</li>
         <li><strong style="color:#38bdf8;">Access Point (AP):</strong> Estende la rete cablata offrendo connettivita' wireless (WiFi) ai dispositivi.</li>
       </ul>

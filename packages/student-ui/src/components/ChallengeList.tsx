@@ -208,7 +208,7 @@ export default function ChallengeList({ onSelect, lang }: Props) {
             items={items}
             lang={lang}
             onSelect={onSelect}
-            defaultOpen={i === 0}
+            defaultOpen={false}
           />
         );
       })}
