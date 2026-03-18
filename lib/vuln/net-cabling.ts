@@ -107,19 +107,19 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <div class="question" id="q-4">
       <h3><span class="q-number">4.</span> In un ambiente industriale con forti interferenze elettromagnetiche (EMI), quale cavo e' la scelta migliore?</h3>
       <div class="options">
-        <div class="option" data-value="a" onclick="QuizEngine.check(4, 'a', 'c',
+        <div class="option" data-value="a" onclick="QuizEngine.check(4, 'a', 'b',
           '',
-          'Sbagliato. Il Cat5e non e\\' schermato (UTP) ed e\\' molto sensibile alle interferenze elettromagnetiche.')">
-          <input type="radio" name="q4"> <span>Cat5e</span>
+          'Sbagliato. Il Cat5e non e\\' schermato (UTP) ed e\\' molto sensibile alle interferenze elettromagnetiche. Serve almeno un cavo schermato.')">
+          <input type="radio" name="q4"> <span>Cat5e UTP</span>
         </div>
-        <div class="option" data-value="b" onclick="QuizEngine.check(4, 'b', 'c',
-          '',
-          'Sbagliato. Anche con schermatura (STP), il cavo in rame resta sensibile alle EMI intense. La fibra ottica e\\' completamente immune.')">
+        <div class="option" data-value="b" onclick="QuizEngine.check(4, 'b', 'b',
+          'Corretto! Il Cat6 schermato (STP/FTP) e\\' la scelta piu\\' pratica in ambienti con EMI: la schermatura protegge il segnale dalle interferenze mantenendo costi e complessita\\' ragionevoli. La fibra ottica sarebbe immune al 100% ma e\\' piu\\' costosa e complessa da installare.',
+          '')">
           <input type="radio" name="q4"> <span>Cat6 schermato (STP)</span>
         </div>
-        <div class="option" data-value="c" onclick="QuizEngine.check(4, 'c', 'c',
-          'Corretto! La fibra ottica trasmette luce, non segnali elettrici, ed e\\' quindi completamente immune alle interferenze elettromagnetiche. E\\' la scelta ideale per ambienti industriali.',
-          '')">
+        <div class="option" data-value="c" onclick="QuizEngine.check(4, 'c', 'b',
+          '',
+          'La fibra ottica e\\' immune alle EMI, ma e\\' una soluzione sovradimensionata e costosa per la maggior parte degli ambienti industriali. Un cavo Cat6 schermato (STP) offre una protezione adeguata a costi inferiori.')">
           <input type="radio" name="q4"> <span>Fibra ottica</span>
         </div>
       </div>
