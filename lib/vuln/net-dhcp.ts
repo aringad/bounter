@@ -166,7 +166,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
           <input type="radio" name="q6"> <span>Il client e' connesso tramite VPN</span>
         </div>
         <div class="option" data-value="c" onclick="QuizEngine.check(6, 'c', 'c',
-          'Corretto! L\\'indirizzo 169.254.x.x e\\' un indirizzo APIPA (Automatic Private IP Addressing). Quando il client non riceve risposta da nessun server DHCP, si auto-assegna un indirizzo in questo range per comunicare almeno sulla rete locale. Indica un problema: server DHCP spento, irraggiungibile o esaurito.',
+          'Corretto! L\\'indirizzo 169.254.x.x e\\' un indirizzo APIPA (Automatic Private IP Addressing). Quando il client non riceve risposta da nessun server DHCP, si auto-assegna un indirizzo in questo range per comunicare almeno sulla rete locale. Indica un problema: server DHCP spento, irraggiungibile, esaurito, oppure un conflitto di configurazione di rete (es. VLAN errata o porta trunk/access mal configurata).',
           '')">
           <input type="radio" name="q6"> <span>Nessun server DHCP ha risposto (APIPA)</span>
         </div>

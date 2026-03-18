@@ -158,7 +158,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Q6 -->
     <div class="question" id="q-6">
-      <h3><span class="q-number">6.</span> Un web server deve essere pubblico (HTTPS) ma l'accesso SSH limitato all'IP dell'ufficio. Quante regole ALLOW servono come minimo?</h3>
+      <h3><span class="q-number">6.</span> Un web server deve essere pubblico (HTTPS) ma l'accesso SSH limitato all'IP dell'ufficio. Con policy default deny, quante regole ALLOW servono come minimo?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(6, 'a', 'b',
           '',

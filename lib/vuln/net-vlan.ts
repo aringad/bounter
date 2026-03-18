@@ -115,7 +115,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
           <input type="radio" name="q4"> <span>Un secondo switch Layer 2</span>
         </div>
         <div class="option" data-value="c" onclick="QuizEngine.check(4, 'c', 'c',
-          'Corretto! Le VLAN isolano il traffico a Layer 2, quindi per comunicare tra VLAN diverse serve un dispositivo Layer 3: un router (inter-VLAN routing) o uno switch Layer 3 che possa instradare i pacchetti tra le sottoreti associate alle VLAN.',
+          'Corretto! Le VLAN isolano il traffico a Layer 2, quindi per comunicare tra VLAN diverse serve un dispositivo Layer 3: un router (inter-VLAN routing) o uno switch Layer 3 che possa instradare i pacchetti tra le sottoreti associate alle VLAN. Nota: molti switch enterprise moderni sono multilayer (L2+L3) e possono fare sia switching che routing sullo stesso dispositivo.',
           '')">
           <input type="radio" name="q4"> <span>Un router o uno switch Layer 3</span>
         </div>

@@ -107,7 +107,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Q4 -->
     <div class="question" id="q-4">
-      <h3><span class="q-number">4.</span> SMTP (Simple Mail Transfer Protocol) usa quale porta di default?</h3>
+      <h3><span class="q-number">4.</span> SMTP (Simple Mail Transfer Protocol) per il relay tra server usa quale porta di default?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(4, 'a', 'b',
           '',

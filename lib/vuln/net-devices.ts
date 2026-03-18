@@ -46,7 +46,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Q2 -->
     <div class="question" id="q-2">
-      <h3><span class="q-number">2.</span> Quale dispositivo opera a Layer 2 (Data Link) del modello OSI?</h3>
+      <h3><span class="q-number">2.</span> Qual e' il dispositivo principale di Layer 2 (Data Link) in una LAN cablata?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(2, 'a', 'b',
           '',

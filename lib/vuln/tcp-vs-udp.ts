@@ -132,7 +132,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     <!-- Q5 -->
     <div class="question" id="q-5">
-      <h3><span class="q-number">5.</span> HTTPS utilizza quale protocollo di trasporto?</h3>
+      <h3><span class="q-number">5.</span> HTTPS tradizionale (HTTP/1.1 e HTTP/2) utilizza quale protocollo di trasporto?</h3>
       <div class="options">
         <div class="option" data-value="a" onclick="QuizEngine.check(5, 'a', 'a',
           'Corretto! HTTPS (HTTP Secure) si appoggia su TCP porta 443. TCP garantisce che tutti i dati della pagina web arrivino completi e nell\\'ordine corretto, requisito fondamentale per il trasferimento di contenuti web e la negoziazione TLS.',

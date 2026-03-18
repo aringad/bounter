@@ -195,7 +195,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
           <input type="radio" name="q1"> <span>Admin123</span>
         </div>
         <div class="option" data-value="c" onclick="QuizEngine.check(1, 'c', 'c',
-          'Corretto! Una passphrase lunga con parole casuali è molto più difficile da indovinare di una password corta e complessa. La lunghezza batte la complessità.',
+          'Corretto! Una passphrase lunga con parole casuali è molto più difficile da indovinare di una password corta e complessa. La lunghezza batte la complessità. Una passphrase casuale offre maggiore sicurezza a parità di sforzo umano, ma la casualità è fondamentale: frasi prevedibili o citazioni note possono essere deboli.',
           'Sbagliato.')">
           <input type="radio" name="q1"> <span>cavallo-batteria-graffetta-blu</span>
         </div>

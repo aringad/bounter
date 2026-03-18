@@ -172,9 +172,9 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
           <input type="radio" name="q6"> <span>No, e' probabilmente traffico normale</span>
         </div>
         <div class="option" data-value="b" onclick="QuizEngine.check(6, 'b', 'b',
-          'Corretto! Una connessione ESTABLISHED verso un IP sconosciuto sulla porta 4444 e\\' estremamente sospetta. La porta 4444 e\\' la porta di default usata da reverse shell e tool di attacco come Metasploit. Potrebbe indicare che il sistema e\\' compromesso e un attaccante ha accesso remoto. Azione immediata: identificare il processo con netstat -p o lsof, verificare l\\'IP di destinazione, e isolare il sistema dalla rete se confermata la compromissione.',
+          'Corretto! Una connessione ESTABLISHED verso un IP sconosciuto sulla porta 4444 e\\' altamente sospetta e richiede indagine immediata. La porta 4444 e\\' la porta di default usata da tool come Metasploit per reverse shell, ma potrebbe anche essere un\\'applicazione legittima mal configurata. Azione immediata: identificare il processo con netstat -p o lsof, verificare l\\'IP di destinazione, e isolare il sistema dalla rete se confermata la compromissione.',
           '')">
-          <input type="radio" name="q6"> <span>Si', potrebbe essere una reverse shell o backdoor</span>
+          <input type="radio" name="q6"> <span>Si', e' altamente sospetto e richiede indagine immediata</span>
         </div>
         <div class="option" data-value="c" onclick="QuizEngine.check(6, 'c', 'b',
           '',
