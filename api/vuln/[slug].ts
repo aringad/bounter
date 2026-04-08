@@ -44,6 +44,12 @@ import swMacTableHandler from "../../lib/vuln/sw-mac-table";
 import swVlanTrunkHandler from "../../lib/vuln/sw-vlan-trunk";
 import swStpLagHandler from "../../lib/vuln/sw-stp-lag";
 import swSecurityHandler from "../../lib/vuln/sw-security";
+// WiFi e Reti Wireless
+import wifiStandardsHandler from "../../lib/vuln/wifi-standards";
+import wifiModesHandler from "../../lib/vuln/wifi-modes";
+import wifiBridgesHandler from "../../lib/vuln/wifi-bridges";
+import wifiSecurityHandler from "../../lib/vuln/wifi-security";
+import wifiDesignHandler from "../../lib/vuln/wifi-design";
 // AI
 import aiLlmHandler from "../../lib/vuln/ai-llm";
 import aiPromptHandler from "../../lib/vuln/ai-prompt";
@@ -89,6 +95,12 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "sw-vlan-trunk": swVlanTrunkHandler,
   "sw-stp-lag": swStpLagHandler,
   "sw-security": swSecurityHandler,
+  // WiFi
+  "wifi-standards": wifiStandardsHandler,
+  "wifi-modes": wifiModesHandler,
+  "wifi-bridges": wifiBridgesHandler,
+  "wifi-security": wifiSecurityHandler,
+  "wifi-design": wifiDesignHandler,
   // AI
   "ai-llm": aiLlmHandler,
   "ai-prompt": aiPromptHandler,

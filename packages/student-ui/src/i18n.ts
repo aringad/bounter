@@ -34,6 +34,11 @@ const translations = {
     it: "MAC table, VLAN, trunk 802.1Q, STP/RSTP, EtherChannel, port security, DHCP snooping e QoS.",
     en: "MAC table, VLANs, 802.1Q trunking, STP/RSTP, EtherChannel, port security, DHCP snooping and QoS.",
   },
+  wifiSection: { it: "WiFi e Reti Wireless", en: "WiFi & Wireless Networks" },
+  wifiSubtitle: {
+    it: "Standard 802.11, bande e canali, modalita operative, ponti radio, sicurezza WPA2/WPA3, roaming e progettazione.",
+    en: "802.11 standards, bands and channels, operating modes, radio bridges, WPA2/WPA3 security, roaming and design.",
+  },
   aiSection: { it: "Intelligenza Artificiale", en: "Artificial Intelligence" },
   aiSubtitle: {
     it: "Fondamenti di AI: come funzionano gli LLM, prompt engineering, modelli, deepfake, privacy e strumenti pratici.",
@@ -248,6 +253,27 @@ const translations = {
   "desc.tcp-netstat": {
     it: "Interpreta l'output di netstat/ss per identificare connessioni sospette.",
     en: "Interpret netstat/ss output to identify suspicious connections.",
+  },
+  // Challenge descriptions - WiFi
+  "desc.wifi-standards": {
+    it: "Evoluzione WiFi da b/g/n/ac/ax, bande 2.4/5/6 GHz, canali, MIMO e OFDMA.",
+    en: "WiFi evolution from b/g/n/ac/ax, 2.4/5/6 GHz bands, channels, MIMO and OFDMA.",
+  },
+  "desc.wifi-modes": {
+    it: "AP, client, repeater, extender, WDS, bridge e mesh: quale scegliere e quando.",
+    en: "AP, client, repeater, extender, WDS, bridge and mesh: which to choose and when.",
+  },
+  "desc.wifi-bridges": {
+    it: "Link punto-punto, punto-multipunto, zona di Fresnel e progettazione outdoor.",
+    en: "Point-to-point, point-to-multipoint links, Fresnel zone and outdoor design.",
+  },
+  "desc.wifi-security": {
+    it: "Da WEP a WPA3, Personal vs Enterprise 802.1X, attacchi e contromisure.",
+    en: "From WEP to WPA3, Personal vs Enterprise 802.1X, attacks and countermeasures.",
+  },
+  "desc.wifi-design": {
+    it: "Site survey, copertura, roaming 802.11r/k/v, controller WiFi e best practice.",
+    en: "Site survey, coverage, 802.11r/k/v roaming, WiFi controllers and best practices.",
   },
   // Challenge descriptions - Switch e LAN Avanzate
   "desc.sw-mac-table": {
