@@ -258,6 +258,43 @@ const challenges = [
     targetPath: "/vuln/tcp-netstat",
     type: "tcp-udp",
   },
+  // === Switch e LAN Avanzate ===
+  {
+    id: "sw-mac-table",
+    title: "Switch e MAC Table",
+    category: "Switch LAN",
+    difficulty: "beginner",
+    description: "Come funziona uno switch: MAC table, forwarding, flooding, domini di collisione e broadcast.",
+    targetPath: "/vuln/sw-mac-table",
+    type: "switch-lan",
+  },
+  {
+    id: "sw-vlan-trunk",
+    title: "VLAN e Trunk 802.1Q",
+    category: "Switch LAN",
+    difficulty: "beginner",
+    description: "Segmentazione logica con VLAN, access e trunk port, tag 802.1Q, inter-VLAN routing.",
+    targetPath: "/vuln/sw-vlan-trunk",
+    type: "switch-lan",
+  },
+  {
+    id: "sw-stp-lag",
+    title: "STP e Ridondanza",
+    category: "Switch LAN",
+    difficulty: "beginner",
+    description: "Spanning Tree Protocol, loop di rete, RSTP, EtherChannel e Link Aggregation.",
+    targetPath: "/vuln/sw-stp-lag",
+    type: "switch-lan",
+  },
+  {
+    id: "sw-security",
+    title: "Sicurezza Switch",
+    category: "Switch LAN",
+    difficulty: "beginner",
+    description: "Port security, DHCP snooping, ARP inspection, QoS e gestione switch.",
+    targetPath: "/vuln/sw-security",
+    type: "switch-lan",
+  },
   // === Intelligenza Artificiale ===
   {
     id: "ai-llm",

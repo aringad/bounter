@@ -39,6 +39,11 @@ import tcpSegmentHandler from "../../lib/vuln/tcp-segment";
 import tcpFirewallHandler from "../../lib/vuln/tcp-firewall";
 import tcpNetstatHandler from "../../lib/vuln/tcp-netstat";
 
+// Switch e LAN Avanzate
+import swMacTableHandler from "../../lib/vuln/sw-mac-table";
+import swVlanTrunkHandler from "../../lib/vuln/sw-vlan-trunk";
+import swStpLagHandler from "../../lib/vuln/sw-stp-lag";
+import swSecurityHandler from "../../lib/vuln/sw-security";
 // AI
 import aiLlmHandler from "../../lib/vuln/ai-llm";
 import aiPromptHandler from "../../lib/vuln/ai-prompt";
@@ -79,6 +84,11 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "dns-email-auth": dnsEmailAuthHandler,
   "dns-attacks": dnsAttacksHandler,
   "dns-troubleshooting": dnsTroubleshootingHandler,
+  // Switch e LAN Avanzate
+  "sw-mac-table": swMacTableHandler,
+  "sw-vlan-trunk": swVlanTrunkHandler,
+  "sw-stp-lag": swStpLagHandler,
+  "sw-security": swSecurityHandler,
   // AI
   "ai-llm": aiLlmHandler,
   "ai-prompt": aiPromptHandler,

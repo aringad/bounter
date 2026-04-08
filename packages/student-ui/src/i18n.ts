@@ -29,6 +29,11 @@ const translations = {
     it: "Protocolli di trasporto, handshake, porte well-known, firewall e analisi connessioni.",
     en: "Transport protocols, handshake, well-known ports, firewalls and connection analysis.",
   },
+  switchLanSection: { it: "Switch e LAN Avanzate", en: "Switch & Advanced LAN" },
+  switchLanSubtitle: {
+    it: "MAC table, VLAN, trunk 802.1Q, STP/RSTP, EtherChannel, port security, DHCP snooping e QoS.",
+    en: "MAC table, VLANs, 802.1Q trunking, STP/RSTP, EtherChannel, port security, DHCP snooping and QoS.",
+  },
   aiSection: { it: "Intelligenza Artificiale", en: "Artificial Intelligence" },
   aiSubtitle: {
     it: "Fondamenti di AI: come funzionano gli LLM, prompt engineering, modelli, deepfake, privacy e strumenti pratici.",
@@ -243,6 +248,23 @@ const translations = {
   "desc.tcp-netstat": {
     it: "Interpreta l'output di netstat/ss per identificare connessioni sospette.",
     en: "Interpret netstat/ss output to identify suspicious connections.",
+  },
+  // Challenge descriptions - Switch e LAN Avanzate
+  "desc.sw-mac-table": {
+    it: "Come funziona uno switch: MAC table, forwarding, flooding, domini di collisione e broadcast.",
+    en: "How a switch works: MAC table, forwarding, flooding, collision and broadcast domains.",
+  },
+  "desc.sw-vlan-trunk": {
+    it: "Segmentazione logica con VLAN, access e trunk port, tag 802.1Q, inter-VLAN routing.",
+    en: "Logical segmentation with VLANs, access and trunk ports, 802.1Q tagging, inter-VLAN routing.",
+  },
+  "desc.sw-stp-lag": {
+    it: "Spanning Tree Protocol, loop di rete, RSTP, EtherChannel e Link Aggregation.",
+    en: "Spanning Tree Protocol, network loops, RSTP, EtherChannel and Link Aggregation.",
+  },
+  "desc.sw-security": {
+    it: "Port security, DHCP snooping, ARP inspection, QoS e gestione switch.",
+    en: "Port security, DHCP snooping, ARP inspection, QoS and switch management.",
   },
 
   // Challenge descriptions - AI
