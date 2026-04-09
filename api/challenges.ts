@@ -341,6 +341,16 @@ const challenges = [
     targetPath: "/vuln/wifi-design",
     type: "wifi",
   },
+  // === Boot, BIOS e UEFI ===
+  {
+    id: "bios-simulator",
+    title: "Simulatore BIOS/UEFI",
+    category: "Boot/BIOS",
+    difficulty: "beginner",
+    description: "Naviga un BIOS simulato e completa 5 task: boot order, Secure Boot, virtualizzazione, password e data/ora.",
+    targetPath: "/vuln/bios-simulator",
+    type: "boot-bios",
+  },
   // === Intelligenza Artificiale ===
   {
     id: "ai-llm",

@@ -39,6 +39,11 @@ const translations = {
     it: "Standard 802.11, bande e canali, modalita operative, ponti radio, sicurezza WPA2/WPA3, roaming e progettazione.",
     en: "802.11 standards, bands and channels, operating modes, radio bridges, WPA2/WPA3 security, roaming and design.",
   },
+  bootBiosSection: { it: "Boot, BIOS e UEFI", en: "Boot, BIOS & UEFI" },
+  bootBiosSubtitle: {
+    it: "Simulatore BIOS interattivo: configura boot order, Secure Boot, virtualizzazione e password.",
+    en: "Interactive BIOS simulator: configure boot order, Secure Boot, virtualization and passwords.",
+  },
   aiSection: { it: "Intelligenza Artificiale", en: "Artificial Intelligence" },
   aiSubtitle: {
     it: "Fondamenti di AI: come funzionano gli LLM, prompt engineering, modelli, deepfake, privacy e strumenti pratici.",
@@ -253,6 +258,11 @@ const translations = {
   "desc.tcp-netstat": {
     it: "Interpreta l'output di netstat/ss per identificare connessioni sospette.",
     en: "Interpret netstat/ss output to identify suspicious connections.",
+  },
+  // Challenge descriptions - Boot BIOS
+  "desc.bios-simulator": {
+    it: "Simulatore BIOS interattivo: naviga i menu, cambia boot order, abilita Secure Boot e virtualizzazione.",
+    en: "Interactive BIOS simulator: navigate menus, change boot order, enable Secure Boot and virtualization.",
   },
   // Challenge descriptions - WiFi
   "desc.wifi-standards": {

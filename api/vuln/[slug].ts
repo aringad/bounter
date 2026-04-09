@@ -50,6 +50,8 @@ import wifiModesHandler from "../../lib/vuln/wifi-modes";
 import wifiBridgesHandler from "../../lib/vuln/wifi-bridges";
 import wifiSecurityHandler from "../../lib/vuln/wifi-security";
 import wifiDesignHandler from "../../lib/vuln/wifi-design";
+// Boot BIOS
+import biosSimulatorHandler from "../../lib/vuln/bios-simulator";
 // AI
 import aiLlmHandler from "../../lib/vuln/ai-llm";
 import aiPromptHandler from "../../lib/vuln/ai-prompt";
@@ -101,6 +103,8 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "wifi-bridges": wifiBridgesHandler,
   "wifi-security": wifiSecurityHandler,
   "wifi-design": wifiDesignHandler,
+  // Boot BIOS
+  "bios-simulator": biosSimulatorHandler,
   // AI
   "ai-llm": aiLlmHandler,
   "ai-prompt": aiPromptHandler,
