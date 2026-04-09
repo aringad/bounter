@@ -507,54 +507,54 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
   <div class="qq" id="qq-1">
     <h3>1. Perche' e' importante abilitare Secure Boot nel BIOS?</h3>
-    <div class="qopt" onclick="answerQ(1,'a')">a) Velocizza l'avvio del sistema operativo</div>
-    <div class="qopt" onclick="answerQ(1,'b')">b) Impedisce l'esecuzione di bootloader e driver non firmati, proteggendo da rootkit e malware pre-boot</div>
-    <div class="qopt" onclick="answerQ(1,'c')">c) Cripta l'intero disco rigido</div>
-    <div class="qopt" onclick="answerQ(1,'d')">d) Blocca l'accesso a Internet durante l'avvio</div>
+    <div class="qopt" onclick="answerQ(1,'a')">a) Cripta l'intero disco rigido</div>
+    <div class="qopt" onclick="answerQ(1,'b')">b) Blocca l'accesso a Internet durante l'avvio</div>
+    <div class="qopt" onclick="answerQ(1,'c')">c) Impedisce l'esecuzione di bootloader e driver non firmati, proteggendo da rootkit e malware pre-boot</div>
+    <div class="qopt" onclick="answerQ(1,'d')">d) Velocizza l'avvio del sistema operativo</div>
     <div class="qfb" id="fb-1"></div>
   </div>
 
   <div class="qq" id="qq-2">
     <h3>2. Cosa permette la virtualizzazione Intel VT-x una volta abilitata?</h3>
-    <div class="qopt" onclick="answerQ(2,'a')">a) Aumenta la velocita' del processore del 50%</div>
+    <div class="qopt" onclick="answerQ(2,'a')">a) Attiva il dual-boot automatico con Linux</div>
     <div class="qopt" onclick="answerQ(2,'b')">b) Permette di eseguire macchine virtuali (VirtualBox, VMware, Hyper-V) con prestazioni hardware</div>
-    <div class="qopt" onclick="answerQ(2,'c')">c) Abilita la connessione WiFi integrata</div>
-    <div class="qopt" onclick="answerQ(2,'d')">d) Attiva il dual-boot automatico con Linux</div>
+    <div class="qopt" onclick="answerQ(2,'c')">c) Aumenta la velocita' del processore del 50%</div>
+    <div class="qopt" onclick="answerQ(2,'d')">d) Abilita la connessione WiFi integrata</div>
     <div class="qfb" id="fb-2"></div>
   </div>
 
   <div class="qq" id="qq-3">
     <h3>3. Quali rischi comporta NON impostare una password supervisore sul BIOS?</h3>
     <div class="qopt" onclick="answerQ(3,'a')">a) Il computer non si accende</div>
-    <div class="qopt" onclick="answerQ(3,'b')">b) Chiunque abbia accesso fisico puo' modificare le impostazioni BIOS: cambiare boot order, disabilitare Secure Boot, avviare da USB e accedere ai dati</div>
-    <div class="qopt" onclick="answerQ(3,'c')">c) Il sistema operativo si disinstalla automaticamente</div>
-    <div class="qopt" onclick="answerQ(3,'d')">d) Nessun rischio, la password BIOS e' opzionale e inutile</div>
+    <div class="qopt" onclick="answerQ(3,'b')">b) Il sistema operativo si disinstalla automaticamente</div>
+    <div class="qopt" onclick="answerQ(3,'c')">c) Nessun rischio, la password BIOS e' opzionale e inutile</div>
+    <div class="qopt" onclick="answerQ(3,'d')">d) Chiunque abbia accesso fisico puo' modificare le impostazioni BIOS: cambiare boot order, disabilitare Secure Boot, avviare da USB e accedere ai dati</div>
     <div class="qfb" id="fb-3"></div>
   </div>
 
   <div class="qq" id="qq-4">
     <h3>4. Perche' si cambia il boot order mettendo USB prima di HDD?</h3>
-    <div class="qopt" onclick="answerQ(4,'a')">a) Per velocizzare l'avvio di Windows</div>
-    <div class="qopt" onclick="answerQ(4,'b')">b) Per avviare il PC da una chiavetta USB (es. per installare un sistema operativo o avviare un tool di recovery)</div>
-    <div class="qopt" onclick="answerQ(4,'c')">c) Per formattare automaticamente il disco</div>
+    <div class="qopt" onclick="answerQ(4,'a')">a) Per formattare automaticamente il disco</div>
+    <div class="qopt" onclick="answerQ(4,'b')">b) Per velocizzare l'avvio di Windows</div>
+    <div class="qopt" onclick="answerQ(4,'c')">c) Per avviare il PC da una chiavetta USB (es. per installare un sistema operativo o avviare un tool di recovery)</div>
     <div class="qfb" id="fb-4"></div>
   </div>
 
   <div class="qq" id="qq-5">
     <h3>5. Qual e' la differenza tra BIOS Legacy e UEFI?</h3>
-    <div class="qopt" onclick="answerQ(5,'a')">a) Sono la stessa cosa con nomi diversi</div>
-    <div class="qopt" onclick="answerQ(5,'b')">b) UEFI supporta dischi oltre 2 TB (GPT), avvio piu' rapido, Secure Boot e interfaccia grafica; il BIOS Legacy usa MBR ed e' limitato a 2 TB</div>
-    <div class="qopt" onclick="answerQ(5,'c')">c) Il BIOS Legacy e' piu' moderno e sicuro di UEFI</div>
-    <div class="qopt" onclick="answerQ(5,'d')">d) UEFI funziona solo su Mac, il BIOS solo su PC</div>
+    <div class="qopt" onclick="answerQ(5,'a')">a) UEFI supporta dischi oltre 2 TB (GPT), avvio piu' rapido, Secure Boot e interfaccia grafica; il BIOS Legacy usa MBR ed e' limitato a 2 TB</div>
+    <div class="qopt" onclick="answerQ(5,'b')">b) Sono la stessa cosa con nomi diversi</div>
+    <div class="qopt" onclick="answerQ(5,'c')">c) UEFI funziona solo su Mac, il BIOS solo su PC</div>
+    <div class="qopt" onclick="answerQ(5,'d')">d) Il BIOS Legacy e' piu' moderno e sicuro di UEFI</div>
     <div class="qfb" id="fb-5"></div>
   </div>
 
   <div class="qq" id="qq-6">
     <h3>6. Un collega disabilita Secure Boot per installare un driver non firmato. Quale rischio introduce?</h3>
-    <div class="qopt" onclick="answerQ(6,'a')">a) Il monitor non funzionera' piu'</div>
+    <div class="qopt" onclick="answerQ(6,'a')">a) Il PC non si colleghera' piu' alla rete</div>
     <div class="qopt" onclick="answerQ(6,'b')">b) Il sistema diventa vulnerabile a bootkit e rootkit che possono caricarsi prima del sistema operativo, invisibili all'antivirus</div>
-    <div class="qopt" onclick="answerQ(6,'c')">c) Il PC non si colleghera' piu' alla rete</div>
-    <div class="qopt" onclick="answerQ(6,'d')">d) Nessun rischio, Secure Boot e' solo marketing</div>
+    <div class="qopt" onclick="answerQ(6,'c')">c) Nessun rischio, Secure Boot e' solo marketing</div>
+    <div class="qopt" onclick="answerQ(6,'d')">d) Il monitor non funzionera' piu'</div>
     <div class="qfb" id="fb-6"></div>
   </div>
 
@@ -852,7 +852,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 })();
 
 // Quiz logic (global scope for onclick)
-var qAnswers = {1:'b',2:'b',3:'b',4:'b',5:'b',6:'b'};
+var qAnswers = {1:'c',2:'b',3:'d',4:'c',5:'a',6:'b'};
 var qFeedback = {
   1: {ok:'Corretto! Secure Boot verifica la firma digitale di bootloader, kernel e driver prima di eseguirli. Questo impedisce a malware di tipo rootkit e bootkit di caricarsi prima del sistema operativo, dove sarebbero invisibili all\\'antivirus.',
       ko:'Sbagliato. Secure Boot non velocizza l\\'avvio e non cripta il disco. La sua funzione e\\' verificare che ogni componente software caricato all\\'avvio sia firmato digitalmente, bloccando bootloader e driver non autorizzati.'},
