@@ -343,6 +343,49 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   #completion-box p{color:#4caf50;font-size:16px;margin-bottom:6px;}
   #completion-box .score{color:#fdd835;font-size:28px;margin:16px 0;}
   #completion-box .sub{color:#90caf9;font-size:13px;}
+  #btn-quiz{
+    margin-top:20px;padding:12px 32px;background:#fdd835;color:#0a0f3a;border:none;
+    border-radius:6px;font-size:15px;font-weight:bold;cursor:pointer;font-family:inherit;
+  }
+  #btn-quiz:hover{background:#ffee58;}
+
+  /* Post-sim quiz */
+  #quiz-section{
+    display:none;max-width:800px;margin:20px auto;padding:20px;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  #quiz-section.show{display:block;}
+  #quiz-section h2{color:#fdd835;text-align:center;margin-bottom:8px;font-size:20px;}
+  #quiz-section .quiz-sub{color:#90caf9;text-align:center;margin-bottom:24px;font-size:14px;}
+  .qq{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:16px;margin-bottom:16px;}
+  .qq h3{color:#38bdf8;font-size:14px;margin-bottom:10px;}
+  .qq .qopt{
+    display:block;padding:10px 14px;margin:6px 0;background:#0f172a;border:1px solid #334155;
+    border-radius:6px;cursor:pointer;color:#e2e8f0;font-size:13px;transition:border-color 0.2s;
+  }
+  .qq .qopt:hover{border-color:#64748b;}
+  .qq .qopt.selected{border-color:#3b82f6;background:#1e3a5f;}
+  .qq .qopt.correct{border-color:#22c55e;background:#14532d;}
+  .qq .qopt.wrong{border-color:#ef4444;background:#450a0a;}
+  .qq .qopt.disabled{pointer-events:none;opacity:0.7;}
+  .qq .qopt.show-correct{border-color:#22c55e;background:#14532d;}
+  .qq .qfb{margin-top:8px;padding:10px;border-radius:6px;font-size:12px;line-height:1.5;display:none;}
+  .qq .qfb.show{display:block;}
+  .qq .qfb.ok{background:#14532d;color:#86efac;}
+  .qq .qfb.ko{background:#450a0a;color:#fca5a5;}
+  #quiz-result{
+    display:none;text-align:center;background:#1e293b;border:2px solid #fdd835;
+    border-radius:8px;padding:24px;margin-top:16px;
+  }
+  #quiz-result.show{display:block;}
+  #quiz-result h2{color:#fdd835;margin-bottom:4px;}
+  #quiz-result .qr-score{color:#22c55e;font-size:28px;font-weight:bold;margin:8px 0;}
+  #quiz-score-bar{
+    position:fixed;bottom:0;left:0;right:0;background:#1e293b;border-top:1px solid #334155;
+    padding:10px 20px;display:none;font-family:-apple-system,sans-serif;
+    text-align:center;color:#94a3b8;font-size:13px;z-index:100;
+  }
+  #quiz-score-bar.show{display:block;}
 
   /* Confetti */
   .confetti{
@@ -453,7 +496,76 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <p>Hai completato tutte le missioni del BIOS</p>
     <div class="score">5 / 5</div>
     <div class="sub">Tutte le impostazioni sono state configurate correttamente.</div>
+    <button id="btn-quiz" onclick="startQuiz()">Verifica le tue conoscenze &rarr;</button>
   </div>
+</div>
+
+<!-- Post-simulation quiz -->
+<div id="quiz-section">
+  <h2>Verifica: cosa hai configurato?</h2>
+  <p class="quiz-sub">Ora verifichiamo che tu abbia capito il significato delle operazioni appena eseguite nel BIOS.</p>
+
+  <div class="qq" id="qq-1">
+    <h3>1. Perche' e' importante abilitare Secure Boot nel BIOS?</h3>
+    <div class="qopt" onclick="answerQ(1,'a')">a) Velocizza l'avvio del sistema operativo</div>
+    <div class="qopt" onclick="answerQ(1,'b')">b) Impedisce l'esecuzione di bootloader e driver non firmati, proteggendo da rootkit e malware pre-boot</div>
+    <div class="qopt" onclick="answerQ(1,'c')">c) Cripta l'intero disco rigido</div>
+    <div class="qopt" onclick="answerQ(1,'d')">d) Blocca l'accesso a Internet durante l'avvio</div>
+    <div class="qfb" id="fb-1"></div>
+  </div>
+
+  <div class="qq" id="qq-2">
+    <h3>2. Cosa permette la virtualizzazione Intel VT-x una volta abilitata?</h3>
+    <div class="qopt" onclick="answerQ(2,'a')">a) Aumenta la velocita' del processore del 50%</div>
+    <div class="qopt" onclick="answerQ(2,'b')">b) Permette di eseguire macchine virtuali (VirtualBox, VMware, Hyper-V) con prestazioni hardware</div>
+    <div class="qopt" onclick="answerQ(2,'c')">c) Abilita la connessione WiFi integrata</div>
+    <div class="qopt" onclick="answerQ(2,'d')">d) Attiva il dual-boot automatico con Linux</div>
+    <div class="qfb" id="fb-2"></div>
+  </div>
+
+  <div class="qq" id="qq-3">
+    <h3>3. Quali rischi comporta NON impostare una password supervisore sul BIOS?</h3>
+    <div class="qopt" onclick="answerQ(3,'a')">a) Il computer non si accende</div>
+    <div class="qopt" onclick="answerQ(3,'b')">b) Chiunque abbia accesso fisico puo' modificare le impostazioni BIOS: cambiare boot order, disabilitare Secure Boot, avviare da USB e accedere ai dati</div>
+    <div class="qopt" onclick="answerQ(3,'c')">c) Il sistema operativo si disinstalla automaticamente</div>
+    <div class="qopt" onclick="answerQ(3,'d')">d) Nessun rischio, la password BIOS e' opzionale e inutile</div>
+    <div class="qfb" id="fb-3"></div>
+  </div>
+
+  <div class="qq" id="qq-4">
+    <h3>4. Perche' si cambia il boot order mettendo USB prima di HDD?</h3>
+    <div class="qopt" onclick="answerQ(4,'a')">a) Per velocizzare l'avvio di Windows</div>
+    <div class="qopt" onclick="answerQ(4,'b')">b) Per avviare il PC da una chiavetta USB (es. per installare un sistema operativo o avviare un tool di recovery)</div>
+    <div class="qopt" onclick="answerQ(4,'c')">c) Per formattare automaticamente il disco</div>
+    <div class="qfb" id="fb-4"></div>
+  </div>
+
+  <div class="qq" id="qq-5">
+    <h3>5. Qual e' la differenza tra BIOS Legacy e UEFI?</h3>
+    <div class="qopt" onclick="answerQ(5,'a')">a) Sono la stessa cosa con nomi diversi</div>
+    <div class="qopt" onclick="answerQ(5,'b')">b) UEFI supporta dischi oltre 2 TB (GPT), avvio piu' rapido, Secure Boot e interfaccia grafica; il BIOS Legacy usa MBR ed e' limitato a 2 TB</div>
+    <div class="qopt" onclick="answerQ(5,'c')">c) Il BIOS Legacy e' piu' moderno e sicuro di UEFI</div>
+    <div class="qopt" onclick="answerQ(5,'d')">d) UEFI funziona solo su Mac, il BIOS solo su PC</div>
+    <div class="qfb" id="fb-5"></div>
+  </div>
+
+  <div class="qq" id="qq-6">
+    <h3>6. Un collega disabilita Secure Boot per installare un driver non firmato. Quale rischio introduce?</h3>
+    <div class="qopt" onclick="answerQ(6,'a')">a) Il monitor non funzionera' piu'</div>
+    <div class="qopt" onclick="answerQ(6,'b')">b) Il sistema diventa vulnerabile a bootkit e rootkit che possono caricarsi prima del sistema operativo, invisibili all'antivirus</div>
+    <div class="qopt" onclick="answerQ(6,'c')">c) Il PC non si colleghera' piu' alla rete</div>
+    <div class="qopt" onclick="answerQ(6,'d')">d) Nessun rischio, Secure Boot e' solo marketing</div>
+    <div class="qfb" id="fb-6"></div>
+  </div>
+
+  <div id="quiz-result">
+    <h2>Quiz Completato!</h2>
+    <div class="qr-score" id="qr-score"></div>
+    <p style="color:#90caf9;font-size:13px;">Ora sai non solo COME configurare il BIOS, ma PERCHE'.</p>
+  </div>
+</div>
+<div id="quiz-score-bar">
+  <span id="q-score-text">0 / 6</span> &nbsp;|&nbsp; <span id="q-progress">0 di 6 completate</span>
 </div>
 
 <script>
@@ -738,6 +850,67 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   renderPanel();
   updateTaskPanel();
 })();
+
+// Quiz logic (global scope for onclick)
+var qAnswers = {1:'b',2:'b',3:'b',4:'b',5:'b',6:'b'};
+var qFeedback = {
+  1: {ok:'Corretto! Secure Boot verifica la firma digitale di bootloader, kernel e driver prima di eseguirli. Questo impedisce a malware di tipo rootkit e bootkit di caricarsi prima del sistema operativo, dove sarebbero invisibili all\\'antivirus.',
+      ko:'Sbagliato. Secure Boot non velocizza l\\'avvio e non cripta il disco. La sua funzione e\\' verificare che ogni componente software caricato all\\'avvio sia firmato digitalmente, bloccando bootloader e driver non autorizzati.'},
+  2: {ok:'Corretto! Intel VT-x fornisce supporto hardware alla virtualizzazione, permettendo a hypervisor come VirtualBox, VMware e Hyper-V di eseguire macchine virtuali con prestazioni quasi native. Senza VT-x, la virtualizzazione e\\' molto piu\\' lenta o impossibile.',
+      ko:'Sbagliato. VT-x non aumenta la velocita\\' del processore e non riguarda WiFi o dual-boot. E\\' una tecnologia che permette al processore di eseguire macchine virtuali in modo efficiente tramite un hypervisor.'},
+  3: {ok:'Corretto! Senza password supervisore, chiunque abbia accesso fisico al PC puo\\' entrare nel BIOS e modificare qualsiasi impostazione: cambiare il boot order per avviare da USB, disabilitare Secure Boot, e potenzialmente accedere ai dati del disco. E\\' una delle prime misure di sicurezza fisica.',
+      ko:'Sbagliato. La password BIOS e\\' tutt\\'altro che inutile. Protegge le impostazioni critiche del sistema: senza di essa un attaccante con accesso fisico puo\\' avviare il PC da USB, disabilitare Secure Boot e compromettere il sistema.'},
+  4: {ok:'Corretto! Cambiare il boot order permette di avviare il PC da una chiavetta USB prima del disco interno. Questo e\\' necessario per installare un nuovo sistema operativo, avviare tool di recovery/diagnostica, o eseguire un live OS senza toccare il disco.',
+      ko:'Sbagliato. Cambiare il boot order non velocizza Windows e non formatta il disco. Serve per scegliere da quale dispositivo il PC si avvia per primo — fondamentale per installazioni OS e recovery.'},
+  5: {ok:'Corretto! UEFI e\\' il successore moderno del BIOS Legacy. Supporta dischi oltre 2 TB con GPT (il BIOS Legacy usa MBR, limitato a 2 TB), offre avvio piu\\' rapido, Secure Boot per la sicurezza, e spesso un\\'interfaccia grafica con supporto mouse. Il BIOS Legacy e\\' tecnologia anni \\'80.',
+      ko:'Sbagliato. BIOS Legacy e UEFI sono molto diversi. UEFI e\\' lo standard moderno: supporta GPT (dischi oltre 2 TB), Secure Boot, avvio veloce e interfaccia grafica. Il BIOS Legacy usa MBR ed e\\' limitato.'},
+  6: {ok:'Corretto! Disabilitare Secure Boot rimuove la verifica delle firme digitali all\\'avvio. Questo apre la porta a bootkit e rootkit: malware che si caricano prima del sistema operativo e dell\\'antivirus, rendendosi praticamente invisibili. E\\' un rischio serio in ambienti aziendali.',
+      ko:'Sbagliato. Disabilitare Secure Boot e\\' un rischio concreto: senza la verifica delle firme, malware di tipo bootkit puo\\' inserirsi nel processo di avvio, caricandosi prima dell\\'antivirus e rimanendo invisibile al sistema operativo.'}
+};
+var qAnswered = {};
+var qCorrect = 0;
+var qTotal = 0;
+
+function startQuiz() {
+  document.getElementById('completion-overlay').classList.remove('show');
+  document.getElementById('bios-wrapper').style.display = 'none';
+  document.getElementById('quiz-section').classList.add('show');
+  document.getElementById('quiz-score-bar').classList.add('show');
+  window.scrollTo(0, 0);
+}
+
+function answerQ(n, val) {
+  if (qAnswered[n]) return;
+  qAnswered[n] = true;
+  qTotal++;
+  var correct = qAnswers[n];
+  var isOk = val === correct;
+  if (isOk) qCorrect++;
+
+  var qq = document.getElementById('qq-' + n);
+  var opts = qq.querySelectorAll('.qopt');
+  opts.forEach(function(o) {
+    o.classList.add('disabled');
+    var ov = o.textContent.charAt(0);
+    if (ov === val) o.classList.add(isOk ? 'correct' : 'wrong');
+    if (ov === correct && !isOk) o.classList.add('show-correct');
+  });
+
+  var fb = document.getElementById('fb-' + n);
+  fb.textContent = isOk ? qFeedback[n].ok : qFeedback[n].ko;
+  fb.className = 'qfb show ' + (isOk ? 'ok' : 'ko');
+
+  document.getElementById('q-score-text').textContent = qCorrect + ' / 6';
+  document.getElementById('q-progress').textContent = qTotal + ' di 6 completate';
+
+  if (qTotal === 6) {
+    setTimeout(function() {
+      var r = document.getElementById('quiz-result');
+      r.classList.add('show');
+      document.getElementById('qr-score').textContent = qCorrect + ' / 6';
+    }, 600);
+  }
+}
 </script>
 </body>
 </html>`;
