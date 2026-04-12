@@ -79,11 +79,11 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         </div>
       </div>
       <div class="options">
-        <label class="option" data-value="ok" onclick="QuizEngine.check(2,'ok','ok','Corretto! WhatsApp ha bisogno della Camera per foto e videochiamate, del Microfono per note vocali e chiamate, dei Contatti per trovare i tuoi amici, e dell\\u0027Archivio per salvare e condividere file. Tutti permessi coerenti con le sue funzionalita\\u0027.','')">
-          <input type="radio" name="q2"> Ragionevoli &mdash; servono per funzionare
-        </label>
         <label class="option" data-value="suspicious" onclick="QuizEngine.check(2,'suspicious','ok','In realta\\u0027 questi permessi sono ragionevoli per un\\u0027app di messaggistica: Camera per foto/video, Microfono per note vocali e chiamate, Contatti per trovare amici, Archivio per condividere file. Sono tutti necessari per le funzionalita\\u0027 principali.','')">
           <input type="radio" name="q2"> Sospetti &mdash; chiede troppi permessi
+        </label>
+        <label class="option" data-value="ok" onclick="QuizEngine.check(2,'ok','ok','Corretto! WhatsApp ha bisogno della Camera per foto e videochiamate, del Microfono per note vocali e chiamate, dei Contatti per trovare i tuoi amici, e dell\\u0027Archivio per salvare e condividere file. Tutti permessi coerenti con le sue funzionalita\\u0027.','')">
+          <input type="radio" name="q2"> Ragionevoli &mdash; servono per funzionare
         </label>
       </div>
       <div class="feedback"></div>
@@ -111,11 +111,11 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         </div>
       </div>
       <div class="options">
-        <label class="option" data-value="ok" onclick="QuizEngine.check(3,'ok','suspicious','','Una calcolatrice non ha alcun motivo per accedere alla tua Posizione, al Registro chiamate o ai Contatti. Questi permessi servono probabilmente a raccogliere i tuoi dati personali per rivenderli a broker di dati o reti pubblicitarie, costruendo un profilo dettagliato delle tue abitudini.')">
-          <input type="radio" name="q3"> Ragionevoli &mdash; servono per funzionare
-        </label>
         <label class="option" data-value="suspicious" onclick="QuizEngine.check(3,'suspicious','suspicious','Esatto! Una calcolatrice non ha bisogno di sapere dove sei, chi chiami o chi hai in rubrica. Questi permessi indicano che l\\u0027app raccoglie dati personali per rivenderli a broker di dati o network pubblicitari, costruendo un profilo delle tue abitudini senza il tuo consenso.','')">
           <input type="radio" name="q3"> Sospetti &mdash; chiede troppi permessi
+        </label>
+        <label class="option" data-value="ok" onclick="QuizEngine.check(3,'ok','suspicious','','Una calcolatrice non ha alcun motivo per accedere alla tua Posizione, al Registro chiamate o ai Contatti. Questi permessi servono probabilmente a raccogliere i tuoi dati personali per rivenderli a broker di dati o reti pubblicitarie, costruendo un profilo dettagliato delle tue abitudini.')">
+          <input type="radio" name="q3"> Ragionevoli &mdash; servono per funzionare
         </label>
       </div>
       <div class="feedback"></div>
@@ -176,11 +176,11 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         </div>
       </div>
       <div class="options">
-        <label class="option" data-value="ok" onclick="QuizEngine.check(5,'ok','suspicious','','Un gioco di carte non ha alcuna ragione per leggere SMS, fare telefonate, accedere ai contatti o conoscere la tua posizione. L\\u0027app potrebbe inviare SMS a numeri premium facendoti pagare cifre elevate, rubare i contatti per spam, o tracciare la posizione per pubblicita\\u0027 invasiva.')">
-          <input type="radio" name="q5"> Ragionevoli &mdash; servono per funzionare
-        </label>
         <label class="option" data-value="suspicious" onclick="QuizEngine.check(5,'suspicious','suspicious','Esatto! Un solitario non ha bisogno di SMS, Telefono, Contatti ne\\u0027 Posizione. L\\u0027app potrebbe inviare SMS a numeri premium (costi nascosti in bolletta), sottrarre la rubrica per campagne di spam, o vendere i dati di geolocalizzazione a reti pubblicitarie.','')">
           <input type="radio" name="q5"> Sospetti &mdash; chiede troppi permessi
+        </label>
+        <label class="option" data-value="ok" onclick="QuizEngine.check(5,'ok','suspicious','','Un gioco di carte non ha alcuna ragione per leggere SMS, fare telefonate, accedere ai contatti o conoscere la tua posizione. L\\u0027app potrebbe inviare SMS a numeri premium facendoti pagare cifre elevate, rubare i contatti per spam, o tracciare la posizione per pubblicita\\u0027 invasiva.')">
+          <input type="radio" name="q5"> Ragionevoli &mdash; servono per funzionare
         </label>
       </div>
       <div class="feedback"></div>

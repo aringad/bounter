@@ -28,18 +28,18 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       <div class="domain-compare">
         <div class="domain-card card-a">
           <div class="dc-label">Opzione A</div>
-          <div class="dc-email">supporto@p0steitaliane.it</div>
+          <div class="dc-email">supporto@posteitaliane.it</div>
         </div>
         <div class="domain-card card-b">
           <div class="dc-label">Opzione B</div>
-          <div class="dc-email">supporto@posteitaliane.it</div>
+          <div class="dc-email">supporto@p0steitaliane.it</div>
         </div>
       </div>
       <div class="options">
-        <div class="option" data-value="a" onclick="QuizEngine.check(1,'a','b','Sbagliato! L\\'indirizzo p0steitaliane.it usa uno zero (0) al posto della lettera O. Questo e\\' un classico trucco di sostituzione di caratteri per ingannare l\\'utente.','Sbagliato! L\\'indirizzo p0steitaliane.it usa uno zero (0) al posto della lettera O.')">
+        <div class="option" data-value="a" onclick="QuizEngine.check(1,'a','a','Corretto! Questo e\\' il dominio ufficiale di Poste Italiane con la lettera O corretta. L\\'altro indirizzo usava uno zero (0) al posto della O.','Corretto! Questo e\\' il dominio autentico di Poste Italiane.')">
           <input type="radio" name="q1"> Opzione A
         </div>
-        <div class="option" data-value="b" onclick="QuizEngine.check(1,'b','b','Corretto! Questo e\\' il dominio ufficiale di Poste Italiane con la lettera O corretta. L\\'altro indirizzo usava uno zero (0) al posto della O.','Corretto! Questo e\\' il dominio autentico di Poste Italiane.')">
+        <div class="option" data-value="b" onclick="QuizEngine.check(1,'b','a','Sbagliato! L\\'indirizzo p0steitaliane.it usa uno zero (0) al posto della lettera O. Questo e\\' un classico trucco di sostituzione di caratteri per ingannare l\\'utente.','Sbagliato! L\\'indirizzo p0steitaliane.it usa uno zero (0) al posto della lettera O.')">
           <input type="radio" name="q1"> Opzione B
         </div>
       </div>
@@ -100,18 +100,18 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       <div class="domain-compare">
         <div class="domain-card card-a">
           <div class="dc-label">Opzione A</div>
-          <div class="dc-email">ordini@amazon.it</div>
+          <div class="dc-email">ordini@amazon.servizio-clienti.com</div>
         </div>
         <div class="domain-card card-b">
           <div class="dc-label">Opzione B</div>
-          <div class="dc-email">ordini@amazon.servizio-clienti.com</div>
+          <div class="dc-email">ordini@amazon.it</div>
         </div>
       </div>
       <div class="options">
-        <div class="option" data-value="a" onclick="QuizEngine.check(4,'a','a','Corretto! Il dominio amazon.it e\\' quello ufficiale. L\\'altro indirizzo usa un trucco con sottodomini: amazon.servizio-clienti.com appartiene in realta\\' al dominio servizio-clienti.com, non ad Amazon.','Corretto! Questo e\\' il dominio ufficiale di Amazon Italia.')">
+        <div class="option" data-value="a" onclick="QuizEngine.check(4,'a','b','Sbagliato! L\\'indirizzo amazon.servizio-clienti.com sembra legittimo, ma il dominio reale e\\' servizio-clienti.com. Amazon e\\' solo un sottodominio usato per ingannare. Il dominio vero e\\' sempre l\\'ultima parte prima del TLD.','Sbagliato! Il dominio reale qui e\\' servizio-clienti.com, non amazon.')">
           <input type="radio" name="q4"> Opzione A
         </div>
-        <div class="option" data-value="b" onclick="QuizEngine.check(4,'b','a','Sbagliato! L\\'indirizzo amazon.servizio-clienti.com sembra legittimo, ma il dominio reale e\\' servizio-clienti.com. Amazon e\\' solo un sottodominio usato per ingannare. Il dominio vero e\\' sempre l\\'ultima parte prima del TLD.','Sbagliato! Il dominio reale qui e\\' servizio-clienti.com, non amazon.')">
+        <div class="option" data-value="b" onclick="QuizEngine.check(4,'b','b','Corretto! Il dominio amazon.it e\\' quello ufficiale. L\\'altro indirizzo usa un trucco con sottodomini: amazon.servizio-clienti.com appartiene in realta\\' al dominio servizio-clienti.com, non ad Amazon.','Corretto! Questo e\\' il dominio ufficiale di Amazon Italia.')">
           <input type="radio" name="q4"> Opzione B
         </div>
       </div>
@@ -124,18 +124,18 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       <div class="domain-compare">
         <div class="domain-card card-a">
           <div class="dc-label">Opzione A</div>
-          <div class="dc-email">assistenza@arnuba.it</div>
+          <div class="dc-email">assistenza@aruba.it</div>
         </div>
         <div class="domain-card card-b">
           <div class="dc-label">Opzione B</div>
-          <div class="dc-email">assistenza@aruba.it</div>
+          <div class="dc-email">assistenza@arnuba.it</div>
         </div>
       </div>
       <div class="options">
-        <div class="option" data-value="a" onclick="QuizEngine.check(5,'a','b','Sbagliato! L\\'indirizzo usa arnuba.it con le lettere rn al posto della m. Questo e\\' un attacco omografico: in molti font, \\'rn\\' appare visivamente identico a \\'m\\'. Guarda con attenzione!','Sbagliato! Le lettere rn in arnuba simulano la lettera m.')">
+        <div class="option" data-value="a" onclick="QuizEngine.check(5,'a','a','Corretto! aruba.it e\\' il dominio ufficiale. L\\'altro indirizzo usava il trucco omografico \\'rn\\' che in certi font appare identico alla lettera \\'m\\'.','Corretto! Questo e\\' il dominio autentico di Aruba.')">
           <input type="radio" name="q5"> Opzione A
         </div>
-        <div class="option" data-value="b" onclick="QuizEngine.check(5,'b','b','Corretto! aruba.it e\\' il dominio ufficiale. L\\'altro indirizzo usava il trucco omografico \\'rn\\' che in certi font appare identico alla lettera \\'m\\'.','Corretto! Questo e\\' il dominio autentico di Aruba.')">
+        <div class="option" data-value="b" onclick="QuizEngine.check(5,'b','a','Sbagliato! L\\'indirizzo usa arnuba.it con le lettere rn al posto della m. Questo e\\' un attacco omografico: in molti font, \\'rn\\' appare visivamente identico a \\'m\\'. Guarda con attenzione!','Sbagliato! Le lettere rn in arnuba simulano la lettera m.')">
           <input type="radio" name="q5"> Opzione B
         </div>
       </div>

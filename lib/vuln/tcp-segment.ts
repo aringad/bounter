@@ -26,22 +26,22 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <div class="question" id="q-1">
       <h3><span class="q-number">1.</span> Quanti bit sono riservati per la porta sorgente e la porta destinazione ciascuna?</h3>
       <div class="options">
-        <div class="option" data-value="a" onclick="QuizEngine.check(1, 'a', 'b',
+        <div class="option" data-value="a" onclick="QuizEngine.check(1, 'a', 'c',
           '',
           'Sbagliato. Con 8 bit si avrebbero solo 256 porte possibili (0-255), insufficienti per i servizi moderni. Ogni porta e\\' rappresentata da 16 bit, permettendo 65536 valori distinti (0-65535).')">
           <input type="radio" name="q1"> <span>8 bit</span>
         </div>
-        <div class="option" data-value="b" onclick="QuizEngine.check(1, 'b', 'b',
-          'Corretto! Sia la porta sorgente che la porta destinazione occupano 16 bit ciascuna nell\\'header TCP. Con 16 bit si possono rappresentare valori da 0 a 65535, che corrisponde esattamente al range completo di porte di rete disponibili.',
-          '')">
-          <input type="radio" name="q1"> <span>16 bit</span>
-        </div>
-        <div class="option" data-value="c" onclick="QuizEngine.check(1, 'c', 'b',
+        <div class="option" data-value="b" onclick="QuizEngine.check(1, 'b', 'c',
           '',
           'Sbagliato. 32 bit sono usati per il Sequence Number e l\\'Acknowledgment Number, non per le porte. Le porte usano 16 bit ciascuna.')">
           <input type="radio" name="q1"> <span>32 bit</span>
         </div>
-        <div class="option" data-value="d" onclick="QuizEngine.check(1, 'd', 'b',
+        <div class="option" data-value="c" onclick="QuizEngine.check(1, 'c', 'c',
+          'Corretto! Sia la porta sorgente che la porta destinazione occupano 16 bit ciascuna nell\\'header TCP. Con 16 bit si possono rappresentare valori da 0 a 65535, che corrisponde esattamente al range completo di porte di rete disponibili.',
+          '')">
+          <input type="radio" name="q1"> <span>16 bit</span>
+        </div>
+        <div class="option" data-value="d" onclick="QuizEngine.check(1, 'd', 'c',
           '',
           'Sbagliato. 64 bit sarebbero eccessivi per un numero di porta. Le porte TCP usano 16 bit ciascuna, sufficienti per coprire il range 0-65535.')">
           <input type="radio" name="q1"> <span>64 bit</span>
@@ -54,22 +54,22 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <div class="question" id="q-2">
       <h3><span class="q-number">2.</span> Cosa controlla il campo Window Size nell'header TCP?</h3>
       <div class="options">
-        <div class="option" data-value="a" onclick="QuizEngine.check(2, 'a', 'b',
-          '',
-          'Sbagliato. La dimensione massima dei pacchetti e\\' determinata dall\\'MTU (Maximum Transmission Unit) a livello di rete e dal MSS (Maximum Segment Size) nelle opzioni TCP. Il Window Size controlla il flusso dei dati.')">
-          <input type="radio" name="q2"> <span>La dimensione massima dei pacchetti</span>
-        </div>
-        <div class="option" data-value="b" onclick="QuizEngine.check(2, 'b', 'b',
+        <div class="option" data-value="a" onclick="QuizEngine.check(2, 'a', 'a',
           'Corretto! Il Window Size implementa il controllo di flusso (flow control) di TCP. Indica quanti byte il ricevente e\\' disposto ad accettare nel suo buffer prima di richiedere un acknowledgment, evitando di sovraccaricare il destinatario con piu\\' dati di quanti possa elaborare.',
           '')">
           <input type="radio" name="q2"> <span>Il controllo di flusso: quanti dati inviare prima di un ACK</span>
         </div>
-        <div class="option" data-value="c" onclick="QuizEngine.check(2, 'c', 'b',
+        <div class="option" data-value="b" onclick="QuizEngine.check(2, 'b', 'a',
+          '',
+          'Sbagliato. La dimensione massima dei pacchetti e\\' determinata dall\\'MTU (Maximum Transmission Unit) a livello di rete e dal MSS (Maximum Segment Size) nelle opzioni TCP. Il Window Size controlla il flusso dei dati.')">
+          <input type="radio" name="q2"> <span>La dimensione massima dei pacchetti</span>
+        </div>
+        <div class="option" data-value="c" onclick="QuizEngine.check(2, 'c', 'a',
           '',
           'Sbagliato. Il numero di connessioni simultanee non e\\' gestito dal Window Size ma dal sistema operativo. Il Window Size controlla quanti byte possono essere inviati prima di ricevere un acknowledgment (flow control).')">
           <input type="radio" name="q2"> <span>Il numero massimo di connessioni simultanee</span>
         </div>
-        <div class="option" data-value="d" onclick="QuizEngine.check(2, 'd', 'b',
+        <div class="option" data-value="d" onclick="QuizEngine.check(2, 'd', 'a',
           '',
           'Sbagliato. La crittografia non e\\' gestita dall\\'header TCP ma da protocolli come TLS/SSL a livello superiore. Il Window Size controlla il flusso dei dati tra mittente e ricevente.')">
           <input type="radio" name="q2"> <span>Il livello di crittografia della connessione</span>
@@ -166,25 +166,25 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     <div class="question" id="q-6">
       <h3><span class="q-number">6.</span> Qual e' la dimensione minima totale dell'header TCP (senza opzioni)?</h3>
       <div class="options">
-        <div class="option" data-value="a" onclick="QuizEngine.check(6, 'a', 'b',
+        <div class="option" data-value="a" onclick="QuizEngine.check(6, 'a', 'd',
           '',
           'Sbagliato. 8 byte e\\' la dimensione dell\\'header UDP, non TCP. L\\'header TCP minimo e\\' di 20 byte, poiche\\' contiene molti piu\\' campi: porte, sequence number, ack number, flag, window size, checksum e urgent pointer.')">
           <input type="radio" name="q6"> <span>8 byte</span>
         </div>
-        <div class="option" data-value="b" onclick="QuizEngine.check(6, 'b', 'b',
-          'Corretto! L\\'header TCP minimo e\\' di 20 byte (160 bit), composti da: porta sorgente (2 byte), porta destinazione (2 byte), sequence number (4 byte), ack number (4 byte), data offset + flag (2 byte), window size (2 byte), checksum (2 byte), urgent pointer (2 byte). Le opzioni TCP possono estendere l\\'header fino a 60 byte.',
-          '')">
-          <input type="radio" name="q6"> <span>20 byte</span>
-        </div>
-        <div class="option" data-value="c" onclick="QuizEngine.check(6, 'c', 'b',
+        <div class="option" data-value="b" onclick="QuizEngine.check(6, 'b', 'd',
           '',
           'Sbagliato. 32 byte supera la dimensione minima dell\\'header TCP. Senza opzioni, l\\'header TCP e\\' esattamente 20 byte. Con le opzioni puo\\' arrivare fino a un massimo di 60 byte.')">
           <input type="radio" name="q6"> <span>32 byte</span>
         </div>
-        <div class="option" data-value="d" onclick="QuizEngine.check(6, 'd', 'b',
+        <div class="option" data-value="c" onclick="QuizEngine.check(6, 'c', 'd',
           '',
           'Sbagliato. 64 byte e\\' molto di piu\\' dell\\'header TCP. La dimensione minima e\\' 20 byte senza opzioni, con un massimo di 60 byte quando tutte le opzioni sono incluse.')">
           <input type="radio" name="q6"> <span>64 byte</span>
+        </div>
+        <div class="option" data-value="d" onclick="QuizEngine.check(6, 'd', 'd',
+          'Corretto! L\\'header TCP minimo e\\' di 20 byte (160 bit), composti da: porta sorgente (2 byte), porta destinazione (2 byte), sequence number (4 byte), ack number (4 byte), data offset + flag (2 byte), window size (2 byte), checksum (2 byte), urgent pointer (2 byte). Le opzioni TCP possono estendere l\\'header fino a 60 byte.',
+          '')">
+          <input type="radio" name="q6"> <span>20 byte</span>
         </div>
       </div>
       <div class="feedback"></div>
