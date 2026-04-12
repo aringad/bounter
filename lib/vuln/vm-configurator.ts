@@ -404,9 +404,8 @@ const scenarios = [
         return {s:'bad',m:'CPU: Eccessivo! '+v+' core sono troppi per un uso da ufficio. 2-4 core bastano.'};
       },
       ram: (v) => {
-        if(v<4) return {s:'bad',m:'RAM: Insufficiente! '+v+' GB sono troppo pochi. Windows 11 richiede almeno 4 GB, consigliati 8 GB per un uso fluido con Office.'};
-        if(v>=4&&v<=8) return {s:'ok',m:'RAM: OK - '+v+' GB sono adeguati per Windows 11 con Office e browser.'};
-        if(v>=9&&v<=16) return {s:'warn',m:'RAM: Accettabile - '+v+' GB vanno bene ma sono pi\\u00f9 del necessario per uso ufficio.'};
+        if(v<8) return {s:'bad',m:'RAM: Insufficiente! '+v+' GB sono troppo pochi. Windows 11 con Office e browser richiede almeno 8 GB per un uso fluido.'};
+        if(v>=8&&v<=16) return {s:'ok',m:'RAM: OK - '+v+' GB sono adeguati per Windows 11 con Office e browser.'};
         return {s:'bad',m:'RAM: Eccessivo! '+v+' GB sono troppi per un semplice uso da ufficio.'};
       },
       disk: (v) => {

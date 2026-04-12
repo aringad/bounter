@@ -230,7 +230,7 @@ export function wrapQuiz(title: string, body: string): string {
 <body>
   <div class="quiz-header">
     <h1>${title}</h1>
-    <div class="subtitle">Mediaform Security Lab</div>
+    <div class="subtitle">Mediaform IT Lab</div>
   </div>
   <script>
     // Shared quiz logic — must be defined BEFORE body so init() calls work

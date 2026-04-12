@@ -70,7 +70,7 @@ export function sendLoginPage(res: VercelResponse, error?: string): void {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mediaform - Security Lab</title>
+  <title>Mediaform - IT Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -198,7 +198,7 @@ export function sendLoginPage(res: VercelResponse, error?: string): void {
     </div>
 
     <div class="login-card">
-      <span class="badge-lab">Security Lab</span>
+      <span class="badge-lab">IT Lab</span>
       <h2>Accedi al laboratorio</h2>
       <p class="desc">
         Piattaforma di training sulla sicurezza web. Esplora le vulnerabilita' OWASP Top 10

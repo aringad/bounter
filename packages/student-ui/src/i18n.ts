@@ -2,7 +2,7 @@ export type Lang = "it" | "en";
 
 const translations = {
   // Header
-  securityLab: { it: "Laboratorio Sicurezza", en: "Security Lab" },
+  securityLab: { it: "Laboratorio di Informatica", en: "IT Lab" },
   challenges: { it: "Sfide", en: "Challenges" },
   settings: { it: "Impostazioni", en: "Settings" },
   logout: { it: "Esci", en: "Logout" },
@@ -49,15 +49,10 @@ const translations = {
     it: "Configura macchine virtuali scegliendo CPU, RAM, disco e rete in base allo scenario richiesto.",
     en: "Configure virtual machines choosing CPU, RAM, disk and network based on the required scenario.",
   },
-  devJsSection: { it: "JavaScript", en: "JavaScript" },
-  devJsSubtitle: {
-    it: "Esercizi interattivi di programmazione JavaScript: scrivi codice, eseguilo e verifica il risultato.",
-    en: "Interactive JavaScript programming exercises: write code, run it and verify the result.",
-  },
-  devNodeSection: { it: "Node.js", en: "Node.js" },
-  devNodeSubtitle: {
-    it: "Esercizi su Node.js: moduli, file system, HTTP server, Express e async/await.",
-    en: "Node.js exercises: modules, file system, HTTP server, Express and async/await.",
+  devSection: { it: "Developer", en: "Developer" },
+  devSubtitle: {
+    it: "Esercizi interattivi di programmazione: JavaScript nel browser e Node.js lato server.",
+    en: "Interactive programming exercises: JavaScript in the browser and server-side Node.js.",
   },
   aiSection: { it: "Intelligenza Artificiale", en: "Artificial Intelligence" },
   aiSubtitle: {

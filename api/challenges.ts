@@ -361,7 +361,7 @@ const challenges = [
     targetPath: "/vuln/vm-configurator",
     type: "virtualization",
   },
-  // === Developers: JavaScript ===
+  // === Developer ===
   {
     id: "js-exercises",
     title: "Esercizi JavaScript",
@@ -369,9 +369,8 @@ const challenges = [
     difficulty: "beginner",
     description: "Scrivi codice JavaScript in un editor interattivo: funzioni, array, oggetti, Promise.",
     targetPath: "/vuln/js-exercises",
-    type: "dev-js",
+    type: "developer",
   },
-  // === Developers: Node.js ===
   {
     id: "node-exercises",
     title: "Esercizi Node.js",
@@ -379,7 +378,7 @@ const challenges = [
     difficulty: "beginner",
     description: "Esercizi su moduli, file system, HTTP server, Express e async/await.",
     targetPath: "/vuln/node-exercises",
-    type: "dev-node",
+    type: "developer",
   },
   // === Intelligenza Artificiale ===
   {

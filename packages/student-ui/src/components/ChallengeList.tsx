@@ -28,8 +28,7 @@ const sections: SectionConfig[] = [
   { type: "wifi", titleKey: "wifiSection", subtitleKey: "wifiSubtitle", color: "#ec4899", badge: "Lab", icon: "📡" },
   { type: "boot-bios", titleKey: "bootBiosSection", subtitleKey: "bootBiosSubtitle", color: "#3b82f6", badge: "Sim", icon: "🖥️" },
   { type: "virtualization", titleKey: "virtSection", subtitleKey: "virtSubtitle", color: "#10b981", badge: "Sim", icon: "🖥️" },
-  { type: "dev-js", titleKey: "devJsSection", subtitleKey: "devJsSubtitle", color: "#eab308", badge: "Code", icon: "💻" },
-  { type: "dev-node", titleKey: "devNodeSection", subtitleKey: "devNodeSubtitle", color: "#22c55e", badge: "Code", icon: "🟢" },
+  { type: "developer", titleKey: "devSection", subtitleKey: "devSubtitle", color: "#eab308", badge: "Code", icon: "💻" },
   { type: "ai", titleKey: "aiSection", subtitleKey: "aiSubtitle", color: "#a855f7", badge: "Quiz", icon: "🤖" },
   { type: "technical", titleKey: "technicalSection", subtitleKey: "technicalSubtitle", color: "#e09900", badge: "OWASP + AI", icon: "⚔️" },
 ];
