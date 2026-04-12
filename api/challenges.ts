@@ -351,6 +351,36 @@ const challenges = [
     targetPath: "/vuln/bios-simulator",
     type: "boot-bios",
   },
+  // === Virtualizzazione ===
+  {
+    id: "vm-configurator",
+    title: "Configuratore VM",
+    category: "Virtualizzazione",
+    difficulty: "beginner",
+    description: "Configura macchine virtuali con slider interattivi: CPU, RAM, disco e rete per diversi scenari.",
+    targetPath: "/vuln/vm-configurator",
+    type: "virtualization",
+  },
+  // === Developers: JavaScript ===
+  {
+    id: "js-exercises",
+    title: "Esercizi JavaScript",
+    category: "JavaScript",
+    difficulty: "beginner",
+    description: "Scrivi codice JavaScript in un editor interattivo: funzioni, array, oggetti, Promise.",
+    targetPath: "/vuln/js-exercises",
+    type: "dev-js",
+  },
+  // === Developers: Node.js ===
+  {
+    id: "node-exercises",
+    title: "Esercizi Node.js",
+    category: "Node.js",
+    difficulty: "beginner",
+    description: "Esercizi su moduli, file system, HTTP server, Express e async/await.",
+    targetPath: "/vuln/node-exercises",
+    type: "dev-node",
+  },
   // === Intelligenza Artificiale ===
   {
     id: "ai-llm",

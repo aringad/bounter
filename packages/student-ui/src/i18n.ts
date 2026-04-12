@@ -44,6 +44,21 @@ const translations = {
     it: "Simulatore BIOS interattivo: configura boot order, Secure Boot, virtualizzazione e password.",
     en: "Interactive BIOS simulator: configure boot order, Secure Boot, virtualization and passwords.",
   },
+  virtSection: { it: "Virtualizzazione", en: "Virtualization" },
+  virtSubtitle: {
+    it: "Configura macchine virtuali scegliendo CPU, RAM, disco e rete in base allo scenario richiesto.",
+    en: "Configure virtual machines choosing CPU, RAM, disk and network based on the required scenario.",
+  },
+  devJsSection: { it: "JavaScript", en: "JavaScript" },
+  devJsSubtitle: {
+    it: "Esercizi interattivi di programmazione JavaScript: scrivi codice, eseguilo e verifica il risultato.",
+    en: "Interactive JavaScript programming exercises: write code, run it and verify the result.",
+  },
+  devNodeSection: { it: "Node.js", en: "Node.js" },
+  devNodeSubtitle: {
+    it: "Esercizi su Node.js: moduli, file system, HTTP server, Express e async/await.",
+    en: "Node.js exercises: modules, file system, HTTP server, Express and async/await.",
+  },
   aiSection: { it: "Intelligenza Artificiale", en: "Artificial Intelligence" },
   aiSubtitle: {
     it: "Fondamenti di AI: come funzionano gli LLM, prompt engineering, modelli, deepfake, privacy e strumenti pratici.",
@@ -263,6 +278,20 @@ const translations = {
   "desc.bios-simulator": {
     it: "Simulatore BIOS interattivo: naviga i menu, cambia boot order, abilita Secure Boot e virtualizzazione.",
     en: "Interactive BIOS simulator: navigate menus, change boot order, enable Secure Boot and virtualization.",
+  },
+  // Challenge descriptions - Virtualizzazione
+  "desc.vm-configurator": {
+    it: "Configura una VM scegliendo CPU, RAM, disco e rete in base allo scenario: dal desktop leggero al server database.",
+    en: "Configure a VM choosing CPU, RAM, disk and network based on scenarios: from light desktop to database server.",
+  },
+  // Challenge descriptions - Developers
+  "desc.js-exercises": {
+    it: "Esercizi interattivi JavaScript: scrivi funzioni, array, oggetti e Promise direttamente nel browser.",
+    en: "Interactive JavaScript exercises: write functions, arrays, objects and Promises directly in the browser.",
+  },
+  "desc.node-exercises": {
+    it: "Esercizi Node.js: moduli, file system, server HTTP, route Express e pattern async/await.",
+    en: "Node.js exercises: modules, file system, HTTP server, Express routes and async/await patterns.",
   },
   // Challenge descriptions - WiFi
   "desc.wifi-standards": {

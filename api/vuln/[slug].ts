@@ -52,6 +52,11 @@ import wifiSecurityHandler from "../../lib/vuln/wifi-security";
 import wifiDesignHandler from "../../lib/vuln/wifi-design";
 // Boot BIOS
 import biosSimulatorHandler from "../../lib/vuln/bios-simulator";
+// Virtualizzazione
+import vmConfiguratorHandler from "../../lib/vuln/vm-configurator";
+// Developers
+import jsExercisesHandler from "../../lib/vuln/js-exercises";
+import nodeExercisesHandler from "../../lib/vuln/node-exercises";
 // AI
 import aiLlmHandler from "../../lib/vuln/ai-llm";
 import aiPromptHandler from "../../lib/vuln/ai-prompt";
@@ -105,6 +110,11 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "wifi-design": wifiDesignHandler,
   // Boot BIOS
   "bios-simulator": biosSimulatorHandler,
+  // Virtualizzazione
+  "vm-configurator": vmConfiguratorHandler,
+  // Developers
+  "js-exercises": jsExercisesHandler,
+  "node-exercises": nodeExercisesHandler,
   // AI
   "ai-llm": aiLlmHandler,
   "ai-prompt": aiPromptHandler,
