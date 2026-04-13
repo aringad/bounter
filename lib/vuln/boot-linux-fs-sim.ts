@@ -384,12 +384,12 @@ const scenarios = [
     ]
   },
   {
-    title:'Scenario 3: Voglio separare i dati utente in caso di reinstallazione',
+    title:'Scenario 3: PC con firmware UEFI, voglio separare i dati utente in caso di reinstallazione',
     options:[
-      {label:'Partizione /home separata', correct:true, fb:'Corretto: il punto chiave! Mantiene i dati utente in caso di reinstallazione/cambio distro.'},
-      {label:'File system "/"', correct:true, fb:'Corretto: la root resta sempre necessaria.'},
-      {label:'Area di swap', correct:true, fb:'Corretto: raccomandata in ogni installazione.'},
-      {label:'EFI', correct:true, fb:'Corretto: dipende dal firmware, ma su sistemi UEFI moderni serve.'}
+      {label:'Partizione /home separata', correct:true, fb:'Corretto: il punto chiave dello scenario! Mantiene i dati utente intatti in caso di reinstallazione o cambio distribuzione.'},
+      {label:'File system "/"', correct:true, fb:'Corretto: la root ospita il sistema operativo e resta sempre necessaria.'},
+      {label:'Area di swap', correct:true, fb:'Corretto: raccomandata in ogni installazione come memoria virtuale.'},
+      {label:'Partizione EFI', correct:true, fb:'Corretto: su firmware UEFI la partizione EFI è obbligatoria per il boot.'}
     ]
   }
 ];
@@ -449,7 +449,7 @@ const quiz = [
       'No, bisogna aggiornare sequenzialmente ad ogni nuova release (es. da 20.10 a 21.04 e poi a 21.10, non si può saltare direttamente)'
     ],
     correct:3,
-    fb:'Risposta corretta: d. Gli upgrade di Ubuntu vanno fatti in sequenza, una release alla volta (le LTS-to-LTS sono un\\'eccezione gestita automaticamente).'
+    fb:'Risposta corretta: d. Gli upgrade tra release consecutive (es. 23.10 → 24.04) vanno fatti uno alla volta tramite do-release-upgrade: non si può passare direttamente da 22.04 a 24.04 saltando la 23.10 o la 23.04 senza fare i passaggi intermedi.'
   }
 ];
 

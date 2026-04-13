@@ -504,15 +504,15 @@ const questions = [
     fb: 'Corretto! /boot/grub/grub.cfg è il file effettivamente letto da GRUB al boot, ma viene rigenerato automaticamente. Per modifiche persistenti si edita /etc/default/grub e gli script in /etc/grub.d/, poi si esegue update-grub.'
   },
   {
-    q: 'Qual è la differenza principale tra VHD e VHDX?',
+    q: 'Quale percorso di boot del kernel Linux è più semplice e diretto?',
     options: [
-      'Non ci sono differenze',
-      'VHD supporta max 2040 GB; VHDX supporta fino a 64 TB ed è resiliente a interruzioni di alimentazione, ma richiede Windows 8/Server 2012 o superiori',
-      'VHDX è più lento',
-      'VHD funziona solo su Linux'
+      'Percorso diretto: il primary boot loader localizza il kernel, lo carica in memoria e lo esegue senza passare per il boot sector della partizione',
+      'Percorso di chainloading: BIOS → MBR → boot sector della partizione → kernel',
+      'Entrambi i percorsi sono identici',
+      'Il kernel si carica da solo senza boot loader'
     ],
-    correct: 1,
-    fb: 'Corretto! VHDX è il formato evoluto introdotto con Hyper-V in Windows 8/Server 2012: supporta dischi fino a 64 TB (vs 2040 GB del VHD), è più resistente alla corruzione in caso di blackout grazie al logging interno, e ha prestazioni migliori con settori 4K.'
+    correct: 0,
+    fb: 'Corretto! Nel percorso diretto GRUB localizza e carica direttamente il kernel, saltando il boot sector della partizione. È più semplice del chainloading, dove il BIOS passa prima per il MBR e poi per il boot sector della partizione attiva prima di arrivare al kernel.'
   }
 ];
 

@@ -399,7 +399,7 @@ const QUESTIONS = [
     noFb: "Non corretto. Il BCD è un archivio binario, non un file di testo: contiene le voci di boot di Windows e si modifica con il comando BCDEdit."
   },
   {
-    q: "Perché GPT include un \\\"Protective MBR\\\"?",
+    q: "Perché GPT include un Protective MBR?",
     opts: [
       "Per criptare i dati",
       "Per garantire compatibilità con tool legacy basati su BIOS/MBR ed evitare che scrivano sul disco GPT pensando sia non partizionato",
@@ -425,12 +425,12 @@ const QUESTIONS = [
   {
     q: "In un sistema UEFI a 64 bit, quale versione di Windows posso installare in modalità UEFI?",
     opts: [
-      "Solo versioni a 64 bit di Windows",
       "Qualsiasi versione, anche a 32 bit",
       "Solo Windows XP",
-      "Solo Linux"
+      "Solo Linux",
+      "Solo versioni a 64 bit di Windows"
     ],
-    correct: 0,
+    correct: 3,
     okFb: "Esatto. UEFI x64 richiede un OS x64: il bootloader (bootmgfw.efi) deve avere la stessa architettura del firmware. Per installare Windows a 32 bit serve un firmware UEFI a 32 bit o modalità Legacy/CSM.",
     noFb: "Errato. La modalità UEFI x64 non avvia bootloader a 32 bit: l'architettura del firmware e dell'OS devono coincidere."
   }
