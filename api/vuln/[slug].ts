@@ -52,6 +52,9 @@ import wifiSecurityHandler from "../../lib/vuln/wifi-security";
 import wifiDesignHandler from "../../lib/vuln/wifi-design";
 // Boot BIOS
 import biosSimulatorHandler from "../../lib/vuln/bios-simulator";
+import bootUefiSimHandler from "../../lib/vuln/boot-uefi-sim";
+import bootGrubSimHandler from "../../lib/vuln/boot-grub-sim";
+import bootLinuxFsSimHandler from "../../lib/vuln/boot-linux-fs-sim";
 // Virtualizzazione
 import vmConfiguratorHandler from "../../lib/vuln/vm-configurator";
 // Developers
@@ -110,6 +113,9 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "wifi-design": wifiDesignHandler,
   // Boot BIOS
   "bios-simulator": biosSimulatorHandler,
+  "boot-uefi-sim": bootUefiSimHandler,
+  "boot-grub-sim": bootGrubSimHandler,
+  "boot-linux-fs-sim": bootLinuxFsSimHandler,
   // Virtualizzazione
   "vm-configurator": vmConfiguratorHandler,
   // Developers

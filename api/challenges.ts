@@ -351,6 +351,33 @@ const challenges = [
     targetPath: "/vuln/bios-simulator",
     type: "boot-bios",
   },
+  {
+    id: "boot-uefi-sim",
+    title: "Boot Sequence: UEFI vs BIOS",
+    category: "Boot/BIOS",
+    difficulty: "beginner",
+    description: "Simulatore delle fasi di avvio: ordina gli step, confronta UEFI e BIOS, poi quiz su GPT, BCD e Secure Boot.",
+    targetPath: "/vuln/boot-uefi-sim",
+    type: "boot-bios",
+  },
+  {
+    id: "boot-grub-sim",
+    title: "Configurazione GRUB",
+    category: "Boot/BIOS",
+    difficulty: "beginner",
+    description: "Editor interattivo di /etc/default/grub con preview del menu boot, poi quiz su GRUB, LILO, clean install e VHD.",
+    targetPath: "/vuln/boot-grub-sim",
+    type: "boot-bios",
+  },
+  {
+    id: "boot-linux-fs-sim",
+    title: "File System e Partizioni Linux",
+    category: "Boot/BIOS",
+    difficulty: "beginner",
+    description: "Esploratore del file system Linux e progettazione partizioni UEFI/BIOS, poi quiz su sudo, fdisk e ripristino.",
+    targetPath: "/vuln/boot-linux-fs-sim",
+    type: "boot-bios",
+  },
   // === Virtualizzazione ===
   {
     id: "vm-configurator",

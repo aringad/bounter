@@ -274,6 +274,18 @@ const translations = {
     it: "Simulatore BIOS interattivo: naviga i menu, cambia boot order, abilita Secure Boot e virtualizzazione.",
     en: "Interactive BIOS simulator: navigate menus, change boot order, enable Secure Boot and virtualization.",
   },
+  "desc.boot-uefi-sim": {
+    it: "Simulatore delle fasi di avvio: ordina gli step, confronta UEFI e BIOS, poi quiz su GPT, BCD e Secure Boot.",
+    en: "Boot sequence simulator: order the steps, compare UEFI and BIOS, then quiz on GPT, BCD and Secure Boot.",
+  },
+  "desc.boot-grub-sim": {
+    it: "Editor interattivo di /etc/default/grub con preview del menu boot, poi quiz su GRUB, LILO, clean install e VHD.",
+    en: "Interactive editor of /etc/default/grub with boot menu preview, then quiz on GRUB, LILO, clean install and VHD.",
+  },
+  "desc.boot-linux-fs-sim": {
+    it: "Esploratore del file system Linux e progettazione partizioni UEFI/BIOS, poi quiz su sudo, fdisk e ripristino.",
+    en: "Linux file system explorer and UEFI/BIOS partition planner, then quiz on sudo, fdisk and recovery.",
+  },
   // Challenge descriptions - Virtualizzazione
   "desc.vm-configurator": {
     it: "Configura una VM scegliendo CPU, RAM, disco e rete in base allo scenario: dal desktop leggero al server database.",
