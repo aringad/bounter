@@ -441,6 +441,10 @@ const translations = {
     it: "Zero/few-shot, chain-of-thought, role prompting e structured output: abbinare la tecnica allo scenario.",
     en: "Zero/few-shot, chain-of-thought, role prompting and structured output: matching the technique to the scenario.",
   },
+  "desc.ai-build-recap": {
+    it: "Sfida di sintesi: per ogni scenario scegli l'approccio giusto tra Progetto, Agente, MCP, Skill, Tool use e NotebookLM.",
+    en: "Synthesis challenge: for each scenario pick the right approach among Project, Agent, MCP, Skill, Tool use and NotebookLM.",
+  },
 
   // Challenge descriptions - Technical
   "desc.xss": {

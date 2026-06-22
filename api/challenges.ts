@@ -591,6 +591,15 @@ const challenges = [
     targetPath: "/vuln/ai-build-prompts",
     type: "ai-build",
   },
+  {
+    id: "ai-build-recap",
+    title: "Metti insieme i pezzi",
+    category: "AI · Strumenti",
+    difficulty: "hard",
+    description: "Sfida di sintesi: per ogni scenario scegli l'approccio giusto tra Progetto, Agente, MCP, Skill, Tool use e NotebookLM.",
+    targetPath: "/vuln/ai-build-recap",
+    type: "ai-build",
+  },
   // === Technical Cybersecurity (with AI) ===
   {
     id: "xss",

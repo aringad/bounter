@@ -84,6 +84,7 @@ import aiBuildMcpHandler from "../../lib/vuln/ai-build-mcp";
 import aiBuildSkillsHandler from "../../lib/vuln/ai-build-skills";
 import aiBuildToolUseHandler from "../../lib/vuln/ai-build-tool-use";
 import aiBuildPromptsHandler from "../../lib/vuln/ai-build-prompts";
+import aiBuildRecapHandler from "../../lib/vuln/ai-build-recap";
 
 const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any> = {
   xss: xssHandler,
@@ -162,6 +163,7 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "ai-build-skills": aiBuildSkillsHandler,
   "ai-build-tool-use": aiBuildToolUseHandler,
   "ai-build-prompts": aiBuildPromptsHandler,
+  "ai-build-recap": aiBuildRecapHandler,
   // TCP, UDP & Ports
   "tcp-handshake": tcpHandshakeHandler,
   "tcp-vs-udp": tcpVsUdpHandler,
