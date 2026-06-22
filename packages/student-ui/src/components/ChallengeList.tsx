@@ -30,6 +30,9 @@ const sections: SectionConfig[] = [
   { type: "virtualization", titleKey: "virtSection", subtitleKey: "virtSubtitle", color: "#10b981", badge: "Sim", icon: "🖥️" },
   { type: "developer", titleKey: "devSection", subtitleKey: "devSubtitle", color: "#eab308", badge: "Code", icon: "💻" },
   { type: "ai", titleKey: "aiSection", subtitleKey: "aiSubtitle", color: "#a855f7", badge: "Quiz", icon: "🤖" },
+  { type: "ai-io", titleKey: "aiIoSection", subtitleKey: "aiIoSubtitle", color: "#34d399", badge: "Quiz", icon: "🧑‍💻" },
+  { type: "ai-business", titleKey: "aiBizSection", subtitleKey: "aiBizSubtitle", color: "#fb923c", badge: "Quiz", icon: "🏢" },
+  { type: "ai-build", titleKey: "aiBuildSection", subtitleKey: "aiBuildSubtitle", color: "#818cf8", badge: "Quiz", icon: "🧩" },
   { type: "technical", titleKey: "technicalSection", subtitleKey: "technicalSubtitle", color: "#e09900", badge: "OWASP + AI", icon: "⚔️" },
 ];
 

@@ -296,3 +296,95 @@ export function wrapQuiz(title: string, body: string): string {
 </body>
 </html>`;
 }
+
+// ---------------------------------------------------------------------------
+// Data-driven quiz builder
+//
+// Lets a challenge declare its questions as plain data instead of hand-written
+// HTML. It emits exactly the same markup the existing quizzes use (option divs
+// with data-value + inline QuizEngine.check calls), so the shared QuizEngine —
+// and therefore the % score and per-answer correction — works unchanged.
+// ---------------------------------------------------------------------------
+
+export interface QuizOption {
+  /** Answer text shown to the user (plain text). */
+  text: string;
+  /** Explanation shown when this option is chosen (why right / why wrong). */
+  feedback: string;
+  /** Mark exactly one option per question as correct. */
+  correct?: boolean;
+}
+
+export interface QuizQuestion {
+  /** Question text (plain text). */
+  q: string;
+  options: QuizOption[];
+}
+
+// Escape a string so it can live inside a single-quoted JS argument that is
+// itself inside a double-quoted HTML onclick attribute.
+function escAttr(s: string): string {
+  return s
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'")
+    .replace(/"/g, "&quot;")
+    .replace(/\r?\n/g, " ");
+}
+
+const LETTERS = ["a", "b", "c", "d", "e", "f"];
+
+/**
+ * Build a full quiz page from an intro and a list of questions.
+ * @param title       Title shown in the header and <title>.
+ * @param introHtml   Inner HTML of the `.intro` box (heading + paragraphs).
+ * @param questions   The quiz questions; each must have exactly one correct option.
+ */
+export function buildQuizPage(title: string, introHtml: string, questions: QuizQuestion[]): string {
+  const questionsHtml = questions
+    .map((question, qi) => {
+      const qId = qi + 1;
+      const correctIdx = question.options.findIndex((o) => o.correct);
+      const correctVal = LETTERS[correctIdx];
+      const optionsHtml = question.options
+        .map((o, oi) => {
+          const val = LETTERS[oi];
+          const fbCorrect = o.correct ? escAttr(o.feedback) : "";
+          const fbWrong = o.correct ? "" : escAttr(o.feedback);
+          return `        <div class="option" data-value="${val}" onclick="QuizEngine.check(${qId}, '${val}', '${correctVal}', '${fbCorrect}', '${fbWrong}')">
+          <input type="radio" name="q${qId}"> <span>${o.text}</span>
+        </div>`;
+        })
+        .join("\n");
+      return `    <div class="question" id="q-${qId}">
+      <h3><span class="q-number">${qId}.</span> ${question.q}</h3>
+      <div class="options">
+${optionsHtml}
+      </div>
+      <div class="feedback"></div>
+    </div>`;
+    })
+    .join("\n\n");
+
+  const n = questions.length;
+  const body = `
+    <div class="intro">
+${introHtml}
+    </div>
+
+${questionsHtml}
+
+    <div class="result-box" id="result-box">
+      <h2>Quiz completato!</h2>
+      <div class="big-score"></div>
+      <div class="message"></div>
+    </div>
+
+    <div class="score-bar">
+      <div><span class="score" id="score">0 / ${n}</span></div>
+      <div class="progress" id="progress">0 di ${n} completate</div>
+    </div>
+
+    <script>QuizEngine.init(${n});</script>
+  `;
+  return wrapQuiz(title, body);
+}
