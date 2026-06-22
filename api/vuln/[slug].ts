@@ -67,6 +67,23 @@ import aiModelsHandler from "../../lib/vuln/ai-models";
 import aiDeepfakeHandler from "../../lib/vuln/ai-deepfake";
 import aiPrivacyHandler from "../../lib/vuln/ai-privacy";
 import aiToolsHandler from "../../lib/vuln/ai-tools";
+// AI applicata: Io
+import aiIoToolChoiceHandler from "../../lib/vuln/ai-io-tool-choice";
+import aiIoPromptUfficioHandler from "../../lib/vuln/ai-io-prompt-ufficio";
+import aiIoVerificaLimitiHandler from "../../lib/vuln/ai-io-verifica-limiti";
+import aiIoNotebookLmHandler from "../../lib/vuln/ai-io-notebooklm";
+// AI applicata: Business
+import aiBizWorkflowHandler from "../../lib/vuln/ai-biz-workflow";
+import aiBizBuildBuyHandler from "../../lib/vuln/ai-biz-build-buy";
+import aiBizGovernanceHandler from "../../lib/vuln/ai-biz-governance";
+import aiBizUseCasesHandler from "../../lib/vuln/ai-biz-use-cases";
+// AI applicata: Strumenti & Concetti
+import aiBuildProjectsHandler from "../../lib/vuln/ai-build-projects";
+import aiBuildAgentsHandler from "../../lib/vuln/ai-build-agents";
+import aiBuildMcpHandler from "../../lib/vuln/ai-build-mcp";
+import aiBuildSkillsHandler from "../../lib/vuln/ai-build-skills";
+import aiBuildToolUseHandler from "../../lib/vuln/ai-build-tool-use";
+import aiBuildPromptsHandler from "../../lib/vuln/ai-build-prompts";
 
 const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any> = {
   xss: xssHandler,
@@ -128,6 +145,23 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "ai-deepfake": aiDeepfakeHandler,
   "ai-privacy": aiPrivacyHandler,
   "ai-tools": aiToolsHandler,
+  // AI applicata: Io
+  "ai-io-tool-choice": aiIoToolChoiceHandler,
+  "ai-io-prompt-ufficio": aiIoPromptUfficioHandler,
+  "ai-io-verifica-limiti": aiIoVerificaLimitiHandler,
+  "ai-io-notebooklm": aiIoNotebookLmHandler,
+  // AI applicata: Business
+  "ai-biz-workflow": aiBizWorkflowHandler,
+  "ai-biz-build-buy": aiBizBuildBuyHandler,
+  "ai-biz-governance": aiBizGovernanceHandler,
+  "ai-biz-use-cases": aiBizUseCasesHandler,
+  // AI applicata: Strumenti & Concetti
+  "ai-build-projects": aiBuildProjectsHandler,
+  "ai-build-agents": aiBuildAgentsHandler,
+  "ai-build-mcp": aiBuildMcpHandler,
+  "ai-build-skills": aiBuildSkillsHandler,
+  "ai-build-tool-use": aiBuildToolUseHandler,
+  "ai-build-prompts": aiBuildPromptsHandler,
   // TCP, UDP & Ports
   "tcp-handshake": tcpHandshakeHandler,
   "tcp-vs-udp": tcpVsUdpHandler,

@@ -59,6 +59,21 @@ const translations = {
     it: "Fondamenti di AI: come funzionano gli LLM, prompt engineering, modelli, deepfake, privacy e strumenti pratici.",
     en: "AI fundamentals: how LLMs work, prompt engineering, models, deepfakes, privacy and practical tools.",
   },
+  aiIoSection: { it: "AI sul Lavoro · Io", en: "AI at Work · You" },
+  aiIoSubtitle: {
+    it: "Produttività personale: quale strumento per quale compito, prompt per l'ufficio, verifica dei limiti e NotebookLM.",
+    en: "Personal productivity: which tool for which task, office prompts, knowing the limits and NotebookLM.",
+  },
+  aiBizSection: { it: "AI sul Lavoro · Business", en: "AI at Work · Business" },
+  aiBizSubtitle: {
+    it: "Processi e organizzazione: impostare un workflow, build vs buy, governance dei dati e casi d'uso per reparto.",
+    en: "Processes and organization: designing a workflow, build vs buy, data governance and use cases by department.",
+  },
+  aiBuildSection: { it: "AI · Strumenti & Concetti", en: "AI · Tools & Concepts" },
+  aiBuildSubtitle: {
+    it: "I mattoni dell'AI: progetti, agenti, MCP, skills, tool use e tipi di prompt — cosa sono e quando usarli.",
+    en: "The building blocks of AI: projects, agents, MCP, skills, tool use and prompt types — what they are and when to use them.",
+  },
   technicalSection: { it: "Cybersecurity Hands-On", en: "Cybersecurity Hands-On" },
   technicalSubtitle: {
     it: "Esplora le vulnerabilità OWASP Top 10 su app vulnerabili con supporto IA.",
@@ -363,6 +378,68 @@ const translations = {
   "desc.ai-tools": {
     it: "Usa l'AI come assistente: best practice per coding, documenti, analisi dati e i limiti da conoscere.",
     en: "Use AI as an assistant: best practices for coding, documents, data analysis and limits to know.",
+  },
+
+  // Challenge descriptions - AI applicata: Io
+  "desc.ai-io-tool-choice": {
+    it: "Scegli lo strumento e l'approccio AI giusti per compiti d'ufficio reali — e riconosci quando l'AI non serve.",
+    en: "Choose the right AI tool and approach for real office tasks — and recognize when AI isn't the answer.",
+  },
+  "desc.ai-io-prompt-ufficio": {
+    it: "Contesto, esempi, formato e iterazione: scrivi prompt efficaci per email, verbali e sintesi.",
+    en: "Context, examples, format and iteration: write effective prompts for emails, minutes and summaries.",
+  },
+  "desc.ai-io-verifica-limiti": {
+    it: "Hallucination, attualità, riservatezza e responsabilità: cosa verificare e cosa non condividere.",
+    en: "Hallucination, recency, confidentiality and accountability: what to verify and what not to share.",
+  },
+  "desc.ai-io-notebooklm": {
+    it: "L'AI ancorata alle tue fonti: citazioni, Audio Overview e quando conviene rispetto a un chatbot generico.",
+    en: "AI grounded in your sources: citations, Audio Overview and when it beats a generic chatbot.",
+  },
+
+  // Challenge descriptions - AI applicata: Business
+  "desc.ai-biz-workflow": {
+    it: "Dal problema al processo: dove inserire l'AI, human-in-the-loop, pilota, KPI e integrazione dei dati.",
+    en: "From problem to process: where to add AI, human-in-the-loop, pilots, KPIs and data integration.",
+  },
+  "desc.ai-biz-build-buy": {
+    it: "SaaS, open-source self-hosted o su misura: tempi, controllo dei dati, costi e quando conviene cosa.",
+    en: "SaaS, self-hosted open-source or custom: time, data control, cost and when each makes sense.",
+  },
+  "desc.ai-biz-governance": {
+    it: "Shadow AI, DPA, data residency UE e policy: usare l'AI in azienda senza esporre l'organizzazione.",
+    en: "Shadow AI, DPA, EU data residency and policy: using AI in the company without exposing the organization.",
+  },
+  "desc.ai-biz-use-cases": {
+    it: "Supporto, amministrazione, HR e marketing: opportunità concrete con l'umano che valida le decisioni.",
+    en: "Support, admin, HR and marketing: concrete opportunities with humans validating the decisions.",
+  },
+
+  // Challenge descriptions - AI applicata: Strumenti & Concetti
+  "desc.ai-build-projects": {
+    it: "Projects, GPT personalizzati e Gem: istruzioni e file di conoscenza riutilizzabili tra le conversazioni.",
+    en: "Projects, custom GPTs and Gems: instructions and knowledge files reusable across conversations.",
+  },
+  "desc.ai-build-agents": {
+    it: "Cosa distingue un agente da un chatbot: pianificare, usare strumenti, agire — e perché serve supervisione.",
+    en: "What sets an agent apart from a chatbot: planning, using tools, acting — and why supervision matters.",
+  },
+  "desc.ai-build-mcp": {
+    it: "Il Model Context Protocol: lo standard aperto per dare ai modelli accesso a strumenti e fonti dati.",
+    en: "The Model Context Protocol: the open standard for giving models access to tools and data sources.",
+  },
+  "desc.ai-build-skills": {
+    it: "Impacchettare una procedura che l'AI può richiamare: riuso, coerenza e differenze da prompt, progetti e agenti.",
+    en: "Packaging a procedure the AI can invoke: reuse, consistency and how it differs from prompts, projects and agents.",
+  },
+  "desc.ai-build-tool-use": {
+    it: "Quando il modello chiama strumenti esterni per calcoli esatti, dati aggiornati e azioni reali.",
+    en: "When the model calls external tools for exact math, up-to-date data and real actions.",
+  },
+  "desc.ai-build-prompts": {
+    it: "Zero/few-shot, chain-of-thought, role prompting e structured output: abbinare la tecnica allo scenario.",
+    en: "Zero/few-shot, chain-of-thought, role prompting and structured output: matching the technique to the scenario.",
   },
 
   // Challenge descriptions - Technical
