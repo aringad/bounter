@@ -7,7 +7,7 @@ import { createHash } from "crypto";
 // - Pro password: access to everything (technical challenges, AI, settings)
 const BASIC_PASSWORD_HASH = process.env.BASIC_PASSWORD_HASH || "102de1b6d2a94b4a617d5ac869dd56d990b940c20b391fefc74370ff7de0cddf"; // Sos2025$$
 const PROXIMA_PASSWORD_HASH = process.env.PROXIMA_PASSWORD_HASH || "e659f3138de491565748df69a76ee1419670db616504a093c29400b5ba062ea3"; // Proxima!2026
-const PRO_PASSWORD_HASH = process.env.PRO_PASSWORD_HASH || "a03f17d7c6c5ed0286e550d23eff2606720b8890d66f07a44ef686b277c73c47"; // Mediaform@2026!
+const PRO_PASSWORD_HASH = process.env.PRO_PASSWORD_HASH || "08981a165e57ea9ef8a18708dc7b10087f56f93dbbdf7c692bd2b28cb87b307a"; // Mediaform$2018
 
 const TOKEN_COOKIE = "bounter_token";
 
