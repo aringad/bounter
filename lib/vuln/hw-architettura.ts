@@ -213,7 +213,7 @@ var QUESTIONS=[
   explain:"Gerarchia: L1 (1-4 cicli) → L2 (8-15) → L3 (25-50, condivisa) → RAM (~100 cicli). Salendo aumenta velocità e costo, scendendo aumenta capacità."},
 
  {sec:"Memoria Cache", type:"single",
-  q:"Cosa indica un \"cache miss\"?",
+  q:"Cosa indica un «cache miss»?",
   opts:[{t:"Il dato NON è in cache e va caricato dalla RAM",c:true},
         {t:"Il dato è stato trovato in cache (trasferimento velocissimo)",c:false},
         {t:"La cache è piena e va spenta",c:false},

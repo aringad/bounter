@@ -125,7 +125,7 @@ var PASS=60;
 
 var QUESTIONS=[
  {sec:"Architetture parallele", type:"multi",
-  q:"Quali sono i due principali \"colli di bottiglia\" del modello von Neumann? (seleziona entrambi)",
+  q:"Quali sono i due principali «colli di bottiglia» del modello von Neumann? (seleziona entrambi)",
   opts:[{t:"La CPU (tutto dipende dal dispositivo centrale)",c:true},
         {t:"Il bus (tutte le informazioni passano di lì)",c:true},
         {t:"L'alimentatore",c:false},
