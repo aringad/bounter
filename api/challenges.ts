@@ -341,6 +341,43 @@ const challenges = [
     targetPath: "/vuln/wifi-design",
     type: "wifi",
   },
+  // === Hardware ===
+  {
+    id: "hw-architettura",
+    title: "Architettura del Computer",
+    category: "Hardware",
+    difficulty: "beginner",
+    description: "Modello di Von Neumann, CPU (CU/ALU/registri), clock, bus e memoria cache. Quiz interattivi con scheda di valutazione.",
+    targetPath: "/vuln/hw-architettura",
+    type: "hardware",
+  },
+  {
+    id: "hw-memorie",
+    title: "Le Memorie",
+    category: "Hardware",
+    difficulty: "beginner",
+    description: "RAM, DRAM/SRAM, ROM, hard disk, SSD, dischi ottici, RAID e memoria virtuale. Quiz interattivi con scheda di valutazione.",
+    targetPath: "/vuln/hw-memorie",
+    type: "hardware",
+  },
+  {
+    id: "hw-periferiche",
+    title: "Periferiche e Interfacciamento",
+    category: "Hardware",
+    difficulty: "beginner",
+    description: "Input/Output/I-O e standard di collegamento: VGA/HDMI, USB, PCIe, SATA, RJ45 e legacy. Quiz interattivi con scheda di valutazione.",
+    targetPath: "/vuln/hw-periferiche",
+    type: "hardware",
+  },
+  {
+    id: "hw-assemblaggio",
+    title: "Architetture e Assemblaggio",
+    category: "Hardware",
+    difficulty: "beginner",
+    description: "Architetture parallele (Flynn) e assemblaggio PC: socket, RAM, alimentatore, connettori e prima accensione. Con scheda di valutazione.",
+    targetPath: "/vuln/hw-assemblaggio",
+    type: "hardware",
+  },
   // === Boot, BIOS e UEFI ===
   {
     id: "bios-simulator",

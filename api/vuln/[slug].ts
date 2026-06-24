@@ -55,6 +55,11 @@ import biosSimulatorHandler from "../../lib/vuln/bios-simulator";
 import bootUefiSimHandler from "../../lib/vuln/boot-uefi-sim";
 import bootGrubSimHandler from "../../lib/vuln/boot-grub-sim";
 import bootLinuxFsSimHandler from "../../lib/vuln/boot-linux-fs-sim";
+// Hardware
+import hwArchitetturaHandler from "../../lib/vuln/hw-architettura";
+import hwMemorieHandler from "../../lib/vuln/hw-memorie";
+import hwPeriferocheHandler from "../../lib/vuln/hw-periferiche";
+import hwAssemblaggioHandler from "../../lib/vuln/hw-assemblaggio";
 // Virtualizzazione
 import vmConfiguratorHandler from "../../lib/vuln/vm-configurator";
 // Developers
@@ -134,6 +139,11 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "boot-uefi-sim": bootUefiSimHandler,
   "boot-grub-sim": bootGrubSimHandler,
   "boot-linux-fs-sim": bootLinuxFsSimHandler,
+  // Hardware
+  "hw-architettura": hwArchitetturaHandler,
+  "hw-memorie": hwMemorieHandler,
+  "hw-periferiche": hwPeriferocheHandler,
+  "hw-assemblaggio": hwAssemblaggioHandler,
   // Virtualizzazione
   "vm-configurator": vmConfiguratorHandler,
   // Developers

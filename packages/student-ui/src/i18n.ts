@@ -39,6 +39,11 @@ const translations = {
     it: "Standard 802.11, bande e canali, modalita operative, ponti radio, sicurezza WPA2/WPA3, roaming e progettazione.",
     en: "802.11 standards, bands and channels, operating modes, radio bridges, WPA2/WPA3 security, roaming and design.",
   },
+  hardwareSection: { it: "Hardware", en: "Hardware" },
+  hardwareSubtitle: {
+    it: "Architettura del computer, memorie, periferiche e assemblaggio PC. Quiz interattivi con scheda di valutazione stampabile.",
+    en: "Computer architecture, memory, peripherals and PC assembly. Interactive quizzes with a printable assessment sheet.",
+  },
   bootBiosSection: { it: "Boot, BIOS e UEFI", en: "Boot, BIOS & UEFI" },
   bootBiosSubtitle: {
     it: "Simulatore BIOS interattivo: configura boot order, Secure Boot, virtualizzazione e password.",
@@ -283,6 +288,23 @@ const translations = {
   "desc.tcp-netstat": {
     it: "Interpreta l'output di netstat/ss per identificare connessioni sospette.",
     en: "Interpret netstat/ss output to identify suspicious connections.",
+  },
+  // Challenge descriptions - Hardware
+  "desc.hw-architettura": {
+    it: "Modello di Von Neumann, CPU (CU/ALU/registri), clock, bus e memoria cache. Quiz interattivi con scheda di valutazione.",
+    en: "Von Neumann model, CPU (CU/ALU/registers), clock, buses and cache memory. Interactive quizzes with an assessment sheet.",
+  },
+  "desc.hw-memorie": {
+    it: "RAM, DRAM/SRAM, ROM, hard disk, SSD, dischi ottici, RAID e memoria virtuale. Quiz interattivi con scheda di valutazione.",
+    en: "RAM, DRAM/SRAM, ROM, hard disks, SSDs, optical discs, RAID and virtual memory. Interactive quizzes with an assessment sheet.",
+  },
+  "desc.hw-periferiche": {
+    it: "Input/Output/I-O e standard di collegamento: VGA/HDMI, USB, PCIe, SATA, RJ45 e legacy. Quiz interattivi con scheda di valutazione.",
+    en: "Input/Output/I-O and connection standards: VGA/HDMI, USB, PCIe, SATA, RJ45 and legacy. Interactive quizzes with an assessment sheet.",
+  },
+  "desc.hw-assemblaggio": {
+    it: "Architetture parallele (Flynn) e assemblaggio PC: socket, RAM, alimentatore, connettori e prima accensione. Con scheda di valutazione.",
+    en: "Parallel architectures (Flynn) and PC assembly: sockets, RAM, PSU, connectors and first boot. With an assessment sheet.",
   },
   // Challenge descriptions - Boot BIOS
   "desc.bios-simulator": {

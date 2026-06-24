@@ -26,6 +26,7 @@ const sections: SectionConfig[] = [
   { type: "tcp-udp", titleKey: "tcpUdpSection", subtitleKey: "tcpUdpSubtitle", color: "#f97316", badge: "Lab", icon: "🔗" },
   { type: "switch-lan", titleKey: "switchLanSection", subtitleKey: "switchLanSubtitle", color: "#14b8a6", badge: "Lab", icon: "🔀" },
   { type: "wifi", titleKey: "wifiSection", subtitleKey: "wifiSubtitle", color: "#ec4899", badge: "Lab", icon: "📡" },
+  { type: "hardware", titleKey: "hardwareSection", subtitleKey: "hardwareSubtitle", color: "#f59e0b", badge: "Quiz", icon: "🧩" },
   { type: "boot-bios", titleKey: "bootBiosSection", subtitleKey: "bootBiosSubtitle", color: "#3b82f6", badge: "Sim", icon: "🖥️" },
   { type: "virtualization", titleKey: "virtSection", subtitleKey: "virtSubtitle", color: "#10b981", badge: "Sim", icon: "🖥️" },
   { type: "developer", titleKey: "devSection", subtitleKey: "devSubtitle", color: "#eab308", badge: "Code", icon: "💻" },
