@@ -225,10 +225,10 @@ var QUESTIONS=[
   q:"Quali affermazioni sull'USB sono corrette? (seleziona tutte)",
   opts:[{t:"È plug & play (riconoscimento automatico della periferica)",c:true},
         {t:"Può alimentare le periferiche collegate",c:true},
-        {t:"Ha un unico tipo di connettore standard (Type A, B, C...)",c:true},
+        {t:"Definisce un insieme di connettori standardizzati (Type A, B, C, Micro...)",c:true},
         {t:"Può trasportare segnali video analogici come il VGA",c:false},
         {t:"Ha una distanza massima di 100 metri",c:false}],
-  explain:"USB: plug & play, alimenta le periferiche, connettore unificato. NON trasporta video e ha distanza massima ~5 m (i 100 m sono dell'RJ45)."},
+  explain:"USB: plug & play, alimenta le periferiche, connettori standardizzati (Type A/B/C, Micro...). NON trasporta video e ha distanza massima ~5 m (i 100 m sono dell'RJ45)."},
 
  {sec:"Standard", type:"single",
   q:"A cosa serve l'interfaccia RJ45?",
