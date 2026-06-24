@@ -60,6 +60,7 @@ import hwArchitetturaHandler from "../../lib/vuln/hw-architettura";
 import hwMemorieHandler from "../../lib/vuln/hw-memorie";
 import hwPeriferocheHandler from "../../lib/vuln/hw-periferiche";
 import hwAssemblaggioHandler from "../../lib/vuln/hw-assemblaggio";
+import hwAssemblaPcHandler from "../../lib/vuln/hw-assembla-pc";
 // Virtualizzazione
 import vmConfiguratorHandler from "../../lib/vuln/vm-configurator";
 // Developers
@@ -144,6 +145,7 @@ const handlers: Record<string, (req: VercelRequest, res: VercelResponse) => any>
   "hw-memorie": hwMemorieHandler,
   "hw-periferiche": hwPeriferocheHandler,
   "hw-assemblaggio": hwAssemblaggioHandler,
+  "hw-assembla-pc": hwAssemblaPcHandler,
   // Virtualizzazione
   "vm-configurator": vmConfiguratorHandler,
   // Developers

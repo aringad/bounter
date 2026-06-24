@@ -378,6 +378,15 @@ const challenges = [
     targetPath: "/vuln/hw-assemblaggio",
     type: "hardware",
   },
+  {
+    id: "hw-assembla-pc",
+    title: "Assembla il PC",
+    category: "Hardware",
+    difficulty: "beginner",
+    description: "Banco di montaggio visivo: scegli i componenti e verifica la compatibilità dal vivo (socket, RAM, form factor, watt PSU), poi accendi il PC.",
+    targetPath: "/vuln/hw-assembla-pc",
+    type: "hardware",
+  },
   // === Boot, BIOS e UEFI ===
   {
     id: "bios-simulator",

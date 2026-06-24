@@ -306,6 +306,10 @@ const translations = {
     it: "Architetture parallele (Flynn) e assemblaggio PC: socket, RAM, alimentatore, connettori e prima accensione. Con scheda di valutazione.",
     en: "Parallel architectures (Flynn) and PC assembly: sockets, RAM, PSU, connectors and first boot. With an assessment sheet.",
   },
+  "desc.hw-assembla-pc": {
+    it: "Banco di montaggio visivo: scegli i componenti e verifica la compatibilità dal vivo (socket, RAM, form factor, watt PSU), poi accendi il PC.",
+    en: "Visual build bench: pick the components, check compatibility live (socket, RAM, form factor, PSU watts), then power on the PC.",
+  },
   // Challenge descriptions - Boot BIOS
   "desc.bios-simulator": {
     it: "Simulatore BIOS interattivo: naviga i menu, cambia boot order, abilita Secure Boot e virtualizzazione.",
