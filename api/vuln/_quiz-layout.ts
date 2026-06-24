@@ -240,7 +240,28 @@ export function wrapQuiz(title: string, body: string): string {
       total: 0,
       init(total) {
         this.total = total;
+        this.shuffleAllOptions();
         this.updateScore();
+      },
+      // Randomize the order of the answer options of every question so the
+      // correct answer is not always in the same position (no "always A" bias).
+      // Safe because correctness is checked by data-value, not by DOM position,
+      // and the answer text carries no baked-in letter labels.
+      shuffleAllOptions() {
+        var containers = document.querySelectorAll('.options');
+        for (var c = 0; c < containers.length; c++) {
+          var cont = containers[c];
+          var opts = [];
+          for (var k = 0; k < cont.children.length; k++) {
+            var ch = cont.children[k];
+            if (ch.classList && ch.classList.contains('option')) opts.push(ch);
+          }
+          for (var i = opts.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var t = opts[i]; opts[i] = opts[j]; opts[j] = t;
+          }
+          for (var m = 0; m < opts.length; m++) cont.appendChild(opts[m]);
+        }
       },
       check(qId, selectedValue, correctValue, feedbackCorrect, feedbackWrong) {
         if (this.answered[qId]) return;
