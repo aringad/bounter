@@ -333,6 +333,20 @@ function escAttr(s: string): string {
 
 const LETTERS = ["a", "b", "c", "d", "e", "f"];
 
+// Shuffle a copy of the options so the correct answer is not always in the same
+// position (avoids the "always A" letter-bias pattern). Called per question at
+// render time, so the position varies between page loads.
+function shuffleOptions(options: QuizOption[]): QuizOption[] {
+  const a = options.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = a[i];
+    a[i] = a[j];
+    a[j] = tmp;
+  }
+  return a;
+}
+
 /**
  * Build a full quiz page from an intro and a list of questions.
  * @param title       Title shown in the header and <title>.
@@ -343,9 +357,10 @@ export function buildQuizPage(title: string, introHtml: string, questions: QuizQ
   const questionsHtml = questions
     .map((question, qi) => {
       const qId = qi + 1;
-      const correctIdx = question.options.findIndex((o) => o.correct);
+      const shuffledOptions = shuffleOptions(question.options);
+      const correctIdx = shuffledOptions.findIndex((o) => o.correct);
       const correctVal = LETTERS[correctIdx];
-      const optionsHtml = question.options
+      const optionsHtml = shuffledOptions
         .map((o, oi) => {
           const val = LETTERS[oi];
           const fbCorrect = o.correct ? escAttr(o.feedback) : "";
